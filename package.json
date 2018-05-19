@@ -1,0 +1,19 @@
+{
+  "name": "rscopes",
+  "version": "1.0.0",
+  "description": "ReScope, spells and react bindings",
+  "repository": "https://github.com/CaipiLabs/rScopes.git",
+  "license": "MIT",
+  "main": "index.js",
+  "author": "Nathan Braun <caipilabs@gmail.com>",
+  "peerDependencies": {
+    "prop-types": "^15.5.10",
+    "react-dom": "^16.3.2",
+    "react": "^16.3.2"
+  },
+  "dependencies": {
+    "rescope": "^4.0.0-beta.0",
+    "react-rescope": "^4.0.0-beta.0",
+    "rescope-spells": "^4.0.0-beta.0"
+  }
+}
