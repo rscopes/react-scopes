@@ -21,7 +21,7 @@
 
 ## rScopes What ?
 
-ReScope is a flexible, effective and easy to use state management system inspired by ReactJS methods.
+RScope is a flexible, effective and easy to use state management system inspired by ReactJS methods.
 
 ## What's the point ?
 
@@ -43,7 +43,7 @@ It manage theirs dependencies, theirs scopes, persitence, active instances & muc
 
 ### Related packages
 
-The rScopes package contain the following packages :<br>
+rScopes link the following packages :<br>
 
 ReScope : [react-rescope](https://github.com/CaipiLabs/rescope)<br>
 React HOCs, decorators & tools : [react-rescope](https://github.com/CaipiLabs/react-rescope)<br>
@@ -59,7 +59,7 @@ The examples and bootstrap will come gradually [here](https://github.com/CaipiLa
 - Many more tests
 - Allow dependencies thats are not defined yet
 - Cosmetics rewrites & more comments
-- Better Serialize/restore or choose a lib
+- Better decycle/Serialize/restore or choose a lib
 - Possibly some semantic/normalisation updates
 
 [![HitCount](http://hits.dwyl.io/caipilabs/Caipilabs/rescope.svg)](http://hits.dwyl.io/caipilabs/Caipilabs/rescope)
