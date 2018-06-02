@@ -1,6 +1,6 @@
 {
   "name": "rscopes",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "ReScope, spells and react bindings",
   "repository": "https://github.com/CaipiLabs/rScopes.git",
   "license": "MIT",
@@ -12,8 +12,8 @@
     "react": "^16.3.2"
   },
   "dependencies": {
-    "rescope": "^4.0.0-beta.1",
-    "react-rescope": "^4.0.0-beta.1",
-    "rescope-spells": "^4.0.0-beta.1"
+    "rescope": "^4.0.0-beta.2",
+    "react-rescope": "^4.0.0-beta.2",
+    "rescope-spells": "^4.0.0-beta.2"
   }
 }
