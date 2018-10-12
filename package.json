@@ -12,7 +12,7 @@
     "react": "^16.3.2"
   },
   "dependencies": {
-    "rescope": "^4.0.0",
+    "rescope": "^4.0.2",
     "react-rescope": "^4.0.0",
     "rescope-spells": "^4.0.0-beta.3"
   }
