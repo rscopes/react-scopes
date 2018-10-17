@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "rescope": "^4.0.5",
-    "react-rescope": "^4.0.1",
+    "react-rescope": "^4.0.2",
     "rescope-spells": "^4.0.0"
   }
 }
