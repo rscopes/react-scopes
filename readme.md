@@ -21,25 +21,7 @@
 
 ## rScopes What ?
 
-RScope is a flexible, effective and easy to use state management system inspired by ReactJS methods.
-
-## What's the point ?
-
-Applications transform structured data & events into user-friendly interfaces and controls. <br/>
-The set of data transformations of one or more applications can be divided into reusable data components with a reactive state and result data.
-Just like React Components. <br/>
-Of course, that's quickly said, in an application, the data must deal with complex dependencies, different contexts, custom data bindings, and so on. <br/>
-
-This is where reScope comes in: <br/>
-It offers a simple, flexible and familiar structure to organize and synchronize your data components. <br/>
-It manage theirs dependencies, theirs scopes, persitence, active instances & much more.
-
-<!-- ## Doc ? -->
-
-<!-- [Work in progress doc](doc/readme.md) -->
-
-<!-- About [Stores](doc/Store.md) <br> -->
-<!-- About [Scopes](doc/Scope.md) -->
+RS is a flexible, effective and easy to use state management system inspired by ReactJS methods.
 
 ### Related packages
 
@@ -52,15 +34,6 @@ ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/rScopes/r
 ### Samples & bootstraps
 
 The examples and bootstrap will come gradually [here](https://github.com/rScopes/rescope-samples)
-
-## What's next ?
-
-- Optimize
-- Many more tests
-- Allow dependencies thats are not defined yet
-- Cosmetics rewrites & more comments
-- Better decycle/Serialize/restore or choose a lib
-- Possibly some semantic/normalisation updates
 
 [![HitCount](http://hits.dwyl.io/caipilabs/Caipilabs/rescope.svg)](http://hits.dwyl.io/caipilabs/Caipilabs/rescope)
 <span class="badge-paypal"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWKR3TWQ2U2AC" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
