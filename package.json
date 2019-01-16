@@ -2,7 +2,7 @@
   "name": "rscopes",
   "version": "1.2.1",
   "description": "ReScope, spells and react bindings",
-  "repository": "https://github.com/CaipiLabs/rScopes.git",
+  "repository": "https://github.com/rScopes/rScopes.git",
   "license": "MIT",
   "main": "index.js",
   "author": "Nathan Braun <caipilabs@gmail.com>",

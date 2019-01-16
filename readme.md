@@ -1,5 +1,5 @@
 
-<p align="center"><img  width="192" src ="https://github.com/CaipiLabs/rescope/raw/master/doc/assets/logo.svg?sanitize=true" /></p>
+<p align="center"><img  width="192" src ="https://github.com/rScopes/rescope/raw/master/doc/assets/logo.svg?sanitize=true" /></p>
 
 <p align="center" style="font-size:25px"><b>
 
@@ -9,8 +9,8 @@
 <p align="center">Flexible State management system based on flux architecture, stores data components & inheritable scopes
 </p>
 
-<p align="center"><a href="https://github.com/CaipiLabs/rescope/tree/master">
-<img src="https://travis-ci.org/CaipiLabs/rescope.svg?branch=master" alt="Build Status" /></a>
+<p align="center"><a href="https://github.com/rScopes/rescope/tree/master">
+<img src="https://travis-ci.org/rScopes/rescope.svg?branch=master" alt="Build Status" /></a>
 <a href="https://www.npmjs.com/package/rscopes">
 <img src="https://img.shields.io/npm/v/rscopes.svg" /></a>
 <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" />
@@ -45,13 +45,13 @@ It manage theirs dependencies, theirs scopes, persitence, active instances & muc
 
 rScopes link the following packages :<br>
 
-ReScope : [react-rescope](https://github.com/CaipiLabs/rescope)<br>
-React HOCs, decorators & tools : [react-rescope](https://github.com/CaipiLabs/react-rescope)<br>
-ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/CaipiLabs/rescope-spells)<br>
+ReScope : [react-rescope](https://github.com/rScopes/rescope)<br>
+React HOCs, decorators & tools : [react-rescope](https://github.com/rScopes/react-rescope)<br>
+ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/rScopes/rescope-spells)<br>
 
 ### Samples & bootstraps
 
-The examples and bootstrap will come gradually [here](https://github.com/CaipiLabs/rescope-samples)
+The examples and bootstrap will come gradually [here](https://github.com/rScopes/rescope-samples)
 
 ## What's next ?
 
