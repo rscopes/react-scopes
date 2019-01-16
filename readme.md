@@ -27,7 +27,7 @@ RS is a flexible, effective and easy to use state management system inspired by 
 
 rScopes link the following packages :<br>
 
-ReScope : [react-rescope](https://github.com/rScopes/rescope)<br>
+ReScope : [rescope](https://github.com/rScopes/rescope)<br>
 React HOCs, decorators & tools : [react-rescope](https://github.com/rScopes/react-rescope)<br>
 ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/rScopes/rescope-spells)<br>
 
