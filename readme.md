@@ -29,8 +29,7 @@ Well there always multiple way of doing something.<br/>
 
 Here some case where i use RS :
 - If you need dedicated contexts & stores for React components, while inheriting theirs parents contexts & stores
-- If you have live update multiple, interdependent processing steps, resulting in multiple views
-- If you're app require some processing steps to be run on the server or in webworker
+- If you have updatable multiple & interdependent processing steps, resulting in multiple views
 - etc...
 
 ### Related packages
