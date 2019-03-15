@@ -19,7 +19,13 @@
 
 ## rScopes What ?
 
-RS is a flexible, effective and easy to use state management system inspired by ReactJS methods.
+RS is a flexible, effective and easy to use state management system inspired by ReactJS methods.<br/>
+Quickly said, RS allow chaining, linking, and sequencing multiples redux-like stores while remaining in a serializable flux architecture.
+
+RS is semantically and operationally stable <br/>
+
+Let's be clear; stable in the sense that it does the work. <br/>
+That said, it need tests, then to be optimized, and of course, docs and examples. <br/>
 
 ## Why use rScopes ?
 
@@ -29,6 +35,7 @@ Here some case where i use RS :
 - If you need dedicated contexts & stores for React components, while inheriting theirs parents contexts & stores
 - If you have updatable, multiple & interdependent processing steps, resulting in multiple data views
 - etc...
+
 
 ### Related packages
 
