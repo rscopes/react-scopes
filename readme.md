@@ -24,7 +24,7 @@ Quickly said, RS allow chaining, linking, and sequencing multiples redux-like st
 
 RS is semantically and operationally stable <br/>
 
-Let's be clear; stable in the sense that it does the work. <br/>
+Let's be clear; stable in the sense that it does the work and has a coherent semantic system. <br/>
 That said, it need tests, then to be optimized, and of course, docs and examples. <br/>
 
 ## Why use rScopes ?
