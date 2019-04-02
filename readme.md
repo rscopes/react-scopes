@@ -68,7 +68,7 @@ class App extends React.Component {
 @reScope(
 	{
 		@asStore
-		myQuery: { // having a dedicated "myRecord" store for every Test components
+		myQuery: { // having a dedicated "myQuery" store for every Test components
 			id: undefined,
 			$apply( data, state, changesInState ) {
 				
@@ -83,7 +83,7 @@ class App extends React.Component {
 		@asStore
 		myProcessedStuff: {
 			@asRef
-			items : "!myRecord.items", // "!" mean required; 
+			items : "!myQuery.items", // "!" mean required; 
 			@asRef
 			filter: "AppState.filter", // bind from the parent "AppState.value" to "appValue"
 			
