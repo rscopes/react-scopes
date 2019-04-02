@@ -29,7 +29,7 @@ That said, it need tests, then to be optimized, and of course, docs and examples
 
 Here some basics :
 
-´´´jsx
+```jsx
 import {
 	reScope, scopeToProps, propsToScope
 }                            from "rscopes";
@@ -119,7 +119,7 @@ class Test extends React.Component {
 };
 
 
-´´´
+```
 
 ### Related packages
 
