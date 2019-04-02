@@ -20,7 +20,8 @@
 ## rScopes What ?
 
 RS is a flexible state management system inspired by ReactJS methods.<br/>
-Quickly said, RS allow chaining, linking, and sequencing multiples redux-like stores while remaining in a serializable flux architecture.
+Quickly said, RS allow linking and sequencing of multiples redux-like, async-able, stores while remaining in a serializable flux architecture.
+
 
 RS is semantically and operationally stable; it does the work and has a coherent semantic system. <br/>
 That said, it need tests, then to be optimized, and of course, docs and examples. <br/>
@@ -102,9 +103,9 @@ class App extends React.Component {
 )
 @propsToScope(
 	[
-		"id:myRecord.id"// bind props.id to local scope/store
+		"id:myQuery.id"// bind props.id to local scope/store
 	])
-@scopeToProps("myRecord", "myProcessedStuff")
+@scopeToProps("myProcessedStuff")
 class Test extends React.Component {
 	state = {};
 	
