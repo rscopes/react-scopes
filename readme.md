@@ -93,6 +93,10 @@ class App extends React.Component {
 			$apply( data, { someData, appValue } ) {
 				
 				return { value: someData[appValue] };
+			},
+			
+			someLocalMutation( value ){ // actions are available in this component & it's childs
+			    return { value2: value };
 			}
 		}
 	}
@@ -110,6 +114,11 @@ class Test extends React.Component {
 			    $actions, myProcessedStuff
 		    }     = this.props,
 		    state = this.state;
+		    
+		// can trigger :     
+		// $actions.someLocalMutation(...)
+		// $actions.doSomeGlobalMutation(...)
+		
 		return (
 			<div className={ "Test" }>
 				{ myProcessedStuff && myProcessedStuff.value }
