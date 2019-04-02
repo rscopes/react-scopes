@@ -1,11 +1,54 @@
 {
   "name": "rscopes",
-  "version": "2.0.4",
+  "version": "16.0.0",
   "description": "ReScope, spells and react bindings",
   "repository": "https://github.com/n8tz/rScopes.git",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/rScopes.js",
   "author": "Nathan Braun <n8tz.js@gmail.com>",
+  "wpInherit": {
+    "default": {
+      "rootFolder": "src",
+      "basedOn": "Component",
+      "vars": {
+        "rootAlias": "rScopes",
+        "externals": true,
+        "production": true,
+        "webpackPatch": {}
+      },
+      "extend": [
+        "wpi-react-hmr-ssr"
+      ]
+    },
+    "staging": {
+      "rootFolder": "src",
+      "basedOn": "Component",
+      "vars": {
+        "rootAlias": "rScopes",
+        "externals": true,
+        "webpackPatch": {}
+      },
+      "extend": [
+        "wpi-react-hmr-ssr"
+      ]
+    },
+    "samples": {
+      "rootFolder": "src",
+      "basedOn": "ComponentSamples",
+      "vars": {
+        "rootAlias": "rScopes",
+        "webpackPatch": {}
+      },
+      "extend": [
+        "wpi-react-hmr-ssr"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "wpi && wpi :samples",
+    "dev": "wpi-dev-server :samples --hot",
+    "runBrowser": "start http://localhost:8080"
+  },
   "peerDependencies": {
     "prop-types": "^15.5.10",
     "react-dom": "^16.3.2",
@@ -14,6 +57,10 @@
   "dependencies": {
     "rescope": "^4.3.6",
     "react-rescope": "^16.0.1",
-    "rescope-spells": "^4.1.6"
+    "rescope-spells": "^16.0.0"
+  },
+  "devDependencies": {
+    "wpi-react-hmr-ssr": "^1.1.3",
+    "webpack-inherit": "^1.4.10"
   }
 }

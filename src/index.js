@@ -12,6 +12,18 @@
  *  @contact : n8tz.js@gmail.com
  */
 
-var rs = require(".");
+export *           from "rescope";
+export *           from "react-rescope";
 
-module.exports = rs.spells;
+import _spells from "rescope-spells";
+import RS      from "rescope";
+import RRS     from "react-rescope";
+
+export const spells = _spells;
+const def           = {
+	spells: _spells,
+	...RRS,
+	...RS
+};
+
+export default def;
