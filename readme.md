@@ -27,25 +27,22 @@ That said, it need tests, then to be optimized, and of course, docs and examples
 
 ## What's it like?
 
-Here some basics :
+Here some conceptual basics :
 
 ```jsx
-import {
-	reScope, scopeToProps, propsToScope
-} from "rscopes";
-import {
-	withStateMap, asRef, asStore
-} from "rescope-spells";
+
+import {reScope, scopeToProps, propsToScope}    from "rscopes";
+import {withStateMap, asRef, asStore}           from "rescope-spells";
 
 @reScope(
 	{
 		@asStore
 		AppState: {
 			someInitial: undefined,
-			value      : undefined,
+			filter     : undefined,
 			
-			doSomeGlobalMutation( value ) {
-				return { value };
+			doSomeGlobalMutation( filter ) {
+				return { filter };
 			}
 		}
 	}
@@ -71,7 +68,7 @@ class App extends React.Component {
 @reScope(
 	{
 		@asStore
-		myRecord: { // having a dedicated "myRecord" store for every Test components
+		myQuery: { // having a dedicated "myRecord" store for every Test components
 			id: undefined,
 			$apply( data, state, changesInState ) {
 				
@@ -86,17 +83,19 @@ class App extends React.Component {
 		@asStore
 		myProcessedStuff: {
 			@asRef
-			someData: "!myRecord.someRemoteData", // "!" mean required; 
+			items : "!myRecord.items", // "!" mean required; 
 			@asRef
-			appValue: "!AppState.value", // bind from the parent "AppState.value" to "appValue"
+			filter: "!AppState.filter", // bind from the parent "AppState.value" to "appValue"
 			
-			$apply( data, { someData, appValue } ) {
+			$apply( data, { items, filter } ) {
 				
-				return { value: someData[appValue] };
+				return {
+					items: items.filter(item => item.title.contain(filter))
+				};
 			},
 			
-			someLocalMutation( value ){ // actions are available in this component & it's childs
-			    return { value2: value };
+			someLocalMutation( value ) { // actions are available in this component & it's childs
+				return { value2: value };
 			}
 		}
 	}
@@ -114,7 +113,7 @@ class Test extends React.Component {
 			    $actions, myProcessedStuff
 		    }     = this.props,
 		    state = this.state;
-		    
+		
 		// can trigger :     
 		// $actions.someLocalMutation(...)
 		// $actions.doSomeGlobalMutation(...)
