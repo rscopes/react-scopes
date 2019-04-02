@@ -14,16 +14,16 @@
 import React    from "react";
 import ReactDom from "react-dom";
 
-import {Store, scopeToState, reScope, scopeToProps, propsToScope, propsToStore, spells} from ".";
+import {Store, scopeToState, reScope, scopeToProps, propsToScope, propsToStore, spells} from "..";
 
-let {
-	    withStateMap, asRef, asStore
-    } = spells;
+import {
+	withStateMap, asRef, asStore
+} from "rescope-spells";
 
 @reScope(
 	{
-		@asStore
-		test: { hello: "rScope" }
+		@withStateMap({ hello: "rScope" })
+		test: Store
 	}
 )
 @scopeToProps("testRoot", "test")

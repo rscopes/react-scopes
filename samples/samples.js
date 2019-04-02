@@ -139,7 +139,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-module.exports=function(e){var t={};function o(n){if(t[n])return t[n].exports;var r=t[n]={i:n,l:!1,exports:{}};return e[n].call(r.exports,r,r.exports,o),r.l=!0,r.exports}return o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)o.d(n,r,function(t){return e[t]}.bind(null,r));return n},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="/",o(o.s=15)}([function(e,t){e.exports=__webpack_require__(/*! react */ "./node_modules/react/index.js")},function(e,t){e.exports=__webpack_require__(/*! rescope */ "../rescope/etc/npm/index.js")},function(e,t){e.exports=__webpack_require__(/*! is */ "./node_modules/is/index.js")},function(e,t,o){"use strict";o.d(t,"a",function(){return z}),o.d(t,"d",function(){return F}),o.d(t,"e",function(){return M}),o.d(t,"b",function(){return R}),o.d(t,"c",function(){return B});var n=o(14),r=o.n(n),s=o(5),i=o.n(s),p=o(13),a=o.n(p),c=o(10),u=o.n(c),f=o(11),l=o.n(f),h=o(6),m=o.n(h),d=o(7),$=o.n(d),y=o(8),g=o.n(y),C=o(4),v=o.n(C),b=o(9),S=o.n(b),_=o(12),x=o.n(_),P=o(1),T=o(2),N=o.n(T),q=(o(16),o(0)),U=o.n(q),k={}.constructor,E=Object(q.createContext)(P.Store.staticScope),W=E.Provider,O=E.Consumer;function j(e,t,o,n){return N.a.string(t)&&(t=t.split(".")),t.length?1==t.length?(e[t[0]]=n?[].concat(x()(e[t[0]]||[]),[o]):o,e):j(e[t[0]]=e[t[0]]||{},t.slice(1),o,n)&&e||e:o}function w(e,t,o){return N.a.string(t)&&(t=t.split(".")),t.length?e[t[0]]&&w(e[t[0]],t.slice(1)):e}function D(e){var t=e.split(":");return t[0]=t[0].split("."),t[1]=t[1]&&t[1].split("."),{pathFrom:t[0],pathTo:t[1]||[t[0][t[0].length-1]]}}function M(){for(var e,t,o=arguments.length,n=new Array(o),r=0;r<o;r++)n[r]=arguments[r];var s=(!n[0]||n[0].prototype instanceof U.a.Component||n[0]===U.a.Component)&&n.shift(),i=(!n[0]||n[0]instanceof P.Scope||N.a.fn(n[0]))&&n.shift(),p=(!n[0]||N.a.array(n[0])||n[0]instanceof k)&&n.shift();if(!p)for(p=[];N.a.string(n[0]);)p.push(n.shift());if(!s||!(s.prototype instanceof U.a.Component||s===U.a.Component))return function(e){return M(e,i,p)};var a=s._originComponent&&s._originComponent.displayName||s._originComponent&&s._originComponent.name||s.displayName||s.name,c=A((t=e=function(e){function t(){return m()(this,t),g()(this,v()(t).apply(this,arguments))}return S()(t,e),$()(t,[{key:"render",value:function(){return U.a.createElement(s,l()({},this.props,this.state,{$dispatch:this.$dispatch,$actions:this.$actions,$scope:this.$scope,$stores:this.$stores}))}}]),t}(U.a.Component),e._originComponent=s._originComponent||s,e.displayName="s2p("+a+")",t),N.a.fn(i)&&i,p);return(i||!s._originComponent)&&F(!N.a.fn(i)&&i)(c)||c}function A(){for(var e=arguments.length,t=new Array(e),o=0;o<e;o++)t[o]=arguments[o];var n=(!t[0]||t[0].prototype instanceof U.a.Component||t[0]===U.a.Component)&&t.shift(),r=(!t[0]||t[0]instanceof P.Scope||N.a.fn(t[0]))&&t.shift(),s=N.a.array(t[0])&&t.shift(),p=!s&&(!t[0]||t[0]instanceof k)&&t.shift(),c={};if(!s)for(s=[];N.a.string(t[0]);)s.push(t.shift());var f=n._originComponent&&n._originComponent.displayName||n._originComponent&&n._originComponent.name||n.displayName||n.name;s=[].concat(x()(n.use||[]),x()(s||[])),p&&P.Scope.stateMapToRefList(p,c,s);var l=function(e){function t(e,o,n){var p;return m()(this,t),(p=g()(this,v()(t).call(this,e,o,n)))._scopeWillUpdate=function(e){p.scopeWillUpdate&&p.scopeWillUpdate(e,p.$stores),p.applyScopeUpdate&&(e=p.applyScopeUpdate(e,p.$stores)),p.setState(e)},N.a.fn(r)?p.$scope=r(a()(p),p.props,{rescope:e.$scope}):p.$scope=e.$scope,p.$scope&&p.$scope.dead&&(console.error("ReScoping using dead scope !"),p.$scope=null),p.$stores=p.$scope&&p.$scope.stores,p.$actions=p.$scope&&p.$scope.actions,p.$scope&&s.length?p.state=i()({},p.state,c,p.$scope.map(a()(p),s,!1)):p.$scope||console.warn("No Scope found in ".concat(f)),p}return S()(t,e),$()(t,[{key:"componentDidMount",value:function(){s.length&&this.$scope&&this.$scope.bind(this._scopeWillUpdate,s,!1),u()(v()(t.prototype),"componentDidMount",this)&&u()(v()(t.prototype),"componentDidMount",this).call(this)}},{key:"componentDidUpdate",value:function(e){var t=e.$scope;t!==this.$scope&&(N.a.fn(r)&&(t=r(this,this.props,{rescope:t})),s.length&&this.$scope.unBind(this._scopeWillUpdate,s),this.$scope=t,this.$scope&&this.$scope.dead?(console.error("ReScoping using dead scope"),this.$actions=this.$stores=this.$scope=null):(this.$actions=this.$scope.actions,this.$stores=this.$scope.stores,s.length&&t.bind(this._scopeWillUpdate,s)))}},{key:"componentWillUnmount",value:function(){u()(v()(t.prototype),"componentWillUnmount",this)&&u()(v()(t.prototype),"componentWillUnmount",this).call(this),this.$scope&&!this.$scope.dead&&s.length&&this.$scope.unBind(this._scopeWillUpdate,s)}}],[{key:"getDerivedStateFromProps",value:function(e,t){var o=e.$scope;return o&&s.length?o.map(this,s,!1):null}}]),t}(n);return l._originComponent=n._originComponent||n,l.defaultProps=i()({},n.defaultProps||{}),l.displayName="s2s("+f+")",(r||!n._originComponent)&&F(!N.a.fn(r)&&r)(l)||l}function F(){for(var e=arguments.length,t=new Array(e),o=0;o<e;o++)t[o]=arguments[o];var n=(!t[0]||t[0].prototype instanceof U.a.Component||t[0]===U.a.Component)&&t.shift(),r=(!t[0]||t[0]instanceof P.Scope||N.a.fn(t[0]))&&t.shift(),s=(!t[0]||t[0]instanceof k&&!(t[0]instanceof P.Scope))&&t.shift(),p=(!t[0]||t[0]instanceof k)&&t.shift()||{};if(!n||!(n.prototype instanceof U.a.Component||n===U.a.Component))return function(e){return F(e,r,s,p)};var a=n._originComponent&&n._originComponent.displayName||n._originComponent&&n._originComponent.name||n.displayName||n.name,c=function(e){function t(){return m()(this,t),g()(this,v()(t).apply(this,arguments))}return S()(t,e),$()(t,[{key:"componentWillUnmount",value:function(){this.$scope&&this.$scope.dispose("hoc")}},{key:"render",value:function(){var e=this,t=r||this.props.$scope;return t?(this.$scope&&t===this.$scope.parent||(this.$scope&&this.$scope.dispose("hoc"),this.$scope=t,this.$scope&&this.$scope.retain("hoc")),U.a.createElement(W,{value:this.$scope},U.a.createElement(n,l()({},this.props,{$dispatch:this.$scope.dispatch,$actions:this.$scope.actions,$scope:this.$scope,$stores:this.$scope.stores})))):U.a.createElement(O,null,function(t){return!(t=t||P.Store.staticScope)||e.$scope&&t===e.$scope.parent||(e.$scope&&e.$scope.dispose("hoc"),t=new P.Scope(s||{},i()({autoDestroy:"inherit",key:a,parent:t},p)),e.$scope=t,e.$scope&&e.$scope.retain("hoc")),U.a.createElement(W,{value:e.$scope},U.a.createElement(n,l()({},e.props,{$dispatch:e.$scope.dispatch,$actions:e.$scope.actions,$scope:e.$scope,$stores:e.$scope.stores})))})}}]),t}(U.a.Component);return c._originComponent=n._originComponent||n,c.displayName="rs("+a+")",c}function R(){for(var e=arguments.length,t=new Array(e),o=0;o<e;o++)t[o]=arguments[o];var n=(!t[0]||t[0].prototype instanceof U.a.Component||t[0]===U.a.Component)&&t.shift(),r=(!t[0]||N.a.array(t[0]))&&t.shift()||[];if(!r.length)for(r=[];N.a.string(t[0]);)r.push(t.shift());var s=(!t[0]||t[0]instanceof P.Scope)&&t.shift(),p=(!t[0]||t[0]instanceof k)&&t.shift()||{};if(!n||!(n.prototype instanceof U.a.Component||n===U.a.Component))return function(e){return R(e,r,s,p)};var a=n.displayName||n.name,c=r.map(D),u=function(e){function t(e,o,n){var r;return m()(this,t),(r=g()(this,v()(t).apply(this,arguments))).state={},e.$scope&&c.forEach(function(t){return e.$scope.state[t.pathTo[0]]=j({},t.pathTo.slice(1),w(e,t.pathFrom))}),r}return S()(t,e),$()(t,[{key:"render",value:function(){return U.a.createElement(n,this.props)}}],[{key:"getDerivedStateFromProps",value:function(e,t){return c.forEach(function(t){w(e,t.pathFrom)!==w(e.$scope.state,t.pathTo)&&(e.$scope.state[t.pathTo[0]]=j({},t.pathTo.slice(1),w(e,t.pathFrom)))}),null}}]),t}(U.a.Component);return u._originComponent=n._originComponent||n,u.defaultProps=i()({},n.defaultProps||{}),u.displayName="p2s("+a+")",(s||!n._originComponent)&&F(s)(u)||u}function B(){for(var e,t,o=arguments.length,n=new Array(o),s=0;s<o;s++)n[s]=arguments[s];var p=(!n[0]||n[0].prototype instanceof U.a.Component||n[0]===U.a.Component)&&n.shift(),a=(!n[0]||n[0]instanceof P.Store)&&n.shift()||P.Store,c=(!n[0]||N.a.string(n[0]))&&n.shift()||a.displayName||"props",u=(!n[0]||n[0]instanceof k)&&n.shift()||{},f=(!n[0]||n[0]instanceof P.Scope)&&n.shift();if(!p||!(p.prototype instanceof U.a.Component||p===U.a.Component))return function(e){return B(e,a,c,u,f)};var h=p._originComponent&&p._originComponent.displayName||p._originComponent&&p._originComponent.name||p.displayName||p.name;return t=e=function(e){function t(){return m()(this,t),g()(this,v()(t).apply(this,arguments))}return S()(t,e),$()(t,[{key:"componentWillUnmount",value:function(){this.$scope&&this.$scope.dispose("hoc")}},{key:"render",value:function(){var e=this;return U.a.createElement(O,null,function(t){return!(t=f||e.props.$scope||t||P.Store.staticScope)||e.$scope&&t===e.$scope.parent||(e.$scope&&e.$scope.dispose("hoc"),t=new P.Scope(r()({},c,a),i()({autoDestroy:"inherit",key:h,parent:t},u)),e.$scope=t,e.$scope&&e.$scope.retain("hoc")),U.a.createElement(W,{value:e.$scope},U.a.createElement(p,l()({},e.props,{$dispatch:e.$scope.dispatch,$actions:e.$scope.actions,$scope:e.$scope,$stores:e.$scope.stores})))})}}]),t}(U.a.Component),e._originComponent=p._originComponent||p,e.displayName="p2st("+h+")",t}Object(P.addScopableType)(function(e){return e&&(e.prototype instanceof U.a.Component||e===U.a.Component)},A,!1,!0);var z=A(U.a.Component)},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/get */ "./node_modules/@babel/runtime/helpers/get.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js")},function(e,t,o){"use strict";o.r(t),o.d(t,"Component",function(){return p}),o.d(t,"reScopeProps",function(){return a}),o.d(t,"reScope",function(){return c}),o.d(t,"scopeToProps",function(){return u}),o.d(t,"propsToScope",function(){return f}),o.d(t,"propsToStore",function(){return l});var n=o(1),r=o.n(n),s=o(3);for(var i in n)["Component","reScopeProps","reScope","scopeToProps","propsToScope","propsToStore","default"].indexOf(i)<0&&function(e){o.d(t,e,function(){return n[e]})}(i);r.a.Component=s.a,r.a.reScopeProps=s.e,r.a.reScope=s.d,r.a.scopeToProps=s.e,r.a.propsToScope=s.b,r.a.propsToStore=s.c;var p=s.a,a=s.e,c=s.d,u=s.e,f=s.b,l=s.c;t.default=r.a},function(e,t){e.exports=__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")}]);
+module.exports=function(e){var t={};function o(n){if(t[n])return t[n].exports;var r=t[n]={i:n,l:!1,exports:{}};return e[n].call(r.exports,r,r.exports,o),r.l=!0,r.exports}return o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)o.d(n,r,function(t){return e[t]}.bind(null,r));return n},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="/",o(o.s=15)}([function(e,t){e.exports=__webpack_require__(/*! react */ "./node_modules/react/index.js")},function(e,t){e.exports=__webpack_require__(/*! rescope */ "../rescope/etc/npm/index.js")},function(e,t){e.exports=__webpack_require__(/*! is */ "./node_modules/is/index.js")},function(e,t,o){"use strict";o.d(t,"a",function(){return z}),o.d(t,"d",function(){return F}),o.d(t,"e",function(){return M}),o.d(t,"b",function(){return R}),o.d(t,"c",function(){return B});var n=o(14),r=o.n(n),s=o(5),i=o.n(s),p=o(13),a=o.n(p),c=o(10),u=o.n(c),f=o(11),l=o.n(f),h=o(6),m=o.n(h),d=o(7),$=o.n(d),y=o(8),g=o.n(y),C=o(4),v=o.n(C),b=o(9),S=o.n(b),_=o(12),x=o.n(_),P=o(1),T=o(2),N=o.n(T),U=o(0),k=o.n(U),q={}.constructor,E=Object(U.createContext)(P.Store.staticScope),W=E.Provider,O=E.Consumer;function j(e,t,o,n){return N.a.string(t)&&(t=t.split(".")),t.length?1==t.length?(e[t[0]]=n?[].concat(x()(e[t[0]]||[]),[o]):o,e):j(e[t[0]]=e[t[0]]||{},t.slice(1),o,n)&&e||e:o}function w(e,t,o){return N.a.string(t)&&(t=t.split(".")),t.length?e[t[0]]&&w(e[t[0]],t.slice(1)):e}function D(e){var t=e.split(":");return t[0]=t[0].split("."),t[1]=t[1]&&t[1].split("."),{pathFrom:t[0],pathTo:t[1]||[t[0][t[0].length-1]]}}function M(){for(var e,t,o=arguments.length,n=new Array(o),r=0;r<o;r++)n[r]=arguments[r];var s=(!n[0]||n[0].prototype instanceof k.a.Component||n[0]===k.a.Component)&&n.shift(),i=(!n[0]||n[0]instanceof P.Scope||N.a.fn(n[0]))&&n.shift(),p=(!n[0]||N.a.array(n[0])||n[0]instanceof q)&&n.shift();if(!p)for(p=[];N.a.string(n[0]);)p.push(n.shift());if(!s||!(s.prototype instanceof k.a.Component||s===k.a.Component))return function(e){return M(e,i,p)};var a=s._originComponent&&s._originComponent.displayName||s._originComponent&&s._originComponent.name||s.displayName||s.name,c=A((t=e=function(e){function t(){return m()(this,t),g()(this,v()(t).apply(this,arguments))}return S()(t,e),$()(t,[{key:"render",value:function(){return k.a.createElement(s,l()({},this.props,this.state,{$dispatch:this.$dispatch,$actions:this.$actions,$scope:this.$scope,$stores:this.$stores}))}}]),t}(k.a.Component),e._originComponent=s._originComponent||s,e.displayName="s2p("+a+")",t),N.a.fn(i)&&i,p);return(i||!s._originComponent)&&F(!N.a.fn(i)&&i)(c)||c}function A(){for(var e=arguments.length,t=new Array(e),o=0;o<e;o++)t[o]=arguments[o];var n=(!t[0]||t[0].prototype instanceof k.a.Component||t[0]===k.a.Component)&&t.shift(),r=(!t[0]||t[0]instanceof P.Scope||N.a.fn(t[0]))&&t.shift(),s=N.a.array(t[0])&&t.shift(),p=!s&&(!t[0]||t[0]instanceof q)&&t.shift(),c={};if(!s)for(s=[];N.a.string(t[0]);)s.push(t.shift());var f=n._originComponent&&n._originComponent.displayName||n._originComponent&&n._originComponent.name||n.displayName||n.name;s=[].concat(x()(n.use||[]),x()(s||[])),p&&P.Scope.stateMapToRefList(p,c,s);var l=function(e){function t(e,o,n){var p;return m()(this,t),(p=g()(this,v()(t).call(this,e,o,n)))._scopeWillUpdate=function(e){p.scopeWillUpdate&&p.scopeWillUpdate(e,p.$stores),p.applyScopeUpdate&&(e=p.applyScopeUpdate(e,p.$stores)),p.setState(e)},N.a.fn(r)?p.$scope=r(a()(p),p.props,{rescope:e.$scope}):p.$scope=e.$scope,p.$scope&&p.$scope.dead&&(console.error("ReScoping using dead scope !"),p.$scope=null),p.$stores=p.$scope&&p.$scope.stores,p.$actions=p.$scope&&p.$scope.actions,p.$scope&&s.length?p.state=i()({},p.state,c,p.$scope.map(a()(p),s,!1)):p.$scope||console.warn("No Scope found in ".concat(f)),p}return S()(t,e),$()(t,[{key:"componentDidMount",value:function(){s.length&&this.$scope&&this.$scope.bind(this._scopeWillUpdate,s,!1),u()(v()(t.prototype),"componentDidMount",this)&&u()(v()(t.prototype),"componentDidMount",this).call(this)}},{key:"componentDidUpdate",value:function(e){var t=e.$scope;t!==this.$scope&&(N.a.fn(r)&&(t=r(this,this.props,{rescope:t})),s.length&&this.$scope.unBind(this._scopeWillUpdate,s),this.$scope=t,this.$scope&&this.$scope.dead?(console.error("ReScoping using dead scope"),this.$actions=this.$stores=this.$scope=null):(this.$actions=this.$scope.actions,this.$stores=this.$scope.stores,s.length&&t.bind(this._scopeWillUpdate,s)))}},{key:"componentWillUnmount",value:function(){u()(v()(t.prototype),"componentWillUnmount",this)&&u()(v()(t.prototype),"componentWillUnmount",this).call(this),this.$scope&&!this.$scope.dead&&s.length&&this.$scope.unBind(this._scopeWillUpdate,s)}}],[{key:"getDerivedStateFromProps",value:function(e,t){var o=e.$scope;return o&&s.length?o.map(this,s,!1):null}}]),t}(n);return l._originComponent=n._originComponent||n,l.defaultProps=i()({},n.defaultProps||{}),l.displayName="s2s("+f+")",(r||!n._originComponent)&&F(!N.a.fn(r)&&r)(l)||l}function F(){for(var e=arguments.length,t=new Array(e),o=0;o<e;o++)t[o]=arguments[o];var n=(!t[0]||t[0].prototype instanceof k.a.Component||t[0]===k.a.Component)&&t.shift(),r=(!t[0]||t[0]instanceof P.Scope||N.a.fn(t[0]))&&t.shift(),s=(!t[0]||t[0]instanceof q&&!(t[0]instanceof P.Scope))&&t.shift(),p=(!t[0]||t[0]instanceof q)&&t.shift()||{};if(!n||!(n.prototype instanceof k.a.Component||n===k.a.Component))return function(e){return F(e,r,s,p)};var a=n._originComponent&&n._originComponent.displayName||n._originComponent&&n._originComponent.name||n.displayName||n.name,c=function(e){function t(){return m()(this,t),g()(this,v()(t).apply(this,arguments))}return S()(t,e),$()(t,[{key:"componentWillUnmount",value:function(){this.$scope&&this.$scope.dispose("hoc")}},{key:"render",value:function(){var e=this,t=r||this.props.$scope;return t?(this.$scope&&t===this.$scope.parent||(this.$scope&&this.$scope.dispose("hoc"),this.$scope=t,this.$scope&&this.$scope.retain("hoc")),k.a.createElement(W,{value:this.$scope},k.a.createElement(n,l()({},this.props,{$dispatch:this.$scope.dispatch,$actions:this.$scope.actions,$scope:this.$scope,$stores:this.$scope.stores})))):k.a.createElement(O,null,function(t){return!(t=t||P.Store.staticScope)||e.$scope&&t===e.$scope.parent||(e.$scope&&e.$scope.dispose("hoc"),t=new P.Scope(s||{},i()({autoDestroy:"inherit",key:a,parent:t},p)),e.$scope=t,e.$scope&&e.$scope.retain("hoc")),k.a.createElement(W,{value:e.$scope},k.a.createElement(n,l()({},e.props,{$dispatch:e.$scope.dispatch,$actions:e.$scope.actions,$scope:e.$scope,$stores:e.$scope.stores})))})}}]),t}(k.a.Component);return c._originComponent=n._originComponent||n,c.displayName="rs("+a+")",c}function R(){for(var e=arguments.length,t=new Array(e),o=0;o<e;o++)t[o]=arguments[o];var n=(!t[0]||t[0].prototype instanceof k.a.Component||t[0]===k.a.Component)&&t.shift(),r=(!t[0]||N.a.array(t[0]))&&t.shift()||[];if(!r.length)for(r=[];N.a.string(t[0]);)r.push(t.shift());var s=(!t[0]||t[0]instanceof P.Scope)&&t.shift(),p=(!t[0]||t[0]instanceof q)&&t.shift()||{};if(!n||!(n.prototype instanceof k.a.Component||n===k.a.Component))return function(e){return R(e,r,s,p)};var a=n.displayName||n.name,c=r.map(D),u=function(e){function t(e,o,n){var r;return m()(this,t),(r=g()(this,v()(t).apply(this,arguments))).state={},e.$scope&&c.forEach(function(t){return e.$scope.state[t.pathTo[0]]=j({},t.pathTo.slice(1),w(e,t.pathFrom))}),r}return S()(t,e),$()(t,[{key:"render",value:function(){return k.a.createElement(n,this.props)}}],[{key:"getDerivedStateFromProps",value:function(e,t){return c.forEach(function(t){w(e,t.pathFrom)!==w(e.$scope.state,t.pathTo)&&(e.$scope.state[t.pathTo[0]]=j({},t.pathTo.slice(1),w(e,t.pathFrom)))}),null}}]),t}(k.a.Component);return u._originComponent=n._originComponent||n,u.defaultProps=i()({},n.defaultProps||{}),u.displayName="p2s("+a+")",(s||!n._originComponent)&&F(s)(u)||u}function B(){for(var e,t,o=arguments.length,n=new Array(o),s=0;s<o;s++)n[s]=arguments[s];var p=(!n[0]||n[0].prototype instanceof k.a.Component||n[0]===k.a.Component)&&n.shift(),a=(!n[0]||n[0]instanceof P.Store)&&n.shift()||P.Store,c=(!n[0]||N.a.string(n[0]))&&n.shift()||a.displayName||"props",u=(!n[0]||n[0]instanceof q)&&n.shift()||{},f=(!n[0]||n[0]instanceof P.Scope)&&n.shift();if(!p||!(p.prototype instanceof k.a.Component||p===k.a.Component))return function(e){return B(e,a,c,u,f)};var h=p._originComponent&&p._originComponent.displayName||p._originComponent&&p._originComponent.name||p.displayName||p.name;return t=e=function(e){function t(){return m()(this,t),g()(this,v()(t).apply(this,arguments))}return S()(t,e),$()(t,[{key:"componentWillUnmount",value:function(){this.$scope&&this.$scope.dispose("hoc")}},{key:"render",value:function(){var e=this;return k.a.createElement(O,null,function(t){return!(t=f||e.props.$scope||t||P.Store.staticScope)||e.$scope&&t===e.$scope.parent||(e.$scope&&e.$scope.dispose("hoc"),t=new P.Scope(r()({},c,a),i()({autoDestroy:"inherit",key:h,parent:t},u)),e.$scope=t,e.$scope&&e.$scope.retain("hoc")),k.a.createElement(W,{value:e.$scope},k.a.createElement(p,l()({},e.props,{$dispatch:e.$scope.dispatch,$actions:e.$scope.actions,$scope:e.$scope,$stores:e.$scope.stores})))})}}]),t}(k.a.Component),e._originComponent=p._originComponent||p,e.displayName="p2st("+h+")",t}Object(P.addScopableType)(function(e){return e&&(e.prototype instanceof k.a.Component||e===k.a.Component)},A,!1,!0);var z=A(k.a.Component)},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/get */ "./node_modules/@babel/runtime/helpers/get.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js")},function(e,t,o){"use strict";o.r(t),o.d(t,"Component",function(){return p}),o.d(t,"reScopeProps",function(){return a}),o.d(t,"reScope",function(){return c}),o.d(t,"scopeToProps",function(){return u}),o.d(t,"propsToScope",function(){return f}),o.d(t,"propsToStore",function(){return l});var n=o(1),r=o.n(n),s=o(3);for(var i in n)["Component","reScopeProps","reScope","scopeToProps","propsToScope","propsToStore","default"].indexOf(i)<0&&function(e){o.d(t,e,function(){return n[e]})}(i);r.a.Component=s.a,r.a.reScopeProps=s.e,r.a.reScope=s.d,r.a.scopeToProps=s.e,r.a.propsToScope=s.b,r.a.propsToStore=s.c;var p=s.a,a=s.e,c=s.d,u=s.e,f=s.b,l=s.c;t.default=r.a}]);
 
 /***/ }),
 
@@ -173,7 +173,668 @@ module.exports=function(e){var t={};function o(n){if(t[n])return t[n].exports;va
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-module.exports=function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="/",r(r.s=13)}([function(e,t){e.exports=__webpack_require__(/*! is */ "./node_modules/is/index.js")},function(e,t){e.exports=__webpack_require__(/*! react-rescope */ "../react-rescope/dist/ReactRS.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js")},function(e,t){e.exports=__webpack_require__(/*! rescope */ "../rescope/etc/npm/index.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/applyDecoratedDescriptor */ "./node_modules/@babel/runtime/helpers/applyDecoratedDescriptor.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js")},function(e,t){e.exports=__webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js")},function(e,t){e.exports=__webpack_require__(/*! react */ "./node_modules/react/index.js")},function(e,t){e.exports=__webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js")},function(e,t,r){"use strict";r.r(t);var n=r(2),o=r.n(n),a=r(7),s=r.n(a),i=r(0),u=r.n(i),c={}.constructor,p={},f={},l={};s.a.isSpell=function e(){for(var t=arguments.length,r=new Array(t),n=0;n<t;n++)r[n]=arguments[n];return r[0]instanceof c&&r[2]instanceof c&&r[0].hasOwnProperty(r[1])?(r[0][r[1]]=r[2].value=h(r[0][r[1]],r),r[0]):u.a.fn(r[0])?h.apply(void 0,r):function(){for(var t=arguments.length,n=new Array(t),o=0;o<t;o++)n[o]=arguments[o];return n[0]instanceof c&&n[2]instanceof c&&n[0].hasOwnProperty(n[1])?(n[0][n[1]]=n[2].value=h.apply(void 0,[n[0][n[1]]].concat(r,[n])),n[0]):e.apply(void 0,[n[0]].concat(r))}};var y=s.a.isSpell;function h(){for(var e=arguments.length,t=new Array(e),r=0;r<e;r++)t[r]=arguments[r];var n=(!t[0]||u.a.fn(t[0]))&&t.shift();if(!n)throw"ReScope cast : bad decorator function";var o=(!t[0]||u.a.string(t[0]))&&t.shift()||n.name||n.displayName,a=(!t[0]||u.a.fn(t[0]))&&t.shift(),s=(!t[0]||u.a.string(t[0]))&&t.shift()||"as",i=(!t[0]||u.a.bool(t[0])||u.a.array(t[0]))&&t.shift()||!0,y=o&&s+o[0].toUpperCase()+o.substr(1);return f[o]||(f[o]=[],p[y]=l[o]=function e(){for(var t=arguments.length,r=new Array(t),n=0;n<t;n++)r[n]=arguments[n];return r[0]instanceof c&&r[2]instanceof c&&r[0].hasOwnProperty(r[1])?(r[0][r[1]]=b(o,r[0][r[1]],[],r),r[0]):function(e,t,r,n){for(var o=f[e],a=0;a<o.length;a++)if((void 0===r||!!r==!!o[a].memberDescr)&&o[a].test(t))return o[a];return!1}(o,r[0])?b(o,r[0],r.slice(1)):function(){for(var t=arguments.length,n=new Array(t),a=0;a<t;a++)n[a]=arguments[a];return n[0]instanceof c&&n[2]instanceof c&&n[0].hasOwnProperty(n[1])?(n[0][n[1]]=b(o,n[0][n[1]],r,n),n[0]):e.apply(void 0,[n[0]].concat(r))}}),f[o].unshift({typeName:o,test:a,memberDescr:i,cast:n}),p[y]}function b(e,t,r,n,o){for(var a=f[e]||[],s=0;s<a.length;s++)if((void 0===n||!!n==!!a[s].memberDescr)&&a[s].test(t))return a[s].cast(t,r,n);return console.warn("reScope cast : Unknown type",e,t),!1}s.a;var d,v,m,S,g,O,w=r(9),x=r.n(w),j=r(8),P=r.n(j),q=r(3),M=r.n(q),D=r(10),N=r.n(D),A=r(4),C=r.n(A),R=r(5),T=r.n(R),_=r(6),$=r.n(_),k=(r(11),r(12),r(1));Object(k.propsToScope)(["props"])(d=Object(k.scopeToProps)(["props"])(d=function(e){function t(){return M()(this,t),C()(this,T()(t).apply(this,arguments))}return $()(t,e),N()(t,[{key:"render",value:function(){return this.props.children||[]}}]),t}(k.Component))||d),v=y("store",function(e){return u.a.object(e)||u.a.string(e)}),m=y("scope",function(e){return u.a.object(e)}),S=y("ref",function(e){return u.a.string(e)}),g=y("stateMap",function(e){return e===k.Store||e.prototype instanceof k.Store},"with"),O={store:function(e,t,r){t[0];var n,a,s,i,u=[],c={},p={},f=e.$apply;return f&&delete(e=o()({},e)).$apply,k.Scope.stateMapToRefList(e,c,u,p),f?(a=n=function(e){function t(){var e,r;M()(this,t);for(var n=arguments.length,o=new Array(n),a=0;a<n;a++)o[a]=arguments[a];return(r=C()(this,(e=T()(t)).call.apply(e,[this].concat(o)))).apply=f,r}return $()(t,e),t}(k.Store),n.displayName=r[1],n.use=u,n.state=c,n.actions=p,a):(i=s=function(e){function t(){return M()(this,t),C()(this,T()(t).apply(this,arguments))}return $()(t,e),t}(k.Store),s.displayName=r[1],s.use=u,s.state=c,s.actions=p,i)},scope:function(e,t,r){var n=t[0];return function(t){function r(t,a){return M()(this,r),C()(this,T()(r).call(this,o()({},e,t),o()({},n,a)))}return $()(r,t),r}(k.Scope)},ref:function(e,t,r){t[0];return new k.Scope.scopeRef(e)},stateMap:function(e,t){var r,n,a,s,i=t[0],u=[],c={},p={},f=i.$apply;return i.$apply&&delete(i=o()({},i)).$apply,i&&k.Scope.stateMapToRefList(i,c,u,p),f?(n=r=function(e){function t(){return M()(this,t),C()(this,T()(t).apply(this,arguments))}return $()(t,e),N()(t,[{key:"apply",value:function(){return f.apply(this,arguments)}}]),t}(e),r.displayName=e.displayName||e.name,r.actions=e.actions&&o()({},e.actions,p)||p,r.state=e.state&&o()({},e.state,c)||c,r.use=e.use&&[].concat(x()(e.use),u)||u,n):(s=a=function(e){function t(){return M()(this,t),C()(this,T()(t).apply(this,arguments))}return $()(t,e),t}(e),a.displayName=e.displayName||e.name,a.actions=e.actions&&o()({},e.actions,p)||p,a.state=e.state&&o()({},e.state,c)||c,a.use=e.use&&[].concat(x()(e.use),u)||u,s)}},P()(O,"store",[v],Object.getOwnPropertyDescriptor(O,"store"),O),P()(O,"scope",[m],Object.getOwnPropertyDescriptor(O,"scope"),O),P()(O,"ref",[S],Object.getOwnPropertyDescriptor(O,"ref"),O),P()(O,"stateMap",[g],Object.getOwnPropertyDescriptor(O,"stateMap"),O);r.d(t,"isSpell",function(){return L}),r.d(t,"asStore",function(){return U}),r.d(t,"asScope",function(){return z}),r.d(t,"asRef",function(){return B}),r.d(t,"asStateMap",function(){return E});var L=y,U=p.asStore,z=p.asScope,B=p.asRef,E=p.asStateMap;t.default=o()({},p,{isSpell:y})}]);
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! exports provided: isSpell, asStore, asScope, asRef, withStateMap, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isSpell", function() { return isSpell; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asStore", function() { return asStore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asScope", function() { return asScope; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asRef", function() { return asRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withStateMap", function() { return withStateMap; });
+/* harmony import */ var _spellFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spellFactory */ "./src/spellFactory.js");
+/* harmony import */ var _spellsLib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spellsLib */ "./src/spellsLib.js");
+/*
+ * Copyright (c)  2018 Wise Wild Web .
+ *
+ *  MIT License
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ *
+ * @author : Nathanael Braun
+ * @contact : caipilabs@gmail.com
+ */
+
+
+var isSpell = _spellFactory__WEBPACK_IMPORTED_MODULE_0__["isSpell"];
+var asStore = _spellFactory__WEBPACK_IMPORTED_MODULE_0__["spells"].asStore;
+var asScope = _spellFactory__WEBPACK_IMPORTED_MODULE_0__["spells"].asScope;
+var asRef = _spellFactory__WEBPACK_IMPORTED_MODULE_0__["spells"].asRef;
+var withStateMap = _spellFactory__WEBPACK_IMPORTED_MODULE_0__["spells"].withStateMap;
+debugger;
+/* harmony default export */ __webpack_exports__["default"] = (_spellFactory__WEBPACK_IMPORTED_MODULE_0__["spells"]);
+
+/***/ }),
+
+/***/ "./src/spellFactory.js":
+/*!*****************************!*\
+  !*** ./src/spellFactory.js ***!
+  \*****************************/
+/*! exports provided: spells, isSpell, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "spells", function() { return spells; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isSpell", function() { return isSpell; });
+/* harmony import */ var rescope__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rescope */ "undefined?8e7d");
+/* harmony import */ var rescope__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rescope__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var is__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! is */ "undefined?63a5");
+/* harmony import */ var is__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is__WEBPACK_IMPORTED_MODULE_1__);
+/*
+ * Copyright (c)  2018 Wise Wild Web .
+ *
+ *  MIT License
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ *
+ * @author : Nathanael Braun
+ * @contact : caipilabs@gmail.com
+ */
+
+ // will use as external the index in dist
+
+var SimpleObjectProto = {}.constructor;
+var spells = {};
+var castTypesToAppliable = {};
+var castTypes = {};
+
+rescope__WEBPACK_IMPORTED_MODULE_0___default.a.isSpell = function caster() {
+  for (var _len = arguments.length, argz = new Array(_len), _key = 0; _key < _len; _key++) {
+    argz[_key] = arguments[_key];
+  }
+
+  // are we decorating a member / without argz
+  if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+    argz[0][argz[1]] = argz[2].value = addCaster(argz[0][argz[1]], argz);
+    return argz[0];
+  } else if (!is__WEBPACK_IMPORTED_MODULE_1___default.a.fn(argz[0])) {
+    return function () {
+      for (var _len2 = arguments.length, argz2 = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        argz2[_key2] = arguments[_key2];
+      }
+
+      // are we decorating a member / with argz
+      if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+        argz2[0][argz2[1]] = argz2[2].value = addCaster.apply(void 0, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+        return argz2[0];
+      } else return caster.apply(void 0, [argz2[0]].concat(argz));
+    };
+  }
+
+  return addCaster.apply(void 0, argz);
+};
+
+var isSpell = rescope__WEBPACK_IMPORTED_MODULE_0___default.a.isSpell;
+
+function addCaster() {
+  for (var _len3 = arguments.length, argz = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+    argz[_key3] = arguments[_key3];
+  }
+
+  var cast = (!argz[0] || is__WEBPACK_IMPORTED_MODULE_1___default.a.fn(argz[0])) && argz.shift();
+  if (!cast) throw "ReScope cast : bad decorator function";
+  var typeName = (!argz[0] || is__WEBPACK_IMPORTED_MODULE_1___default.a.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+      test = (!argz[0] || is__WEBPACK_IMPORTED_MODULE_1___default.a.fn(argz[0])) && argz.shift(),
+      prefix = (!argz[0] || is__WEBPACK_IMPORTED_MODULE_1___default.a.string(argz[0])) && argz.shift() || "as",
+      memberDescr = (!argz[0] || is__WEBPACK_IMPORTED_MODULE_1___default.a.bool(argz[0]) || is__WEBPACK_IMPORTED_MODULE_1___default.a.array(argz[0])) && argz.shift() || true,
+      casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+
+  if (!castTypesToAppliable[typeName]) {
+    castTypesToAppliable[typeName] = [];
+
+    spells[casterName] = castTypes[typeName] = function doCast() {
+      for (var _len4 = arguments.length, argz = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        argz[_key4] = arguments[_key4];
+      }
+
+      // are we decorating a member / without argz
+      if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+        argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+        return argz[0];
+      } else if (!isCastableType(typeName, argz[0])) {
+        return function () {
+          for (var _len5 = arguments.length, argz2 = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+            argz2[_key5] = arguments[_key5];
+          }
+
+          // are we decorating a member / with argz
+          if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+            argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+            return argz2[0];
+          } else return doCast.apply(void 0, [argz2[0]].concat(argz));
+        };
+      }
+
+      return applyCastableType(typeName, argz[0], argz.slice(1));
+    };
+  }
+
+  castTypesToAppliable[typeName].unshift({
+    typeName: typeName,
+    test: test,
+    memberDescr: memberDescr,
+    cast: cast
+  });
+  return spells[casterName];
+}
+
+function isCastableType(typeName, Comp, member, stateScope) {
+  var castable = castTypesToAppliable[typeName];
+
+  for (var i = 0; i < castable.length; i++) {
+    if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+  }
+
+  return false;
+}
+
+function applyCastableType(typeName, Comp, argz, member, stateScope) {
+  var castable = castTypesToAppliable[typeName] || [];
+
+  for (var i = 0; i < castable.length; i++) {
+    if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+  }
+
+  console.warn("reScope cast : Unknown type", typeName, Comp);
+  return false;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (rescope__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+/***/ }),
+
+/***/ "./src/spellsLib.js":
+/*!**************************!*\
+  !*** ./src/spellsLib.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "undefined?4d9b");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "undefined?e108");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/applyDecoratedDescriptor */ "undefined?0422");
+/* harmony import */ var _babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "undefined?24b3");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "undefined?36a1");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "undefined?03c7");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "undefined?20a8");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "undefined?74ba");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "undefined?588e");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-dom/server */ "undefined?9439");
+/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var is__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! is */ "undefined?63a5");
+/* harmony import */ var is__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(is__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _spellFactory__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./spellFactory */ "./src/spellFactory.js");
+/* harmony import */ var react_rescope__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-rescope */ "undefined?492a");
+/* harmony import */ var react_rescope__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_rescope__WEBPACK_IMPORTED_MODULE_12__);
+
+
+
+
+
+
+
+
+
+var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _obj;
+
+/*
+ * Copyright (c)  2018 Wise Wild Web .
+ *
+ *  MIT License
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ *
+ * @author : Nathanael Braun
+ * @contact : caipilabs@gmail.com
+ */
+
+
+
+
+
+var RSComp = (_dec = Object(react_rescope__WEBPACK_IMPORTED_MODULE_12__["propsToScope"])(['props']), _dec2 = Object(react_rescope__WEBPACK_IMPORTED_MODULE_12__["scopeToProps"])(['props']), _dec(_class = _dec2(_class =
+/*#__PURE__*/
+function (_Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default()(RSComp, _Component);
+
+  function RSComp() {
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, RSComp);
+
+    return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(RSComp).apply(this, arguments));
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default()(RSComp, [{
+    key: "render",
+    value: function render() {
+      return this.props.children || [];
+    }
+  }]);
+
+  return RSComp;
+}(react_rescope__WEBPACK_IMPORTED_MODULE_12__["Component"])) || _class) || _class);
+var Lib = (_dec3 = Object(_spellFactory__WEBPACK_IMPORTED_MODULE_11__["isSpell"])("store", function (v) {
+  return is__WEBPACK_IMPORTED_MODULE_10___default.a.object(v) || is__WEBPACK_IMPORTED_MODULE_10___default.a.string(v);
+}), _dec4 = Object(_spellFactory__WEBPACK_IMPORTED_MODULE_11__["isSpell"])("scope", function (v) {
+  return is__WEBPACK_IMPORTED_MODULE_10___default.a.object(v);
+}), _dec5 = Object(_spellFactory__WEBPACK_IMPORTED_MODULE_11__["isSpell"])("ref", function (v) {
+  return is__WEBPACK_IMPORTED_MODULE_10___default.a.string(v);
+}), _dec6 = Object(_spellFactory__WEBPACK_IMPORTED_MODULE_11__["isSpell"])("stateMap", function (v) {
+  return v === react_rescope__WEBPACK_IMPORTED_MODULE_12__["Store"] || v.prototype instanceof react_rescope__WEBPACK_IMPORTED_MODULE_12__["Store"];
+}, 'with'), (_obj = {
+  store: function store(obj, _ref, ref) {
+    var _class2, _temp, _class3, _temp2;
+
+    var cfg = _ref[0];
+    var use = [],
+        state = {},
+        actions = {},
+        applier = obj.$apply;
+    if (applier) obj = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, obj), delete obj.$apply;
+    react_rescope__WEBPACK_IMPORTED_MODULE_12__["Scope"].stateMapToRefList(obj, state, use, actions);
+    if (applier) return _temp = _class2 =
+    /*#__PURE__*/
+    function (_Store) {
+      _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default()(StateMapWA, _Store);
+
+      function StateMapWA() {
+        var _getPrototypeOf2;
+
+        var _this;
+
+        _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, StateMapWA);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, (_getPrototypeOf2 = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(StateMapWA)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.apply = applier;
+        return _this;
+      }
+
+      return StateMapWA;
+    }(react_rescope__WEBPACK_IMPORTED_MODULE_12__["Store"]), _class2.displayName = ref[1], _class2.use = use, _class2.state = state, _class2.actions = actions, _temp;else return _temp2 = _class3 =
+    /*#__PURE__*/
+    function (_Store2) {
+      _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default()(StateMap, _Store2);
+
+      function StateMap() {
+        _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, StateMap);
+
+        return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(StateMap).apply(this, arguments));
+      }
+
+      return StateMap;
+    }(react_rescope__WEBPACK_IMPORTED_MODULE_12__["Store"]), _class3.displayName = ref[1], _class3.use = use, _class3.state = state, _class3.actions = actions, _temp2;
+  },
+  scope: function scope(obj, _ref2, ref) {
+    var cfg = _ref2[0];
+    return (
+      /*#__PURE__*/
+      function (_Scope) {
+        _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default()(childScope, _Scope);
+
+        function childScope(map, cfg2) {
+          _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, childScope);
+
+          return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(childScope).call(this, _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, obj, map), _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, cfg, cfg2)));
+        }
+
+        return childScope;
+      }(react_rescope__WEBPACK_IMPORTED_MODULE_12__["Scope"])
+    );
+  },
+  ref: function ref(obj, _ref4, _ref3) {
+    var cfg = _ref4[0];
+    return new react_rescope__WEBPACK_IMPORTED_MODULE_12__["Scope"].scopeRef(obj);
+  },
+  stateMap: function stateMap(obj, _ref5) {
+    var _class4, _temp3, _class5, _temp4;
+
+    var _stateMap = _ref5[0];
+    var use = [],
+        initialState = {},
+        actions = {},
+        applier = _stateMap.$apply;
+    if (_stateMap.$apply) _stateMap = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, _stateMap), delete _stateMap.$apply;
+    _stateMap && react_rescope__WEBPACK_IMPORTED_MODULE_12__["Scope"].stateMapToRefList(_stateMap, initialState, use, actions);
+    if (applier) return _temp3 = _class4 =
+    /*#__PURE__*/
+    function (_obj2) {
+      _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default()(withStateMap, _obj2);
+
+      function withStateMap() {
+        _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, withStateMap);
+
+        return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(withStateMap).apply(this, arguments));
+      }
+
+      _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default()(withStateMap, [{
+        key: "apply",
+        value: function apply() {
+          return applier.apply(this, arguments);
+        }
+      }]);
+
+      return withStateMap;
+    }(obj), _class4.displayName = obj.displayName || obj.name, _class4.actions = obj.actions && _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, obj.actions, actions) || actions, _class4.state = obj.state && _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, obj.state, initialState) || initialState, _class4.use = obj.use && [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(obj.use), use) || use, _temp3;else return _temp4 = _class5 =
+    /*#__PURE__*/
+    function (_obj3) {
+      _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default()(withStateMap, _obj3);
+
+      function withStateMap() {
+        _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, withStateMap);
+
+        return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(withStateMap).apply(this, arguments));
+      }
+
+      return withStateMap;
+    }(obj), _class5.displayName = obj.displayName || obj.name, _class5.actions = obj.actions && _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, obj.actions, actions) || actions, _class5.state = obj.state && _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, obj.state, initialState) || initialState, _class5.use = obj.use && [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(obj.use), use) || use, _temp4;
+  }
+}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_2___default()(_obj, "store", [_dec3], Object.getOwnPropertyDescriptor(_obj, "store"), _obj), _babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_2___default()(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_2___default()(_obj, "ref", [_dec5], Object.getOwnPropertyDescriptor(_obj, "ref"), _obj), _babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_2___default()(_obj, "stateMap", [_dec6], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj)), _obj));
+/* harmony default export */ __webpack_exports__["default"] = (Lib);
+
+/***/ }),
+
+/***/ "undefined?03c7":
+/*!*******************************************************************!*\
+  !*** external "@babel/runtime/helpers/possibleConstructorReturn" ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+
+/***/ }),
+
+/***/ "undefined?0422":
+/*!******************************************************************!*\
+  !*** external "@babel/runtime/helpers/applyDecoratedDescriptor" ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/applyDecoratedDescriptor */ "./node_modules/@babel/runtime/helpers/applyDecoratedDescriptor.js");
+
+/***/ }),
+
+/***/ "undefined?20a8":
+/*!********************************************************!*\
+  !*** external "@babel/runtime/helpers/getPrototypeOf" ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+
+/***/ }),
+
+/***/ "undefined?24b3":
+/*!********************************************************!*\
+  !*** external "@babel/runtime/helpers/classCallCheck" ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+
+/***/ }),
+
+/***/ "undefined?36a1":
+/*!*****************************************************!*\
+  !*** external "@babel/runtime/helpers/createClass" ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+
+/***/ }),
+
+/***/ "undefined?492a":
+/*!********************************!*\
+  !*** external "react-rescope" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! react-rescope */ "../react-rescope/dist/ReactRS.js");
+
+/***/ }),
+
+/***/ "undefined?4d9b":
+/*!***********************************************************!*\
+  !*** external "@babel/runtime/helpers/toConsumableArray" ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+
+/***/ }),
+
+/***/ "undefined?588e":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+/***/ }),
+
+/***/ "undefined?63a5":
+/*!*********************!*\
+  !*** external "is" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! is */ "./node_modules/is/index.js");
+
+/***/ }),
+
+/***/ "undefined?74ba":
+/*!**************************************************!*\
+  !*** external "@babel/runtime/helpers/inherits" ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
+
+/***/ }),
+
+/***/ "undefined?8e7d":
+/*!**************************!*\
+  !*** external "rescope" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! rescope */ "../rescope/etc/npm/index.js");
+
+/***/ }),
+
+/***/ "undefined?9439":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js");
+
+/***/ }),
+
+/***/ "undefined?e108":
+/*!******************************************************!*\
+  !*** external "@babel/runtime/helpers/objectSpread" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=RSpells.js.map
 
 /***/ }),
 
@@ -3386,6 +4047,40 @@ else {
 
 /***/ }),
 
+/***/ "./dist/rScopes.js":
+/*!*************************!*\
+  !*** ./dist/rScopes.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports=function(e){var r={};function n(t){if(r[t])return r[t].exports;var o=r[t]={i:t,l:!1,exports:{}};return e[t].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=r,n.d=function(e,r,t){n.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,r){if(1&r&&(e=n(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(n.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var o in e)n.d(t,o,function(r){return e[r]}.bind(null,o));return t},n.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(r,"a",r),r},n.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},n.p="/",n(n.s=4)}([function(e,r){e.exports=__webpack_require__(/*! rescope */ "../rescope/etc/npm/index.js")},function(e,r){e.exports=__webpack_require__(/*! react-rescope */ "../react-rescope/dist/ReactRS.js")},function(e,r){e.exports=__webpack_require__(/*! rescope-spells */ "../rescope-spells/dist/RSpells.js")},function(e,r){e.exports=__webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js")},function(e,r,n){"use strict";n.r(r),n.d(r,"spells",function(){return p});var t=n(3),o=n.n(t),u=n(0),i=n.n(u);for(var f in u)["spells","default"].indexOf(f)<0&&function(e){n.d(r,e,function(){return u[e]})}(f);var l=n(1),c=n.n(l);for(var f in l)["spells","default"].indexOf(f)<0&&function(e){n.d(r,e,function(){return l[e]})}(f);var a=n(2),s=n.n(a),p=s.a,d=o()({spells:s.a},c.a,i.a);r.default=d}]);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/applyDecoratedDescriptor.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/applyDecoratedDescriptor.js ***!
@@ -5119,635 +5814,6 @@ checkPropTypes.resetWarningCache = function() {
 }
 
 module.exports = checkPropTypes;
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/factoryWithTypeCheckers.js":
-/*!************************************************************!*\
-  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
-var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
-
-var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
-var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
-
-var has = Function.call.bind(Object.prototype.hasOwnProperty);
-var printWarning = function() {};
-
-if (true) {
-  printWarning = function(text) {
-    var message = 'Warning: ' + text;
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-}
-
-function emptyFunctionThatReturnsNull() {
-  return null;
-}
-
-module.exports = function(isValidElement, throwOnDirectAccess) {
-  /* global Symbol */
-  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
-
-  /**
-   * Returns the iterator method function contained on the iterable object.
-   *
-   * Be sure to invoke the function with the iterable as context:
-   *
-   *     var iteratorFn = getIteratorFn(myIterable);
-   *     if (iteratorFn) {
-   *       var iterator = iteratorFn.call(myIterable);
-   *       ...
-   *     }
-   *
-   * @param {?object} maybeIterable
-   * @return {?function}
-   */
-  function getIteratorFn(maybeIterable) {
-    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-    if (typeof iteratorFn === 'function') {
-      return iteratorFn;
-    }
-  }
-
-  /**
-   * Collection of methods that allow declaration and validation of props that are
-   * supplied to React components. Example usage:
-   *
-   *   var Props = require('ReactPropTypes');
-   *   var MyArticle = React.createClass({
-   *     propTypes: {
-   *       // An optional string prop named "description".
-   *       description: Props.string,
-   *
-   *       // A required enum prop named "category".
-   *       category: Props.oneOf(['News','Photos']).isRequired,
-   *
-   *       // A prop named "dialog" that requires an instance of Dialog.
-   *       dialog: Props.instanceOf(Dialog).isRequired
-   *     },
-   *     render: function() { ... }
-   *   });
-   *
-   * A more formal specification of how these methods are used:
-   *
-   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
-   *   decl := ReactPropTypes.{type}(.isRequired)?
-   *
-   * Each and every declaration produces a function with the same signature. This
-   * allows the creation of custom validation functions. For example:
-   *
-   *  var MyLink = React.createClass({
-   *    propTypes: {
-   *      // An optional string or URI prop named "href".
-   *      href: function(props, propName, componentName) {
-   *        var propValue = props[propName];
-   *        if (propValue != null && typeof propValue !== 'string' &&
-   *            !(propValue instanceof URI)) {
-   *          return new Error(
-   *            'Expected a string or an URI for ' + propName + ' in ' +
-   *            componentName
-   *          );
-   *        }
-   *      }
-   *    },
-   *    render: function() {...}
-   *  });
-   *
-   * @internal
-   */
-
-  var ANONYMOUS = '<<anonymous>>';
-
-  // Important!
-  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
-  var ReactPropTypes = {
-    array: createPrimitiveTypeChecker('array'),
-    bool: createPrimitiveTypeChecker('boolean'),
-    func: createPrimitiveTypeChecker('function'),
-    number: createPrimitiveTypeChecker('number'),
-    object: createPrimitiveTypeChecker('object'),
-    string: createPrimitiveTypeChecker('string'),
-    symbol: createPrimitiveTypeChecker('symbol'),
-
-    any: createAnyTypeChecker(),
-    arrayOf: createArrayOfTypeChecker,
-    element: createElementTypeChecker(),
-    elementType: createElementTypeTypeChecker(),
-    instanceOf: createInstanceTypeChecker,
-    node: createNodeChecker(),
-    objectOf: createObjectOfTypeChecker,
-    oneOf: createEnumTypeChecker,
-    oneOfType: createUnionTypeChecker,
-    shape: createShapeTypeChecker,
-    exact: createStrictShapeTypeChecker,
-  };
-
-  /**
-   * inlined Object.is polyfill to avoid requiring consumers ship their own
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-   */
-  /*eslint-disable no-self-compare*/
-  function is(x, y) {
-    // SameValue algorithm
-    if (x === y) {
-      // Steps 1-5, 7-10
-      // Steps 6.b-6.e: +0 != -0
-      return x !== 0 || 1 / x === 1 / y;
-    } else {
-      // Step 6.a: NaN == NaN
-      return x !== x && y !== y;
-    }
-  }
-  /*eslint-enable no-self-compare*/
-
-  /**
-   * We use an Error-like object for backward compatibility as people may call
-   * PropTypes directly and inspect their output. However, we don't use real
-   * Errors anymore. We don't inspect their stack anyway, and creating them
-   * is prohibitively expensive if they are created too often, such as what
-   * happens in oneOfType() for any type before the one that matched.
-   */
-  function PropTypeError(message) {
-    this.message = message;
-    this.stack = '';
-  }
-  // Make `instanceof Error` still work for returned errors.
-  PropTypeError.prototype = Error.prototype;
-
-  function createChainableTypeChecker(validate) {
-    if (true) {
-      var manualPropTypeCallCache = {};
-      var manualPropTypeWarningCount = 0;
-    }
-    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-      componentName = componentName || ANONYMOUS;
-      propFullName = propFullName || propName;
-
-      if (secret !== ReactPropTypesSecret) {
-        if (throwOnDirectAccess) {
-          // New behavior only for users of `prop-types` package
-          var err = new Error(
-            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-            'Use `PropTypes.checkPropTypes()` to call them. ' +
-            'Read more at http://fb.me/use-check-prop-types'
-          );
-          err.name = 'Invariant Violation';
-          throw err;
-        } else if ( true && typeof console !== 'undefined') {
-          // Old behavior for people using React.PropTypes
-          var cacheKey = componentName + ':' + propName;
-          if (
-            !manualPropTypeCallCache[cacheKey] &&
-            // Avoid spamming the console because they are often not actionable except for lib authors
-            manualPropTypeWarningCount < 3
-          ) {
-            printWarning(
-              'You are manually calling a React.PropTypes validation ' +
-              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
-              'and will throw in the standalone `prop-types` package. ' +
-              'You may be seeing this warning due to a third-party PropTypes ' +
-              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
-            );
-            manualPropTypeCallCache[cacheKey] = true;
-            manualPropTypeWarningCount++;
-          }
-        }
-      }
-      if (props[propName] == null) {
-        if (isRequired) {
-          if (props[propName] === null) {
-            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
-          }
-          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
-        }
-        return null;
-      } else {
-        return validate(props, propName, componentName, location, propFullName);
-      }
-    }
-
-    var chainedCheckType = checkType.bind(null, false);
-    chainedCheckType.isRequired = checkType.bind(null, true);
-
-    return chainedCheckType;
-  }
-
-  function createPrimitiveTypeChecker(expectedType) {
-    function validate(props, propName, componentName, location, propFullName, secret) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== expectedType) {
-        // `propValue` being instance of, say, date/regexp, pass the 'object'
-        // check, but we can offer a more precise error message here rather than
-        // 'of type `object`'.
-        var preciseType = getPreciseType(propValue);
-
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createAnyTypeChecker() {
-    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
-  }
-
-  function createArrayOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
-      }
-      var propValue = props[propName];
-      if (!Array.isArray(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
-      }
-      for (var i = 0; i < propValue.length; i++) {
-        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
-        if (error instanceof Error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!isValidElement(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!ReactIs.isValidElementType(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createInstanceTypeChecker(expectedClass) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!(props[propName] instanceof expectedClass)) {
-        var expectedClassName = expectedClass.name || ANONYMOUS;
-        var actualClassName = getClassName(props[propName]);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createEnumTypeChecker(expectedValues) {
-    if (!Array.isArray(expectedValues)) {
-      if (true) {
-        if (arguments.length > 1) {
-          printWarning(
-            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
-            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
-          );
-        } else {
-          printWarning('Invalid argument supplied to oneOf, expected an array.');
-        }
-      }
-      return emptyFunctionThatReturnsNull;
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      for (var i = 0; i < expectedValues.length; i++) {
-        if (is(propValue, expectedValues[i])) {
-          return null;
-        }
-      }
-
-      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
-        var type = getPreciseType(value);
-        if (type === 'symbol') {
-          return String(value);
-        }
-        return value;
-      });
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createObjectOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
-      }
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
-      }
-      for (var key in propValue) {
-        if (has(propValue, key)) {
-          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-          if (error instanceof Error) {
-            return error;
-          }
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createUnionTypeChecker(arrayOfTypeCheckers) {
-    if (!Array.isArray(arrayOfTypeCheckers)) {
-       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : undefined;
-      return emptyFunctionThatReturnsNull;
-    }
-
-    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-      var checker = arrayOfTypeCheckers[i];
-      if (typeof checker !== 'function') {
-        printWarning(
-          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
-          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
-        );
-        return emptyFunctionThatReturnsNull;
-      }
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-        var checker = arrayOfTypeCheckers[i];
-        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
-          return null;
-        }
-      }
-
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createNodeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!isNode(props[propName])) {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      for (var key in shapeTypes) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          continue;
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createStrictShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      // We need to check all keys in case some are required but missing from
-      // props.
-      var allKeys = assign({}, props[propName], shapeTypes);
-      for (var key in allKeys) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          return new PropTypeError(
-            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
-            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
-            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
-          );
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-
-    return createChainableTypeChecker(validate);
-  }
-
-  function isNode(propValue) {
-    switch (typeof propValue) {
-      case 'number':
-      case 'string':
-      case 'undefined':
-        return true;
-      case 'boolean':
-        return !propValue;
-      case 'object':
-        if (Array.isArray(propValue)) {
-          return propValue.every(isNode);
-        }
-        if (propValue === null || isValidElement(propValue)) {
-          return true;
-        }
-
-        var iteratorFn = getIteratorFn(propValue);
-        if (iteratorFn) {
-          var iterator = iteratorFn.call(propValue);
-          var step;
-          if (iteratorFn !== propValue.entries) {
-            while (!(step = iterator.next()).done) {
-              if (!isNode(step.value)) {
-                return false;
-              }
-            }
-          } else {
-            // Iterator will provide entry [k,v] tuples rather than values.
-            while (!(step = iterator.next()).done) {
-              var entry = step.value;
-              if (entry) {
-                if (!isNode(entry[1])) {
-                  return false;
-                }
-              }
-            }
-          }
-        } else {
-          return false;
-        }
-
-        return true;
-      default:
-        return false;
-    }
-  }
-
-  function isSymbol(propType, propValue) {
-    // Native Symbol.
-    if (propType === 'symbol') {
-      return true;
-    }
-
-    // falsy value can't be a Symbol
-    if (!propValue) {
-      return false;
-    }
-
-    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
-    if (propValue['@@toStringTag'] === 'Symbol') {
-      return true;
-    }
-
-    // Fallback for non-spec compliant Symbols which are polyfilled.
-    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
-      return true;
-    }
-
-    return false;
-  }
-
-  // Equivalent of `typeof` but with special handling for array and regexp.
-  function getPropType(propValue) {
-    var propType = typeof propValue;
-    if (Array.isArray(propValue)) {
-      return 'array';
-    }
-    if (propValue instanceof RegExp) {
-      // Old webkits (at least until Android 4.0) return 'function' rather than
-      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
-      // passes PropTypes.object.
-      return 'object';
-    }
-    if (isSymbol(propType, propValue)) {
-      return 'symbol';
-    }
-    return propType;
-  }
-
-  // This handles more types than `getPropType`. Only used for error messages.
-  // See `createPrimitiveTypeChecker`.
-  function getPreciseType(propValue) {
-    if (typeof propValue === 'undefined' || propValue === null) {
-      return '' + propValue;
-    }
-    var propType = getPropType(propValue);
-    if (propType === 'object') {
-      if (propValue instanceof Date) {
-        return 'date';
-      } else if (propValue instanceof RegExp) {
-        return 'regexp';
-      }
-    }
-    return propType;
-  }
-
-  // Returns a string that is postfixed to a warning about an invalid type.
-  // For example, "undefined" or "of type array"
-  function getPostfixForTypeWarning(value) {
-    var type = getPreciseType(value);
-    switch (type) {
-      case 'array':
-      case 'object':
-        return 'an ' + type;
-      case 'boolean':
-      case 'date':
-      case 'regexp':
-        return 'a ' + type;
-      default:
-        return type;
-    }
-  }
-
-  // Returns class name of the object, if any.
-  function getClassName(propValue) {
-    if (!propValue.constructor || !propValue.constructor.name) {
-      return ANONYMOUS;
-    }
-    return propValue.constructor.name;
-  }
-
-  ReactPropTypes.checkPropTypes = checkPropTypes;
-  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
-  ReactPropTypes.PropTypes = ReactPropTypes;
-
-  return ReactPropTypes;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/prop-types/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ "./node_modules/prop-types/factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
-} else {}
 
 
 /***/ }),
@@ -30867,262 +30933,6 @@ if (true) {
 
 /***/ }),
 
-/***/ "./node_modules/react-is/cjs/react-is.development.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/react-is/cjs/react-is.development.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/** @license React v16.8.6
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-if (true) {
-  (function() {
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
-var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' ||
-  // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE);
-}
-
-/**
- * Forked from fbjs/warning:
- * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
- *
- * Only change is we use console.warn instead of console.error,
- * and do nothing when 'console' is not supported.
- * This really simplifies the code.
- * ---
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var lowPriorityWarning = function () {};
-
-{
-  var printWarning = function (format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.warn(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  lowPriorityWarning = function (condition, format) {
-    if (format === undefined) {
-      throw new Error('`lowPriorityWarning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-var lowPriorityWarning$1 = lowPriorityWarning;
-
-function typeOf(object) {
-  if (typeof object === 'object' && object !== null) {
-    var $$typeof = object.$$typeof;
-    switch ($$typeof) {
-      case REACT_ELEMENT_TYPE:
-        var type = object.type;
-
-        switch (type) {
-          case REACT_ASYNC_MODE_TYPE:
-          case REACT_CONCURRENT_MODE_TYPE:
-          case REACT_FRAGMENT_TYPE:
-          case REACT_PROFILER_TYPE:
-          case REACT_STRICT_MODE_TYPE:
-          case REACT_SUSPENSE_TYPE:
-            return type;
-          default:
-            var $$typeofType = type && type.$$typeof;
-
-            switch ($$typeofType) {
-              case REACT_CONTEXT_TYPE:
-              case REACT_FORWARD_REF_TYPE:
-              case REACT_PROVIDER_TYPE:
-                return $$typeofType;
-              default:
-                return $$typeof;
-            }
-        }
-      case REACT_LAZY_TYPE:
-      case REACT_MEMO_TYPE:
-      case REACT_PORTAL_TYPE:
-        return $$typeof;
-    }
-  }
-
-  return undefined;
-}
-
-// AsyncMode is deprecated along with isAsyncMode
-var AsyncMode = REACT_ASYNC_MODE_TYPE;
-var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-var ContextConsumer = REACT_CONTEXT_TYPE;
-var ContextProvider = REACT_PROVIDER_TYPE;
-var Element = REACT_ELEMENT_TYPE;
-var ForwardRef = REACT_FORWARD_REF_TYPE;
-var Fragment = REACT_FRAGMENT_TYPE;
-var Lazy = REACT_LAZY_TYPE;
-var Memo = REACT_MEMO_TYPE;
-var Portal = REACT_PORTAL_TYPE;
-var Profiler = REACT_PROFILER_TYPE;
-var StrictMode = REACT_STRICT_MODE_TYPE;
-var Suspense = REACT_SUSPENSE_TYPE;
-
-var hasWarnedAboutDeprecatedIsAsyncMode = false;
-
-// AsyncMode should be deprecated
-function isAsyncMode(object) {
-  {
-    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true;
-      lowPriorityWarning$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-    }
-  }
-  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-}
-function isConcurrentMode(object) {
-  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-}
-function isContextConsumer(object) {
-  return typeOf(object) === REACT_CONTEXT_TYPE;
-}
-function isContextProvider(object) {
-  return typeOf(object) === REACT_PROVIDER_TYPE;
-}
-function isElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-function isForwardRef(object) {
-  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-}
-function isFragment(object) {
-  return typeOf(object) === REACT_FRAGMENT_TYPE;
-}
-function isLazy(object) {
-  return typeOf(object) === REACT_LAZY_TYPE;
-}
-function isMemo(object) {
-  return typeOf(object) === REACT_MEMO_TYPE;
-}
-function isPortal(object) {
-  return typeOf(object) === REACT_PORTAL_TYPE;
-}
-function isProfiler(object) {
-  return typeOf(object) === REACT_PROFILER_TYPE;
-}
-function isStrictMode(object) {
-  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-}
-function isSuspense(object) {
-  return typeOf(object) === REACT_SUSPENSE_TYPE;
-}
-
-exports.typeOf = typeOf;
-exports.AsyncMode = AsyncMode;
-exports.ConcurrentMode = ConcurrentMode;
-exports.ContextConsumer = ContextConsumer;
-exports.ContextProvider = ContextProvider;
-exports.Element = Element;
-exports.ForwardRef = ForwardRef;
-exports.Fragment = Fragment;
-exports.Lazy = Lazy;
-exports.Memo = Memo;
-exports.Portal = Portal;
-exports.Profiler = Profiler;
-exports.StrictMode = StrictMode;
-exports.Suspense = Suspense;
-exports.isValidElementType = isValidElementType;
-exports.isAsyncMode = isAsyncMode;
-exports.isConcurrentMode = isConcurrentMode;
-exports.isContextConsumer = isContextConsumer;
-exports.isContextProvider = isContextProvider;
-exports.isElement = isElement;
-exports.isForwardRef = isForwardRef;
-exports.isFragment = isFragment;
-exports.isLazy = isLazy;
-exports.isMemo = isMemo;
-exports.isPortal = isPortal;
-exports.isProfiler = isProfiler;
-exports.isStrictMode = isStrictMode;
-exports.isSuspense = isSuspense;
-  })();
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/react-is/index.js":
-/*!****************************************!*\
-  !*** ./node_modules/react-is/index.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/react-is/cjs/react-is.development.js");
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -34808,7 +34618,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! . */ "./src/index.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! .. */ "./dist/rScopes.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(___WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! . */ "./src/index.js");
 
 
 
@@ -34816,7 +34628,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _dec, _dec2, _obj, _init, _class, _temp, _dec3, _dec4, _obj2, _init2, _class3, _temp2, _dec5, _dec6, _dec7, _obj3, _init3, _class5, _temp3, _dec8, _obj4, _init4, _class7;
+var _dec, _dec2, _dec3, _obj, _init, _class, _temp, _dec4, _dec5, _obj2, _init2, _class3, _temp2, _dec6, _dec7, _dec8, _obj3, _init3, _class5, _temp3, _dec9, _obj4, _init4, _class7;
 
 (function () {
   var enterModule = (typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal : __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js")).enterModule;
@@ -34839,21 +34651,19 @@ var _dec, _dec2, _obj, _init, _class, _temp, _dec3, _dec4, _obj2, _init2, _class
 
 
 
-var withStateMap = ___WEBPACK_IMPORTED_MODULE_8__["spells"].withStateMap,
-    asRef = ___WEBPACK_IMPORTED_MODULE_8__["spells"].asRef,
-    asStore = ___WEBPACK_IMPORTED_MODULE_8__["spells"].asStore;
-var TestProps = (_dec = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj = {
-  test: {
-    hello: "rScope"
-  }
-}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj, "test", [asStore], (_init = Object.getOwnPropertyDescriptor(_obj, "test"), _init = _init ? _init.value : undefined, {
+
+var TestProps = (_dec = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_dec3 = Object(___WEBPACK_IMPORTED_MODULE_9__["withStateMap"])({
+  hello: "rScope"
+}), (_obj = {
+  test: ___WEBPACK_IMPORTED_MODULE_8__["Store"]
+}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj, "test", [_dec3], (_init = Object.getOwnPropertyDescriptor(_obj, "test"), _init = _init ? _init.value : undefined, {
   enumerable: true,
   configurable: true,
   writable: true,
   initializer: function initializer() {
     return _init;
   }
-}), _obj)), _obj)), _dec2 = Object(___WEBPACK_IMPORTED_MODULE_8__["scopeToProps"])("testRoot", "test"), _dec(_class = _dec2(_class = (_temp =
+}), _obj)), _obj))), _dec2 = Object(___WEBPACK_IMPORTED_MODULE_8__["scopeToProps"])("testRoot", "test"), _dec(_class = _dec2(_class = (_temp =
 /*#__PURE__*/
 function (_React$Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(TestProps, _React$Component);
@@ -34893,18 +34703,18 @@ function (_React$Component) {
 
   return TestProps;
 }(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component), _temp)) || _class) || _class);
-var TestState = (_dec3 = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj2 = {
+var TestState = (_dec4 = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj2 = {
   test: {
     hello: "rScope to state"
   }
-}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj2, "test", [asStore], (_init2 = Object.getOwnPropertyDescriptor(_obj2, "test"), _init2 = _init2 ? _init2.value : undefined, {
+}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj2, "test", [___WEBPACK_IMPORTED_MODULE_9__["asStore"]], (_init2 = Object.getOwnPropertyDescriptor(_obj2, "test"), _init2 = _init2 ? _init2.value : undefined, {
   enumerable: true,
   configurable: true,
   writable: true,
   initializer: function initializer() {
     return _init2;
   }
-}), _obj2)), _obj2)), _dec4 = Object(___WEBPACK_IMPORTED_MODULE_8__["scopeToState"])("testRoot", "test"), _dec3(_class3 = _dec4(_class3 = (_temp2 =
+}), _obj2)), _obj2)), _dec5 = Object(___WEBPACK_IMPORTED_MODULE_8__["scopeToState"])("testRoot", "test"), _dec4(_class3 = _dec5(_class3 = (_temp2 =
 /*#__PURE__*/
 function (_React$Component2) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(TestState, _React$Component2);
@@ -34944,18 +34754,18 @@ function (_React$Component2) {
 
   return TestState;
 }(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component), _temp2)) || _class3) || _class3);
-var TestPropProp = (_dec5 = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj3 = {
+var TestPropProp = (_dec6 = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj3 = {
   test: {
     hello: "propsToScope"
   }
-}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj3, "test", [asStore], (_init3 = Object.getOwnPropertyDescriptor(_obj3, "test"), _init3 = _init3 ? _init3.value : undefined, {
+}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj3, "test", [___WEBPACK_IMPORTED_MODULE_9__["asStore"]], (_init3 = Object.getOwnPropertyDescriptor(_obj3, "test"), _init3 = _init3 ? _init3.value : undefined, {
   enumerable: true,
   configurable: true,
   writable: true,
   initializer: function initializer() {
     return _init3;
   }
-}), _obj3)), _obj3)), _dec6 = Object(___WEBPACK_IMPORTED_MODULE_8__["propsToScope"])("testProp:test.myProp"), _dec7 = Object(___WEBPACK_IMPORTED_MODULE_8__["scopeToProps"])("testRoot", "test"), _dec5(_class5 = _dec6(_class5 = _dec7(_class5 = (_temp3 =
+}), _obj3)), _obj3)), _dec7 = Object(___WEBPACK_IMPORTED_MODULE_8__["propsToScope"])("testProp:test.myProp"), _dec8 = Object(___WEBPACK_IMPORTED_MODULE_8__["scopeToProps"])("testRoot", "test"), _dec6(_class5 = _dec7(_class5 = _dec8(_class5 = (_temp3 =
 /*#__PURE__*/
 function (_React$Component3) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(TestPropProp, _React$Component3);
@@ -34995,7 +34805,7 @@ function (_React$Component3) {
 
   return TestPropProp;
 }(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component), _temp3)) || _class5) || _class5) || _class5);
-var App = (_dec8 = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj4 = {
+var App = (_dec9 = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj4 = {
   testRoot: {
     root: "rScope",
     now: 0,
@@ -35015,14 +34825,14 @@ var App = (_dec8 = Object(___WEBPACK_IMPORTED_MODULE_8__["reScope"])((_obj4 = {
       return this.nextState;
     }
   }
-}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj4, "testRoot", [asStore], (_init4 = Object.getOwnPropertyDescriptor(_obj4, "testRoot"), _init4 = _init4 ? _init4.value : undefined, {
+}, (_babel_runtime_helpers_applyDecoratedDescriptor__WEBPACK_IMPORTED_MODULE_5___default()(_obj4, "testRoot", [___WEBPACK_IMPORTED_MODULE_9__["asStore"]], (_init4 = Object.getOwnPropertyDescriptor(_obj4, "testRoot"), _init4 = _init4 ? _init4.value : undefined, {
   enumerable: true,
   configurable: true,
   writable: true,
   initializer: function initializer() {
     return _init4;
   }
-}), _obj4)), _obj4)), _dec8(_class7 =
+}), _obj4)), _obj4)), _dec9(_class7 =
 /*#__PURE__*/
 function (_React$Component4) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(App, _React$Component4);
@@ -35075,9 +34885,6 @@ if (false) {}
     return;
   }
 
-  reactHotLoader.register(withStateMap, "withStateMap", "G:\\n8tz\\libs\\rScopes\\rScopes\\src\\samples.js");
-  reactHotLoader.register(asRef, "asRef", "G:\\n8tz\\libs\\rScopes\\rScopes\\src\\samples.js");
-  reactHotLoader.register(asStore, "asStore", "G:\\n8tz\\libs\\rScopes\\rScopes\\src\\samples.js");
   reactHotLoader.register(TestProps, "TestProps", "G:\\n8tz\\libs\\rScopes\\rScopes\\src\\samples.js");
   reactHotLoader.register(TestState, "TestState", "G:\\n8tz\\libs\\rScopes\\rScopes\\src\\samples.js");
   reactHotLoader.register(TestPropProp, "TestPropProp", "G:\\n8tz\\libs\\rScopes\\rScopes\\src\\samples.js");
