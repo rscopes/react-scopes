@@ -85,7 +85,7 @@ class App extends React.Component {
 			@asRef
 			items : "!myRecord.items", // "!" mean required; 
 			@asRef
-			filter: "!AppState.filter", // bind from the parent "AppState.value" to "appValue"
+			filter: "AppState.filter", // bind from the parent "AppState.value" to "appValue"
 			
 			$apply( data, { items, filter } ) {
 				
