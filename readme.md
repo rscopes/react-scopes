@@ -19,23 +19,107 @@
 
 ## rScopes What ?
 
-RS is a flexible, effective and easy to use state management system inspired by ReactJS methods.<br/>
+RS is a flexible state management system inspired by ReactJS methods.<br/>
 Quickly said, RS allow chaining, linking, and sequencing multiples redux-like stores while remaining in a serializable flux architecture.
 
-RS is semantically and operationally stable <br/>
-
-Let's be clear; stable in the sense that it does the work and has a coherent semantic system. <br/>
+RS is semantically and operationally stable; it does the work and has a coherent semantic system. <br/>
 That said, it need tests, then to be optimized, and of course, docs and examples. <br/>
 
-## Why use rScopes ?
+## What's it like?
 
-Well there always multiple way of doing something.<br/>
+Here some basics :
 
-Here some case where i use RS :
-- If you need dedicated contexts & stores for React components, while inheriting theirs parents contexts & stores
-- If you have updatable, multiple & interdependent processing steps, resulting in multiple data views
-- etc...
+´´´jsx
+import {
+	reScope, scopeToProps, propsToScope
+}                            from "rscopes";
+import {
+	withStateMap, asRef, asStore
+}                            from "rescope-spells";
 
+@reScope(
+	{
+		@asStore
+		AppState: {
+			someInitial : undefined,
+			value      : undefined,
+			
+			doSomeGlobalMutation(value){
+			    return {value};
+			}
+		}
+	}
+)
+@scopeToProps("AppState")
+class App extends React.Component {
+	state            = {};
+	
+	render() {
+		let {
+			    $actions, AppState
+		    }     = this.props,
+		    state = this.state;
+		return (
+			<div className={ "App" }>
+			    <Test id="someId"/>
+			    <Test id="someId2"/>
+			</div>
+		);
+	}
+};
+
+@reScope(
+	{
+		@asStore
+		myRecord: { // having a dedicated "myRecord" store for every Test components
+			id : undefined,
+			$apply(data, state, changesInState){
+			
+                if (changesInState.id) // simplified
+                    getSomeAsyncData(changesInState.id)
+                    .then( data => this.push(data) );
+                
+                return data; 			
+			}
+		},
+		
+		@asStore
+		myProcessedStuff: {
+		    @asRef
+			someData : "!myRecord.someRemoteData", // "!" mean required; 
+		    @asRef
+			appValue : "!AppState.value", 
+			
+			$apply(data, { someData, appValue }){
+			
+                return { value : someData[appValue] }; 			
+			} 
+		}
+	}
+)
+@propsToScope(
+	[
+		"id:myRecord.id"// bind props.id to local scope/store
+	])
+@scopeToProps("myRecord", "myProcessedStuff")
+class Test extends React.Component {
+	state            = {};
+	
+	render() {
+		let {
+			    $actions, myProcessedStuff
+		    }     = this.props,
+		    state = this.state;
+		return (
+			<div className={ "Test" }>
+			    { myProcessedStuff && myProcessedStuff.value }
+			</div>
+		);
+	}
+};
+
+
+´´´
 
 ### Related packages
 
