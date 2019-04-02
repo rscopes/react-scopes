@@ -88,7 +88,7 @@ class App extends React.Component {
 			@asRef
 			someData: "!myRecord.someRemoteData", // "!" mean required; 
 			@asRef
-			appValue: "!AppState.value",
+			appValue: "!AppState.value", // bind from the parent "AppState.value" to "appValue"
 			
 			$apply( data, { someData, appValue } ) {
 				
