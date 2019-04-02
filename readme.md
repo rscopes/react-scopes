@@ -32,27 +32,27 @@ Here some basics :
 ```jsx
 import {
 	reScope, scopeToProps, propsToScope
-}                            from "rscopes";
+} from "rscopes";
 import {
 	withStateMap, asRef, asStore
-}                            from "rescope-spells";
+} from "rescope-spells";
 
 @reScope(
 	{
 		@asStore
 		AppState: {
-			someInitial : undefined,
+			someInitial: undefined,
 			value      : undefined,
 			
-			doSomeGlobalMutation(value){
-			    return {value};
+			doSomeGlobalMutation( value ) {
+				return { value };
 			}
 		}
 	}
 )
 @scopeToProps("AppState")
 class App extends React.Component {
-	state            = {};
+	state = {};
 	
 	render() {
 		let {
@@ -61,8 +61,8 @@ class App extends React.Component {
 		    state = this.state;
 		return (
 			<div className={ "App" }>
-			    <Test id="someId"/>
-			    <Test id="someId2"/>
+				<Test id="someId"/>
+				<Test id="someId2"/>
 			</div>
 		);
 	}
@@ -72,28 +72,28 @@ class App extends React.Component {
 	{
 		@asStore
 		myRecord: { // having a dedicated "myRecord" store for every Test components
-			id : undefined,
-			$apply(data, state, changesInState){
-			
-                if (changesInState.id) // simplified
-                    getSomeAsyncData(changesInState.id)
-                    .then( data => this.push(data) );
-                
-                return data; 			
+			id: undefined,
+			$apply( data, state, changesInState ) {
+				
+				if ( changesInState.id ) // simplified
+					getSomeAsyncData(changesInState.id)
+						.then(data => this.push(data));
+				
+				return data;
 			}
 		},
 		
 		@asStore
 		myProcessedStuff: {
-		    @asRef
-			someData : "!myRecord.someRemoteData", // "!" mean required; 
-		    @asRef
-			appValue : "!AppState.value", 
+			@asRef
+			someData: "!myRecord.someRemoteData", // "!" mean required; 
+			@asRef
+			appValue: "!AppState.value",
 			
-			$apply(data, { someData, appValue }){
-			
-                return { value : someData[appValue] }; 			
-			} 
+			$apply( data, { someData, appValue } ) {
+				
+				return { value: someData[appValue] };
+			}
 		}
 	}
 )
@@ -103,7 +103,7 @@ class App extends React.Component {
 	])
 @scopeToProps("myRecord", "myProcessedStuff")
 class Test extends React.Component {
-	state            = {};
+	state = {};
 	
 	render() {
 		let {
@@ -112,7 +112,7 @@ class Test extends React.Component {
 		    state = this.state;
 		return (
 			<div className={ "Test" }>
-			    { myProcessedStuff && myProcessedStuff.value }
+				{ myProcessedStuff && myProcessedStuff.value }
 			</div>
 		);
 	}
