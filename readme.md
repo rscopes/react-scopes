@@ -90,7 +90,7 @@ class App extends React.Component {
 			$apply( data, { items, filter } ) {
 				
 				return {
-					items: items.filter(item => item.title.contain(filter))
+					items: items.filter(item => !item.title.includes(filter))
 				};
 			},
 			
