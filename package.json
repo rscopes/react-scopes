@@ -1,6 +1,6 @@
 {
   "name": "rscopes",
-  "version": "16.0.0",
+  "version": "16.0.1",
   "description": "ReScope, spells and react bindings",
   "repository": "https://github.com/n8tz/rScopes.git",
   "license": "MIT",
@@ -55,12 +55,12 @@
     "react": "^16.3.2"
   },
   "dependencies": {
-    "rescope": "^4.3.6",
-    "react-rescope": "^16.0.1",
-    "rescope-spells": "^16.0.0"
+    "rescope": "^4.3.10",
+    "react-rescope": "^16.0.8",
+    "rescope-spells": "^16.0.3"
   },
   "devDependencies": {
-    "wpi-react-hmr-ssr": "^1.1.3",
+    "wpi-react-hmr-ssr": "^1.1.10",
     "webpack-inherit": "^1.4.10"
   }
 }
