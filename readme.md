@@ -9,8 +9,8 @@
 <p align="center">Flexible State management system based on flux architecture, stores data components & inheritable scopes
 </p>
 
-<p align="center"><a href="https://github.com/rScopes/rescope/tree/master">
-<img src="https://travis-ci.org/rScopes/rescope.svg?branch=master" alt="Build Status" /></a>
+<p align="center"><a href="https://travis-ci.org/n8tz/rescope">
+<img src="https://travis-ci.org/n8tz/rescope.svg?branch=master" alt="Build Status" /></a>
 <a href="https://www.npmjs.com/package/rscopes">
 <img src="https://img.shields.io/npm/v/rscopes.svg" /></a>
 <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" />
@@ -54,11 +54,12 @@ class App extends React.Component {
 	
 	render() {
 		let {
-			    $actions, AppState
+			    $actions, AppState:{filter}
 		    }     = this.props,
 		    state = this.state;
 		return (
 			<div className={ "App" }>
+			    {filter}
 				<Test id="someId"/>
 				<Test id="someId2"/>
 			</div>
@@ -86,7 +87,7 @@ class App extends React.Component {
 			@asRef
 			items : "!myQuery.items", // "!" mean required; 
 			@asRef
-			filter: "AppState.filter", // bind from the parent "AppState.value" to "appValue"
+			filter: "AppState.filter", // bind from the parent "AppState.filter" to "filter"
 			
 			$apply( data, { items, filter } ) {
 				
@@ -121,7 +122,7 @@ class Test extends React.Component {
 		
 		return (
 			<div className={ "Test" }>
-				{ myProcessedStuff && myProcessedStuff.value }
+				{ myProcessedStuff && myProcessedStuff.items }
 			</div>
 		);
 	}
@@ -143,13 +144,13 @@ This can be consumed by any transpiler that supports stage-0 of the decorators s
 
 rScopes link the following packages :<br>
 
-ReScope : [rescope](https://github.com/rScopes/rescope)<br>
-React HOCs, decorators & tools : [react-rescope](https://github.com/rScopes/react-rescope)<br>
-ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/rScopes/rescope-spells)<br>
+ReScope : [rescope](https://github.com/n8tz/rescope)<br>
+React HOCs, decorators & tools : [react-rescope](https://github.com/n8tz/react-rescope)<br>
+ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/n8tz/rescope-spells)<br>
 
 ### Samples & bootstraps
 
-The examples and bootstrap will come gradually [here](https://github.com/rScopes/rescope-samples)
+The examples and bootstrap will come gradually [here](https://github.com/n8tz/rescope-samples)
 
 [![HitCount](http://hits.dwyl.io/caipilabs/Caipilabs/rescope.svg)](http://hits.dwyl.io/caipilabs/Caipilabs/rescope)
 <span class="badge-paypal"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWKR3TWQ2U2AC" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
