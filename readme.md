@@ -32,8 +32,7 @@ Here some conceptual basics :
 
 ```jsx
 
-import {reScope, scopeToProps, propsToScope}    from "rscopes";
-import {withStateMap, asRef, asStore}           from "rescope-spells";
+import {reScope, scopeToProps, propsToScope, withStateMap, asRef, asStore}    from "rscopes";
 
 @reScope(
 	{

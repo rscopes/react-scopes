@@ -14,6 +14,7 @@
 
 export *           from "rescope";
 export *           from "react-rescope";
+export *           from "rescope-spells";
 
 import _spells from "rescope-spells";
 import RS      from "rescope";
@@ -23,7 +24,8 @@ export const spells = _spells;
 const def           = {
 	spells: _spells,
 	...RRS,
-	...RS
+	...RS,
+	..._spells
 };
 
 export default def;
