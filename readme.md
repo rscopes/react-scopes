@@ -24,7 +24,7 @@ Quickly said, RS allow linking and sequencing of multiples redux-like, async-abl
 
 
 RS is semantically and operationally stable; it does the work and have a coherent semantic system. <br/>
-That said, it need tests, then to be optimized, and of course, docs and examples. <br/>
+That said, it need to be rewrote in a simpler way <br/>
 
 ## What's it like?
 
