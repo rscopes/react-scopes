@@ -55,9 +55,9 @@
     "react": "^16.3.2"
   },
   "dependencies": {
-    "rescope": "^4.4.0",
-    "react-rescope": "^16.0.9",
-    "rescope-spells": "^16.0.3"
+    "rescope": "^4.4.4",
+    "react-rescope": "^16.0.11",
+    "rescope-spells": "^16.0.4"
   },
   "devDependencies": {
     "wpi-react-hmr-ssr": "^1.1.10",
