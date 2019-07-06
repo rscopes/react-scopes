@@ -20,7 +20,7 @@
 ## rScopes What ?
 
 RS is a flexible state management system inspired by ReactJS methods.<br/>
-Quickly said, RS allow linking and sequencing of multiples redux-like, async-able, stores while remaining in a serializable flux architecture.
+Quickly said, RS allow linking, scoping, and sequencing of multiples redux-like, async-able, stores while remaining in a serializable flux architecture.
 
 
 RS is semantically and operationally stable; it does the work and have a coherent semantic system. <br/>
