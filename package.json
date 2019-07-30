@@ -56,11 +56,11 @@
   },
   "dependencies": {
     "rescope": "^4.4.4",
-    "react-rescope": "^16.0.11",
+    "react-rescope": "^16.0.13",
     "rescope-spells": "^16.0.4"
   },
   "devDependencies": {
-    "wpi-react-hmr-ssr": "^1.1.10",
-    "webpack-inherit": "^1.4.10"
+    "wpi-react-hmr-ssr": "^1.1.17",
+    "webpack-inherit": "^1.6.7"
   }
 }

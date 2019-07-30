@@ -4,7 +4,57 @@
 
 ### Stores
 
+#### Stores Workflow
+
+- A Store have it's state updated ( props or action has pushed state mutation, a source store had its data updated )
+- If this state have the required & followed value
+- The apply function push new data in an async or sync way
+- The store is stabilized and (if there is new data) propagated
+- listening stores have theirs state updated and we go to step 1 until the whole scope is stable
+
+#### Store definition
+
+##### Using spells
+
+```jsx harmony
+import React    from "react";
+import {withScope, withStateMap, asStore, asScope, Store} from "..";
+
+@withScope(
+	{
+	    @asStore
+	    CoffeeMachine:{
+	    	coffee:100,
+	    	sugar :100,
+	    	makeCoffee(){
+	    		let state=this.nextState;
+	    		return {}
+	    	}
+	    },
+
+		@withStateMap({ hello: "rScopes" })
+		test: Store
+	}
+)
+class TestProps extends React.Component {
+	redraws = 0;
+
+	render() {
+
+		return <div className={"test"} style={{}}>
+			{JSON.stringify(this.props.test)}
+			{JSON.stringify(this.props.testRoot)}
+			( redraws {this.redraws++} )
+		</div>
+	}
+}
+```
+
+##### Using class
+
 ### Scopes
+
+RS scopes are like stores that would compose their state & data basing on the scopes and stores they contain.
 
 ### Structuring Scopes
 

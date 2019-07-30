@@ -36,7 +36,7 @@ class TestProps extends React.Component {
 	}
 }
 
-@reScope(
+@withScope(
 	{
 		
 		@asStore
@@ -57,7 +57,7 @@ class TestState extends React.Component {
 	}
 }
 
-@reScope(
+@withScope(
 	{
 		@asStore
 		test: { hello: "propsToScope" }
@@ -78,7 +78,7 @@ class TestPropProp extends React.Component {
 	}
 }
 
-@reScope(
+@withScope(
 	{
 		@asStore
 		testRoot: {
