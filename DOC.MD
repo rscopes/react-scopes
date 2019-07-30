@@ -4,7 +4,7 @@
 
 ### Stores
 
-#### Stores Workflow
+Stores Workflow
 
 - A Store have it's state updated ( props or action has pushed state mutation, a source store had its data updated )
 - If this state have the required & followed value
@@ -12,53 +12,77 @@
 - The store is stabilized and (if there is new data) propagated
 - listening stores have theirs state updated and we go to step 1 until the whole scope is stable
 
-#### Store definition
+### Scopes
+
+RS scopes are like stores that would compose their state & data basing on the scopes and stores they contain.
+
+#### Store & Scopes definition
 
 ##### Using spells
 
 ```jsx harmony
 import React    from "react";
-import {withScope, withStateMap, asStore, asScope, Store} from "..";
+import {withScope, withStateMap, asStore, asScope, asRef, Store} from "rscopes";
 
 @withScope(
 	{
 	    @asStore
-	    CoffeeMachine:{
-	    	coffee:100,
-	    	sugar :100,
-	    	makeCoffee(){
-	    		let state=this.nextState;
-	    		return {}
-	    	}
+        CoffeeMachine:{
+            coffee:100,
+            sugar :100,
+            
+            // action
+            makeCoffee:()=>(state)=>({
+                coffee:state.coffee-1,
+                sugar :state.sugar-1,
+            })
+        },
+	    
+	    @asScope
+	    BrainScope:{
+	            @asStore
+        	    workMachine:{
+        	    	cafeine:0,
+        	    	work(){
+        	    		this.$actions.$parent.makeCoffee()
+        	    		return (state)=>({cafeine:state.cafeine+1});
+        	    	},
+        	    	// updating data basing the new state
+        	    	$apply(data, {cafeine}){
+        	    		return {
+        	    			canWork:cafeine>=2
+        	    		}
+        	    	}
+        	    },	
 	    },
-
+	    
+	    @asStore
+        Manager:{
+	    	@asRef
+            allOK:"BrainScope.workMachine.canWork",
+            $apply(data, {allOK}){
+                return {
+                    allOK
+                }
+            }
+        },
+	    
+        // add values & refs to existing store class
 		@withStateMap({ hello: "rScopes" })
 		test: Store
 	}
 )
+@scopeToProps("Manager")
 class TestProps extends React.Component {
-	redraws = 0;
-
-	render() {
-
-		return <div className={"test"} style={{}}>
-			{JSON.stringify(this.props.test)}
-			{JSON.stringify(this.props.testRoot)}
-			( redraws {this.redraws++} )
-		</div>
-	}
+	//...
 }
 ```
 
 ##### Using class
 
-### Scopes
+See [rescope](https://github.com/rscopes/rescope)
 
-RS scopes are like stores that would compose their state & data basing on the scopes and stores they contain.
-
-### Structuring Scopes
-
-## Basic React - RS 
+## React - RS decorators (spells)
 
 ### withScope
 
