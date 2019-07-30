@@ -14,13 +14,9 @@
 import React    from "react";
 import ReactDom from "react-dom";
 
-import {Store, scopeToState, reScope, scopeToProps, propsToScope, propsToStore, spells} from "..";
+import {asStore, propsToScope, withScope, scopeToProps, scopeToState, Store, withStateMap} from "..";
 
-import {
-	withStateMap, asRef, asStore
-} from "rescope-spells";
-
-@reScope(
+@withScope(
 	{
 		@withStateMap({ hello: "rScope" })
 		test: Store
@@ -32,10 +28,10 @@ class TestProps extends React.Component {
 	
 	render() {
 		
-		return <div className={ "test" } style={ {} }>
-			{ JSON.stringify(this.props.test) }
-			{ JSON.stringify(this.props.testRoot) }
-			( redraws { this.redraws++ } )
+		return <div className={"test"} style={{}}>
+			{JSON.stringify(this.props.test)}
+			{JSON.stringify(this.props.testRoot)}
+			( redraws {this.redraws++} )
 		</div>
 	}
 }
@@ -53,10 +49,10 @@ class TestState extends React.Component {
 	
 	render() {
 		
-		return <div className={ "test" } style={ {} }>
-			{ JSON.stringify(this.state.test) }
-			{ JSON.stringify(this.state.testRoot) }
-			( redraws { this.redraws++ } )
+		return <div className={"test"} style={{}}>
+			{JSON.stringify(this.state.test)}
+			{JSON.stringify(this.state.testRoot)}
+			( redraws {this.redraws++} )
 		</div>
 	}
 }
@@ -74,10 +70,10 @@ class TestPropProp extends React.Component {
 	
 	render() {
 		
-		return <div className={ "test" } style={ {} }>
-			{ JSON.stringify(this.props.test) }
-			{ JSON.stringify(this.props.testRoot) }
-			( redraws { this.redraws++ } )
+		return <div className={"test"} style={{}}>
+			{JSON.stringify(this.props.test)}
+			{JSON.stringify(this.props.testRoot)}
+			( redraws {this.redraws++} )
 		</div>
 	}
 }
@@ -104,13 +100,13 @@ class TestPropProp extends React.Component {
 class App extends React.Component {
 	render() {
 		
-		return <div className={ "app" } style={ {
+		return <div className={"app"} style={{
 			width : "100%",
 			height: "100%"
-		} }>
+		}}>
 			<TestProps/>
 			<TestState/>
-			<TestPropProp testProp={ "yeah" }/>
+			<TestPropProp testProp={"yeah"}/>
 		</div>
 	}
 }

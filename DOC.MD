@@ -39,12 +39,12 @@ class MyComp extends React.Component {
 export default MyComp;
 ```
 
-## connect
+## scopeToProps
 
 ```jsx harmony
 
 import React from "react";
-import {withScope, connect} from "rscopes";
+import {withScope, scopeToProps} from "rscopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 
@@ -54,7 +54,7 @@ import {CoffeeMachine, Brain} from "./stores/from/somewhere";
         CoffeeMachine
     }
 )
-@connect("CoffeeMachine") // connect any CoffeeMachine update in props.CoffeeMachine
+@scopeToProps("CoffeeMachine") // connect any CoffeeMachine update in props.CoffeeMachine
 class MyComp extends React.Component {
     render() {
         let {CoffeeMachine} = this.props;
@@ -88,7 +88,6 @@ import {scopeToProps} from "react-rescope";
 	"BrainMachine.sugarMetrics:brainSugarMetrics"
 ) 
 class MyComp extends React.Component {
-    // or static use = ["appState"];
     render() {
         let {CoffeeMachine, brainSugarMetrics} = this.props;
 
