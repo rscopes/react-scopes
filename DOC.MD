@@ -2,6 +2,8 @@
 
 ## Scopes & Stores in RS
 
+See [rescope](https://github.com/rscopes/rescope) for more infos
+
 ### Stores
 
 Stores Workflow

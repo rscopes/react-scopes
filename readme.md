@@ -24,108 +24,68 @@ Quickly said, RS allow linking, scoping, and sequencing of multiples redux-like,
 
 
 RS is semantically and operationally stable; it does the work and have a coherent semantic system. <br/>
-That said, it should be rewrote with simpler & faster methods. <br/>
+That said, it wasn't wrote with perf as priority, but trying to get better code scalability & more intuitive usability. <br/>
 
 ## What's it like?
 
 Here some conceptual basics :
 
-```jsx
+```jsx harmony
+import React    from "react";
+import {withScope, withStateMap, asStore, asScope, asRef, Store} from "rscopes";
 
-import {reScope, scopeToProps, propsToScope, withStateMap, asRef, asStore}    from "rscopes";
-
-@reScope(
+@withScope(
 	{
-		@asStore
-		AppState: {
-			someInitial: undefined,
-			filter     : undefined,
-			
-			doSomeGlobalMutation( filter ) {
-				return { filter };
-			}
-		}
+	    @asStore
+        CoffeeMachine:{
+            coffee:100,
+            sugar :100,
+            
+            // action
+            makeCoffee:()=>(state)=>({
+                coffee:state.coffee-1,
+                sugar :state.sugar-1,
+            })
+        },
+	    
+	    @asScope
+	    BrainScope:{
+	            @asStore
+        	    workMachine:{
+        	    	cafeine:0,
+        	    	work(){
+        	    		this.$actions.$parent.makeCoffee()
+        	    		return (state)=>({cafeine:state.cafeine+1});
+        	    	},
+        	    	// updating data basing the new state
+        	    	$apply(data, {cafeine}){
+        	    		return {
+        	    			canWork:cafeine>=2
+        	    		}
+        	    	}
+        	    },	
+	    },
+	    
+	    @asStore
+        Manager:{
+	    	@asRef
+            allOK:"BrainScope.workMachine.canWork",
+            $apply(data, {allOK}){
+                return {
+                    allOK
+                }
+            }
+        },
+	    
+        // add values & refs to existing store class
+		@withStateMap({ hello: "rScopes" })
+		test: Store
 	}
 )
-@scopeToProps("AppState")
-class App extends React.Component {
-	state = {};
-	
-	render() {
-		let {
-			    $actions, AppState:{filter}
-		    }     = this.props,
-		    state = this.state;
-		return (
-			<div className={ "App" }>
-			    {filter}
-				<Test id="someId"/>
-				<Test id="someId2"/>
-			</div>
-		);
-	}
-};
-
-@reScope(
-	{
-		@asStore
-		myQuery: { // having a dedicated "myQuery" store for every Test components
-			id: undefined,
-			$apply( data, state, changesInState ) {
-				
-				if ( changesInState.id ) // simplified
-					getSomeAsyncData(changesInState.id)
-						.then(data => this.push(data));
-				
-				return data;
-			}
-		},
-		
-		@asStore
-		myProcessedStuff: {
-			@asRef
-			items : "!myQuery.items", // "!" mean required; 
-			@asRef
-			filter: "AppState.filter", // bind from the parent "AppState.filter" to "filter"
-			
-			$apply( data, { items, filter } ) {
-				
-				return {
-					items: items.filter(item => !item.title.includes(filter))
-				};
-			},
-			
-			someLocalMutation( value ) { // actions are available in this component & it's childs
-				return { value2: value };
-			}
-		}
-	}
-)
-@propsToScope(
-	[
-		"id:myQuery.id"// bind props.id to local scope/store
-	])
-@scopeToProps("myProcessedStuff")
-class Test extends React.Component {
-	state = {};
-	
-	render() {
-		let {
-			    $actions, myProcessedStuff
-		    }     = this.props,
-		    state = this.state;
-		
-		// can trigger :     
-		// $actions.someLocalMutation(...)
-		// $actions.doSomeGlobalMutation(...)
-		
-		return (
-			<div className={ "Test" }>
-				{ myProcessedStuff && myProcessedStuff.items }
-			</div>
-		);
-	}
-};
+@scopeToProps("Manager")
+class TestProps extends React.Component {
+	//...
+}
 
 
 ```
