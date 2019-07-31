@@ -216,7 +216,7 @@ export default MyComp;
 ## scopeToProps
 
 Will bind values from the scope to the component props<br>
-Reference format : (($storeId|$scopeId)\.)+($pathKey)*(\:$alias)?
+Path can contain store id, scope id, & sub json property
 
 Ex : 
 - anotherStore.myValue 
@@ -299,7 +299,7 @@ Calling $actions will trigger the specified action on every stores accessible in
 
 ```jsx
 import React from "react";
-import {scopeToProps, Scope, Store} from "react-rescope";
+import {scopeToProps, Scope, Store} from "rscopes";
 
 let myScope = new Scope(
     {
