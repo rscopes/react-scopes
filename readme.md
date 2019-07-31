@@ -88,7 +88,7 @@ import {MyComplexStore}                                                         
 		
 		@asStore
 		Manager: {
-			// Connecting Manager will au instantiate any referenced store 
+			// Connecting Manager will auto instantiate any referenced store 
 			@asRef
 			allOK          : "BrainScope.workMachine.canWork",
 			@asRef
