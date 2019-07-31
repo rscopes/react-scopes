@@ -134,6 +134,58 @@ class MyComp extends React.Component {
 export default MyComp;
 ```
 
+@withScope will also work without inheriting & instantiating multiple scope instances
+
+```jsx harmony
+
+import React from "react";
+import {withScope, scopeToProps} from "rscopes";
+import {CoffeeMachine, Brain} from "./stores/from/somewhere";
+
+// Will associate this scope instance with any instance of MyComp
+// child element will inherit this same scope instance
+@withScope( 
+    new Scope(
+        {
+            appState: class appState extends Store{
+                static actions = {
+                    incAction(){
+                        return { someValues : this.state.someValues + 1 };
+                    }
+                };
+                state = {
+                    someValues : 0
+                };
+                apply(data, state, changesInDaState){
+                	// All stores can call this.wait() & this.release()
+                	// Quickly said, this.wait(optionalTokenForDebug) 
+                	// will make this store & parent scope "unstable"
+                	// so the store will not push it's result data to the listening stores
+                	// when this.release(optionalTokenForDebug) is called the result data of the store is propagated
+                	this.wait();
+                	doSomeStuff().then(data=>{
+                		// here the task can be canceled
+                		this.push(data)
+                		this.release();// will propag if number of wait() === number of release() calls
+                	})
+                	
+                	return state; // apply return the new state by default
+                }
+            }
+        }
+    )
+)
+@scopeToProps("appState") // connect any CoffeeMachine update in props.CoffeeMachine
+class MyComp extends React.Component {
+    render() {
+        let {appState} = this.props;
+        return <div>{ appState.someValues }</div>;
+    }
+};
+
+export default MyComp;
+```
+
 ## scopeToProps
 
 ```jsx harmony
@@ -242,6 +294,8 @@ The $actions object contain all the available actions as binded functions, it's 
 - in the instance object (this) for components using scopeToState
 
 Calling $actions will trigger the specified action on every stores accessible in the current scope.
+
+## Dispatching actions, mutations & calling stores functions
 
 ```jsx
 import React from "react";
