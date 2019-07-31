@@ -23,61 +23,83 @@ RS scopes are like stores that would compose their state & data basing on the sc
 ##### Using spells
 
 ```jsx harmony
-import React    from "react";
-import {withScope, withStateMap, asStore, asScope, asRef, Store} from "rscopes";
 
+import React                                                                          from "react";
+import {asRef, asScope, asStore, withScope, withStateMap, propsToScope, scopeToProps} from "rscopes";
+import {MyComplexStore}                                                               from "./from/somewhere";
+
+// withScope will instantiate a dedicated scope when using this React Component
+// it will inherit the scope & actions from the parents React Elements
 @withScope(
-	{
-	    @asStore
-        CoffeeMachine:{
-            coffee:100,
-            sugar :100,
+{
+    @asStore
+    CoffeeMachine: {
+        coffee: 100,
+        sugar : 100,
+        
+        // actions return state mutation & can be call with props.$actions.*
+        makeCoffee: () => ( state ) => ({
+            coffee: state.coffee - 1,
+            sugar : state.sugar - 1,
+        })
+    },
+    
+    // withStateMap hoc any Store to add values & refs to theirs state
+    @withStateMap({
+                      goFetchTaskIn: "developement"
+                  })
+    ThingsTodo: MyComplexStore,
+    
+    // Scope can contain sub scopes
+    @asScope
+    BrainScope: {
+        @asStore
+        workMachine: {
+            cafeine : 0,
+            workerId: undefined,
             
-            // action
-            makeCoffee:()=>(state)=>({
-                coffee:state.coffee-1,
-                sugar :state.sugar-1,
-            })
-        },
-	    
-	    @asScope
-	    BrainScope:{
-	            @asStore
-        	    workMachine:{
-        	    	cafeine:0,
-        	    	work(){
-        	    		this.$actions.$parent.makeCoffee()
-        	    		return (state)=>({cafeine:state.cafeine+1});
-        	    	},
-        	    	// updating data basing the new state
-        	    	$apply(data, {cafeine}){
-        	    		return {
-        	    			canWork:cafeine>=2
-        	    		}
-        	    	}
-        	    },	
-	    },
-	    
-	    @asStore
-        Manager:{
-	    	@asRef
-            allOK:"BrainScope.workMachine.canWork",
-            $apply(data, {allOK}){
+            // refs can targets any store value in the scope
+            // when starting with "!" the store will not apply until the targeted value is !== undefined
+            @asRef
+            subject: "!ThingsTodo.stuff",
+            work() {
+                this.$actions.$parent.makeCoffee()
+                
+                return ( state ) => ({ cafeine: state.cafeine + 1 });
+            },
+            // the $apply fn update data basing the new state
+            $apply( data, { cafeine }, changesInState ) {
                 return {
-                    allOK
+                    canWork: cafeine >= 2
                 }
             }
         },
-	    
-        // add values & refs to existing store class
-		@withStateMap({ hello: "rScopes" })
-		test: Store
-	}
+    },
+    
+    @asStore
+    Manager: {
+        @asRef
+        allOK          : "BrainScope.workMachine.canWork",
+        @asRef
+        shouldBuyCoffee: "BrainScope.workMachine.canWork",
+        $apply( data, { allOK } ) {
+            return {
+                allOK
+            }
+        }
+    },
+    
+}
 )
+// this will connect any changes of props.workerId to BrainScope.workMachine.workerId
+@propsToScope("workerId:BrainScope.workMachine.workerId")
+// this will bind the result data of Manager to props.Manager
+// * Store are recursively instantiated when referenced & are destroyed when listeners are removed
 @scopeToProps("Manager")
 class TestProps extends React.Component {
-	//...
+//...
 }
+              
 ```
 
 ##### Using class
