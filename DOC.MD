@@ -175,7 +175,7 @@ import {CoffeeMachine, Brain} from "./stores/from/somewhere";
         }
     )
 )
-@scopeToProps("appState") // connect any CoffeeMachine update in props.CoffeeMachine
+@scopeToProps("appState")
 class MyComp extends React.Component {
     render() {
         let {appState} = this.props;
