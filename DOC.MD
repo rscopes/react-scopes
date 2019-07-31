@@ -2,7 +2,7 @@
 
 ## Scopes & Stores in RS
 
-See [rescope](https://github.com/rscopes/rescope) for more infos
+
 
 ### Stores
 
@@ -14,9 +14,13 @@ Stores Workflow
 - The store is stabilized and (if there is new data) propagated
 - listening stores have theirs state updated and we go to step 1 until the whole scope is stable
 
+See [RS Stores](https://github.com/rscopes/rescope/blob/master/doc/Store.md) for more infos
+
 ### Scopes
 
 RS scopes are like stores that would compose their state & data basing on the scopes and stores they contain.
+
+See [RS Scopes](https://github.com/rscopes/rescope/blob/master/doc/Scope.md) for more infos
 
 #### Store & Scopes definition
 
@@ -101,7 +105,57 @@ class TestProps extends React.Component {
 
 ##### Using class
 
-See [rescope](https://github.com/rscopes/rescope)
+
+```jsx harmony
+
+import React from "react";
+import {withScope, scopeToProps} from "rscopes";
+import {CoffeeMachine, Brain} from "./stores/from/somewhere";
+
+@withScope( 
+        {
+            appState: class appState extends Store{
+                static actions = {
+                    incAction(){
+                        return { someValues : this.state.someValues + 1 };
+                    }
+                };
+                state = {
+                    someValues : 0
+                };
+                apply(data, state, changesInDaState){
+                	// All stores can call this.wait() & this.release()
+                	// Quickly said, this.wait(optionalTokenForDebug) 
+                	// will make this store & parent scope "unstable"
+                	// so the store will not push it's result data to the listening stores
+                	// when this.release(optionalTokenForDebug) is called the result data of the store is propagated
+                	this.wait();
+                	doSomeStuff().then(data=>{
+                		// here the task can be canceled
+                		this.push(data)
+                		this.release();// will propag if number of wait() === number of release() calls
+                	})
+                	
+                	return state; // apply return the new state by default
+                }
+                destroy(){
+                    super.destroy();
+                }
+            }
+        }
+)
+@scopeToProps("appState")
+class MyComp extends React.Component {
+    render() {
+        let {appState} = this.props;
+        return <div>{ appState.someValues }</div>;
+    }
+};
+
+export default MyComp;
+```
+
+See [RS Stores](https://github.com/rscopes/rescope/blob/master/doc/Store.md) for more infos
 
 ## React - RS decorators (spells)
 
