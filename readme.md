@@ -19,15 +19,21 @@
 
 ## rScopes What ?
 
-RS is a flexible state management system inspired by ReactJS methods.<br/>
-Quickly said, RS allow linking, scoping, and sequencing of multiples redux-like, async-able, stores while remaining in a serializable flux architecture.
+RS is an simple to use & flexible state management system inspired by ReactJS methods.<br/>
+Quickly said, RS allow linking, scoping, and sequencing multiples async-able stores while remaining in a serializable flux architecture.
 
+RS Stores look like "React components for data".<br>
+Basically, they render determined data according theirs current state & propagate these data to the listening stores state .<br>
+We can "decorate" them, bind data from other stores & mutate theirs states.     
+
+## Minimal doc [here](DOC.MD)
+
+## Samples [here](https://github.com/n8tz/rescope-samples)
+
+## Note
 
 RS is semantically and operationally stable; it does the work and have a coherent semantic system. <br/>
 That said, it wasn't wrote with perf or perfect code as priority, but to manage states & async problematics in a intuitive & modular way. <br/>
-
-
-## Minimal doc [here](DOC.MD)
 
 ## What's it like?
 
@@ -56,7 +62,12 @@ import {MyComplexStore}                                                         
 		
 		// withStateMap hoc any Store to add values & refs to theirs state
 		@withStateMap({
-			              goFetchTaskIn: "developement"
+                            // refs can targets any store value in the scope
+                            // when starting with "!" the store will not apply until the targeted value is !== undefined
+                            @asRef
+                            energy: "CoffeeMachine.coffee",
+                            
+			                goFetchTaskIn: "developement"
 		              })
 		ThingsTodo: MyComplexStore,
 		
@@ -73,12 +84,15 @@ import {MyComplexStore}                                                         
 				@asRef
 				subject: "!ThingsTodo.stuff",
 				work() {
-					this.$actions.$parent.makeCoffee()
 					
 					return ( state ) => ({ cafeine: state.cafeine + 1 });
 				},
 				// the $apply fn update data basing the new state
 				$apply( data, { cafeine }, changesInState ) {
+					
+					// if we do recursions $apply must return same data to stop 
+					this.$actions.$parent.makeCoffee()
+					
 					return {
 						canWork: cafeine >= 2
 					}
@@ -92,8 +106,15 @@ import {MyComplexStore}                                                         
 			@asRef
 			allOK          : "BrainScope.workMachine.canWork",
 			@asRef
-			shouldBuyCoffee: "CoffeeMachine.coffee",
-			$apply( data, { allOK } ) {
+			stillHaveCoffee: "CoffeeMachine.coffee",
+			$apply( data, { allOK, stillHaveCoffee } ) {
+				if (!allOK && !stillHaveCoffee)
+					{
+						this.wait()// stop propagating 
+						doBuyCoffee().then(
+							data => this.release()// now it should have coffee
+						)
+					}
 				return {
 					allOK
 				}
@@ -130,8 +151,5 @@ ReScope : [rescope](https://github.com/n8tz/rescope)<br>
 React HOCs, decorators & tools : [react-rescope](https://github.com/n8tz/react-rescope)<br>
 ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/n8tz/rescope-spells)<br>
 
-### Samples & bootstraps
-
-The examples and bootstrap will come gradually [here](https://github.com/n8tz/rescope-samples)
 
 <span class="badge-paypal"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWKR3TWQ2U2AC" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
