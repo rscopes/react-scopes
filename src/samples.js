@@ -26,7 +26,7 @@
 import React    from "react";
 import ReactDom from "react-dom";
 
-import {asStore, propsToScope, withScope, scopeToProps, scopeToState, Store, withStateMap} from "..";
+import {asStore, propsToScope, scopeToProps, scopeToState, Store, withScope, withStateMap} from "..";
 
 @withScope(
 	{
