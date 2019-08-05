@@ -1,4 +1,4 @@
-# rScopes
+# react-scopes
 
 ## Scopes & Stores in RS
 
@@ -109,7 +109,7 @@ class TestProps extends React.Component {
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "rscopes";
+import {withScope, scopeToProps} from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 @withScope( 
@@ -167,7 +167,7 @@ The scope instance will be injectable in any child inheriting the react context.
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "rscopes";
+import {withScope, scopeToProps} from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 
@@ -193,7 +193,7 @@ export default MyComp;
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "rscopes";
+import {withScope, scopeToProps} from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 // Will associate this scope instance with any instance of MyComp
@@ -245,7 +245,7 @@ export default MyComp;
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "rscopes";
+import {withScope, scopeToProps} from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 
@@ -353,7 +353,7 @@ Calling $actions will trigger the specified action on every stores accessible in
 
 ```jsx
 import React from "react";
-import {scopeToProps, Scope, Store} from "rscopes";
+import {scopeToProps, Scope, Store} from "react-scopes";
 
 let myScope = new Scope(
     {

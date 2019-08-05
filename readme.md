@@ -3,7 +3,7 @@
 
 <p align="center" style="font-size:25px"><b>
 
-# rScopes
+# react-scopes
 
 </b></p>
 <p align="center">Flexible State management system based on flux architecture, stores data components & inheritable scopes
@@ -17,7 +17,7 @@
 
 </p>
 
-## rScopes What ?
+## What's react-scopes ?
 
 RS is a simple to use & flexible state management system inspired by ReactJS methods.<br/>
 Quickly said, RS allow linking, scoping, and sequencing multiples async-able stores while remaining in a serializable flux architecture.
@@ -28,7 +28,7 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Minimal doc [here](DOC.MD)
 
-## Samples [here](https://github.com/n8tz/rescope-samples)
+## Samples [here](https://github.com/n8tz/react-scopes-samples)
 
 ## Note
 
@@ -41,7 +41,7 @@ Here some conceptual basics :
 
 ```jsx harmony
 import React                                                                          from "react";
-import {asRef, asScope, asStore, withScope, withStateMap, propsToScope, scopeToProps} from "rscopes";
+import {asRef, asScope, asStore, withScope, withStateMap, propsToScope, scopeToProps} from "react-scopes";
 import {MyComplexStore}                                                               from "./from/somewhere";
 
 // withScope will instantiate a dedicated scope when using this React Component
