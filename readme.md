@@ -30,11 +30,6 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Samples [here](https://github.com/rscopes/react-scopes-samples)
 
-## Note
-
-RS is semantically and operationally stable; it does the work and have a coherent semantic system. <br/>
-That said, it wasn't wrote with perf or perfect code as priority, but to manage states & async problematics in a intuitive & modular way. <br/>
-
 ## What's it like?
 
 Here some conceptual basics :
