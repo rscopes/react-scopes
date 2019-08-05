@@ -28,7 +28,7 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Minimal doc [here](DOC.MD)
 
-## Samples [here](https://github.com/n8tz/react-scopes-samples)
+## Samples [here](https://github.com/rscopes/react-scopes-samples)
 
 ## Note
 
@@ -147,9 +147,9 @@ This can be consumed by any transpiler that supports stage-0 of the decorators s
 
 rScopes link the following packages :<br>
 
-ReScope : [rescope](https://github.com/n8tz/rescope)<br>
-React HOCs, decorators & tools : [react-rescope](https://github.com/n8tz/react-rescope)<br>
-ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/n8tz/rescope-spells)<br>
+ReScope : [rescope](https://github.com/rscopes/rescope)<br>
+React HOCs, decorators & tools : [react-rescope](https://github.com/rscopes/react-rescope)<br>
+ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/rscopes/rescope-spells)<br>
 
 
 <span class="badge-paypal"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWKR3TWQ2U2AC" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
