@@ -2,8 +2,6 @@
 
 ## Scopes & Stores in RS
 
-
-
 ### Stores
 
 Stores Workflow
@@ -27,6 +25,10 @@ See [RS Scopes](https://github.com/rscopes/rescope/blob/master/doc/Scope.md) for
 ##### Using spells
 
 ```jsx harmony
+
+import React                                                                          from "react";
+import {asRef, asScope, asStore, withScope, withStateMap, propsToScope, scopeToProps} from "react-scopes";
+import {MyComplexStore}                                                               from "./from/somewhere";
 
 // withScope will instantiate a dedicated scope when using this React Component
 // it will inherit the scope & actions from the parents React Elements
