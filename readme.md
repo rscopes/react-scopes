@@ -30,6 +30,13 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Samples [here](https://github.com/rscopes/react-scopes-samples)
 
+## Concepts
+ 
+## Stores 
+## Scopes 
+
+
+
 ## What's it like?
 
 Here some conceptual basics :
