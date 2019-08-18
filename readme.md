@@ -10,7 +10,7 @@
 </p>
 
 <p align="center"><a href="https://travis-ci.org/n8tz/rescope">
-<img src="https://travis-ci.org/n8tz/rescope.svg?branch=master" alt="Build Status" /></a>
+<img src="https://travis-ci.org/rscopes/rescope.svg?branch=master" alt="Build Status" /></a>
 <a href="https://www.npmjs.com/package/react-scopes">
 <img src="https://img.shields.io/npm/v/react-scopes.svg" /></a>
 <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" />
