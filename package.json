@@ -8,6 +8,7 @@
   "author": "Nathan Braun <n8tz.js@gmail.com>",
   "scripts": {
     "build": "wpi && wpi :samples",
+    "staging": "wi :staging -w",
     "dev": "wpi-dev-server :samples --hot",
     "runBrowser": "start http://localhost:8080"
   },
