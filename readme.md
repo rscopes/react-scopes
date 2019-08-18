@@ -30,6 +30,13 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Samples [here](https://github.com/rscopes/react-scopes-samples)
 
+## Note
+
+RS wasn't wrote trying to be the faster/cleaner system, but trying to :
+- Allow complex components to work independently
+- Easily define & reuse async data process 
+- Make async SSR
+- etc
 
 ## What's it like?
 
