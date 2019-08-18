@@ -1,6 +1,6 @@
 {
   "name": "react-scopes",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Intuitive, modulable & flexible state management system powered by reactive data components, multi-stores, scopes logic & flux architecture",
   "repository": "https://github.com/rscopes/react-scopes.git",
   "license": "MIT",

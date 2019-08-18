@@ -32,13 +32,16 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Note
 
-RS wasn't wrote trying to be the faster/cleaner system, but trying to :
+RS seems semantically & functionally stable & free of memory leaks. 
+That's said it was not written trying to be the faster/cleaner system, but trying to :
 - Have better scalability ( by making complex components independent )
 - Easily define & reuse async data process 
 - Make async SSR
+- Avoid using tons of independents libs to manage the app state
+- Easily manage async
 - etc
 
-## Fast way concepts
+## Conceptual sample :
 
 ```jsx harmony
 import React                                                                          from "react";
@@ -94,7 +97,7 @@ import {MyComplexStore}                                                         
 				// the $apply fn update data basing the new state
 				$apply( data, { cafeine }, changesInState ) {
 					
-					// if we do recursions $apply must return same data to stop 
+					// recursions work: $apply must return same data to stop 
 					this.$actions.$parent.makeCoffee()
 					
 					return {
