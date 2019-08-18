@@ -33,4 +33,6 @@ $RECYCLE.BIN/
 /src/
 /dist.samples
 /assets
-.wi.json
+.wi.js
+/etc
+/samples
