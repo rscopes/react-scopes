@@ -124,6 +124,7 @@ class App extends React.Component {
 }
 
 function renderSamples() {
+	document.body.innerHTML = '<div id="app"></div>';
 	ReactDom.render(
 		<App/>
 		, document.getElementById('app'));

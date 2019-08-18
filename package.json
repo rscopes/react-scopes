@@ -6,44 +6,6 @@
   "license": "MIT",
   "main": "dist/react-scopes.js",
   "author": "Nathan Braun <n8tz.js@gmail.com>",
-  "wpInherit": {
-    "default": {
-      "rootFolder": "src",
-      "basedOn": "Component",
-      "vars": {
-        "rootAlias": "react-scopes",
-        "externals": true,
-        "production": true,
-        "webpackPatch": {}
-      },
-      "extend": [
-        "wpi-react-hmr-ssr"
-      ]
-    },
-    "staging": {
-      "rootFolder": "src",
-      "basedOn": "Component",
-      "vars": {
-        "rootAlias": "react-scopes",
-        "externals": true,
-        "webpackPatch": {}
-      },
-      "extend": [
-        "wpi-react-hmr-ssr"
-      ]
-    },
-    "samples": {
-      "rootFolder": "src",
-      "basedOn": "ComponentSamples",
-      "vars": {
-        "rootAlias": "react-scopes",
-        "webpackPatch": {}
-      },
-      "extend": [
-        "wpi-react-hmr-ssr"
-      ]
-    }
-  },
   "scripts": {
     "build": "wpi && wpi :samples",
     "dev": "wpi-dev-server :samples --hot",
@@ -60,7 +22,7 @@
     "rescope-spells": "^16.0.4"
   },
   "devDependencies": {
-    "wpi-react-hmr-ssr": "^1.1.17",
-    "webpack-inherit": "^1.6.7"
+    "wi-layer-react-express": "^1.1.3",
+    "webpack-inherit": "^1.8.0"
   }
 }
