@@ -33,30 +33,30 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 ## Note
 
 RS wasn't wrote trying to be the faster/cleaner system, but trying to :
-- Allow complex components to work independently
+- Have better scalability ( by making complex components independent )
 - Easily define & reuse async data process 
 - Make async SSR
 - etc
 
-## What's it like?
-
-Here some conceptual basics :
+## Fast way concepts
 
 ```jsx harmony
 import React                                                                          from "react";
 import {asRef, asScope, asStore, withScope, withStateMap, propsToScope, scopeToProps} from "react-scopes";
 import {MyComplexStore}                                                               from "./from/somewhere";
 
-// withScope will instantiate a dedicated scope when using this React Component
+// withScope will associate a scope with each instance of this React Component
 // it will inherit the scope & actions from the parents React Elements
 @withScope(
 	{
 		@asStore
 		CoffeeMachine: {
+			// all values here except functions are used as initial store value  
 			coffee: 100,
 			sugar : 100,
 			
-			// actions return state mutation & can be call with props.$actions.*
+			// functions are registered as actions,
+			// Actions return state mutation & can be call with props.$actions.*
 			makeCoffee: () => ( state ) => ({
 				coffee: state.coffee - 1,
 				sugar : state.sugar - 1,
@@ -64,6 +64,7 @@ import {MyComplexStore}                                                         
 		},
 		
 		// withStateMap hoc any Store to add values & refs to theirs state
+		// this allow Store to be easily reused
 		@withStateMap({
                             // refs can targets any store value in the scope
                             // when starting with "!" the store will not apply until the targeted value is !== undefined
