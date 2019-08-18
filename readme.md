@@ -151,7 +151,6 @@ This can be consumed by any transpiler that supports stage-0 of the decorators s
 rScopes link the following packages :<br>
 
 ReScope : [rescope](https://github.com/rscopes/rescope)<br>
-React HOCs, decorators & tools : [react-rescope](https://github.com/rscopes/react-rescope)<br>
 ReScope HOCs, decorators & tools : [rescope-spells](https://github.com/rscopes/rescope-spells)<br>
 
 
