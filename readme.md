@@ -32,7 +32,7 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Note
 
-RS seems semantically & functionally stable & free of memory leaks. 
+RS seems semantically & functionally stable. <br/>
 That's said it was not written trying to be the faster/cleaner system, but trying to :
 - Have better scalability ( by making complex components independent )
 - Easily define & reuse async data process 
