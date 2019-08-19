@@ -30,19 +30,6 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 
 ## Samples [here](https://github.com/rscopes/react-scopes-samples)
 
-## Note
-
-RS seems semantically & functionally stable. <br/>
-Also it's should be free of memory leaks.<br/>
-<br/>
-RS was not written trying to be the faster/cleaner system, but trying to :
-- Have better scalability ( by making complex components independent )
-- Easily define & reuse async data process 
-- Make async SSR
-- Avoid using tons of independents libs to manage the app state
-- Easily manage async
-- etc
-
 ## Conceptual sample :
 
 ```jsx harmony
@@ -142,6 +129,19 @@ class TestProps extends React.Component {
 }
 
 ```
+
+## Notes
+
+RS seems semantically & functionally stable. <br/>
+Also it's should be free of memory leaks.<br/>
+<br/>
+That's said RS was not written trying to be the faster/cleaner system one shot, but trying to :
+- Have better scalability ( by making complex components independent )
+- Easily define & reuse async data process 
+- Make async SSR
+- Avoid using tons of independents libs to manage the app state
+- Easily manage async
+- etc
 
 ### About decorators
 
