@@ -405,11 +405,12 @@ function propsToScope( ...argz ) {
 		};
 		static displayName      = classIcons.fromProps + compName;
 		
-		componentWillMount() {
-			this.componentWillUpdate(this.props)
+		shouldComponentUpdate( nextProps, nextState, nextContext ) {
+			return shallowCompare(nextProps, this.props);// todo: why the fuck it's required ?
 		}
 		
-		componentWillUpdate( props ) {
+		render() {
+			let props = this.props;
 			refList.forEach(
 				( ref ) => {
 					if ( walknGet(props, ref.pathFrom) !== walknGet(props.$scope.state, ref.pathTo) )
@@ -420,20 +421,8 @@ function propsToScope( ...argz ) {
 						)
 				}
 			)
-		}
-		
-		//
-		shouldComponentUpdate( nextProps, nextState, nextContext ) {
-			return shallowCompare(nextProps, this.props);// todo: why the fuck it's required ?
-		}
-		
-		//static getDerivedStateFromProps( props, state ) {
-		//	return null;
-		//}
-		
-		render() {
-			return <BaseComponent {...this.props}
-			                      ref={this.props.forwardedRef}/>
+			return <BaseComponent {...props}
+			                      ref={props.forwardedRef}/>
 		}
 	}
 	
