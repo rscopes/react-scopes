@@ -143,6 +143,8 @@ That's said RS was not written trying to be the faster/cleaner system one shot, 
 - Easily serialize & restore full or partial app state
 - etc
 
+It should be rewritten completely using a more functional approach ( as rs is made probono it will not )
+
 ### About decorators
 
 ( well, like code-decorators )
