@@ -23,23 +23,21 @@
  *   @author : Nathanael Braun
  *   @contact : n8tz.js@gmail.com
  */
-import React    from "react";
-import ReactDom from "react-dom";
+import React              from "react";
+import ReactDom           from "react-dom";
+import RS, {withStateMap} from "..";
 
-import {asStore, propsToScope, scopeToProps, scopeToState, Store, withScope, withStateMap} from "..";
-
-@withScope(
+@RS(
 	{
-		@withStateMap({ hello: "rScope" })
-		test: Store
+		@RS.withStateMap({ hello: "rScope" })
+		test: RS.Store
 	}
 )
-@scopeToProps("testRoot", "test")
+@RS.toProps("testRoot", "test")
 class TestProps extends React.Component {
 	redraws = 0;
 	
 	render() {
-		
 		return <div className={"test"} style={{}}>
 			{JSON.stringify(this.props.test)}
 			{JSON.stringify(this.props.testRoot)}
@@ -48,14 +46,14 @@ class TestProps extends React.Component {
 	}
 }
 
-@withScope(
+@RS(
 	{
 		
-		@asStore
+		@RS.store
 		test: { hello: "rScope to state" }
 	}
 )
-@scopeToState("testRoot", "test")
+@RS.toState("testRoot", "test")
 class TestState extends React.Component {
 	redraws = 0;
 	
@@ -69,14 +67,14 @@ class TestState extends React.Component {
 	}
 }
 
-@withScope(
+@RS(
 	{
-		@asStore
+		@RS.store
 		test: { hello: "propsToScope" }
 	}
 )
-@propsToScope("testProp:test.myProp")
-@scopeToProps("testRoot", "test")
+@RS.fromProps("testProp:test.myProp")
+@RS.toProps("testRoot", "test")
 class TestPropProp extends React.Component {
 	redraws = 0;
 	
@@ -90,9 +88,9 @@ class TestPropProp extends React.Component {
 	}
 }
 
-@withScope(
+@RS(
 	{
-		@asStore
+		@RS.store
 		testRoot: {
 			root: "rScope",
 			now : 0,

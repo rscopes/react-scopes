@@ -25,17 +25,8 @@
  */
 
 export *           from "rescope";
-export *           from "rescope-spells";
 export *           from "./ReactHocs";
 
-import RS      from "rescope";
-import _spells from "rescope-spells";
-import RRS     from "./ReactHocs";
+import RS from "./ReactHocs";
 
-const def = {
-	...RRS,
-	...RS,
-	..._spells
-};
-
-export default def;
+export default RS;

@@ -26,13 +26,13 @@ See [RS Scopes](https://github.com/rscopes/rescope/blob/master/doc/Scope.md) for
 
 ```jsx harmony
 
-import React                                                                          from "react";
-import {asRef, asScope, asStore, withScope, withStateMap, propsToScope, scopeToProps} from "react-scopes";
-import {MyComplexStore}                                                               from "./from/somewhere";
+import React                                       from "react";
+import RS, {asRef, asScope, asStore, withStateMap} from "react-scopes";
+import {MyComplexStore}                            from "./from/somewhere";
 
 // withScope will instantiate a dedicated scope when using this React Component
 // it will inherit the scope & actions from the parents React Elements
-@withScope(
+@RS(
 	{
 		@asStore
 		CoffeeMachine: {
@@ -95,10 +95,10 @@ import {MyComplexStore}                                                         
 	}
 )
 // this will connect any changes of props.workerId to BrainScope.workMachine.workerId
-@propsToScope("workerId:BrainScope.workMachine.workerId")
+@RS.fromProps("workerId:BrainScope.workMachine.workerId")
 // this will bind the result data of Manager to props.Manager
 // * Store are recursively instantiated when referenced & are destroyed when listeners are removed
-@scopeToProps("Manager")
+@RS.toProps("Manager")
 class TestProps extends React.Component {
 	//...
 }
@@ -111,15 +111,14 @@ class TestProps extends React.Component {
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "react-scopes";
+import RS from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
-@withScope( 
+@RS(
         {
-            appState: class appState extends Store{
+            appState: class appState extends RS.Store{
                 static actions = {
-                    incAction(){
-                        return { someValues : this.state.someValues + 1 };
+                    incAction:()=>(state)=>({ someValues : state.someValues + 1 })
                     }
                 };
                 state = {
@@ -146,7 +145,7 @@ import {CoffeeMachine, Brain} from "./stores/from/somewhere";
             }
         }
 )
-@scopeToProps("appState")
+@RS.toProps("appState")
 class MyComp extends React.Component {
     render() {
         let {appState} = this.props;
@@ -161,25 +160,25 @@ See [RS Stores](https://github.com/rscopes/rescope/blob/master/doc/Store.md) for
 
 ## React - RS decorators (spells)
 
-### withScope
+### RS ( aliases : withScope, reScope )
 
-The @withScope decorator will instantiate & associate the given scope with each instance of MyComp.<br/>
-The scope instance will be injectable in any child inheriting the react context.   
+The @RS decorator will instantiate & associate a scope with each instance of MyComp.<br/>
+This scope will inherit the scopes from the parents components & will be accessible by any child inheriting the react context.
 
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "react-scopes";
+import RS from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 
-@withScope( // Will create & associate this scope with any instance of MyComp
+@RS( // Will create & associate this scope with any instance of MyComp
     {
         Brain,
         CoffeeMachine
     }
 )
-@scopeToProps("CoffeeMachine") // connect any CoffeeMachine update in props.CoffeeMachine
+@RS.connect("CoffeeMachine") // connect any CoffeeMachine update in props.CoffeeMachine
 class MyComp extends React.Component {
     render() {
         let {CoffeeMachine} = this.props;
@@ -190,17 +189,18 @@ class MyComp extends React.Component {
 export default MyComp;
 ```
 
-@withScope will also work without inheriting & instantiating multiple scope instances
+@RS will also work without inheriting & instantiating multiple scope instances<br/>
+If an instanciated scope is passed as parameter, all this Component instances will share the same scope
 
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "react-scopes";
+import RS from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 // Will associate this scope instance with any instance of MyComp
 // child element will inherit this same scope instance
-@withScope( 
+@RS(
     new Scope(
         {
             appState: class appState extends Store{
@@ -231,7 +231,7 @@ import {CoffeeMachine, Brain} from "./stores/from/somewhere";
         }
     )
 )
-@scopeToProps("appState")
+@RS.connect("appState")
 class MyComp extends React.Component {
     render() {
         let {appState} = this.props;
@@ -242,22 +242,29 @@ class MyComp extends React.Component {
 export default MyComp;
 ```
 
-## scopeToProps
+## RS.connect, RS.toProps & scopeToProps
+
+Will bind values from the scope to the component props<br>
+Path can contain store id, scope id, & sub json property
+
+Ex :
+- anotherStore.myValue
+- mySubScope.myStore:myAlias
 
 ```jsx harmony
 
 import React from "react";
-import {withScope, scopeToProps} from "react-scopes";
+import RS from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
 
-@withScope( // Will create & associate this scope with any instance of MyComp
+@RS( // Will create & associate this scope with any instance of MyComp
     {
         Brain,
         CoffeeMachine
     }
 )
-@scopeToProps("CoffeeMachine") // connect any CoffeeMachine update in props.CoffeeMachine
+@RS.connect("CoffeeMachine") // connect any CoffeeMachine update in props.CoffeeMachine
 class MyComp extends React.Component {
     render() {
         let {CoffeeMachine} = this.props;
@@ -268,23 +275,12 @@ class MyComp extends React.Component {
 export default MyComp;
 ```
 
-
-## scopeToProps
-
-Will bind values from the scope to the component props<br>
-Path can contain store id, scope id, & sub json property
-
-Ex : 
-- anotherStore.myValue 
-- mySubScope.myStore:myAlias
-
 ```jsx harmony
 
 import React from "react";
-import {scopeToProps} from "react-rescope";
+import RS from "react-rescope";
 
-
-@scopeToProps( 
+@RS.connect(
 	// bind all CoffeeMachine data update to this.props.CoffeeMachine
 	"CoffeeMachine", 
 	// bind the BrainMachine.sugarMetrics values to this.props.brainSugarMetrics 
@@ -310,15 +306,15 @@ class MyComp extends React.Component {
 export default MyComp;
 ```
 
-### scopeToState
+### RS.toState, scopeToState
 
 Will bind values from the scope to the component state
 
 ```jsx harmony
 import React from "react";
-import {scopeToState} from "react-rescope";
+import RS from "react-rescope";
 
-@scopeToState("appState", "appState.someSubValue:asAnyAlias")
+@RS.toState("appState", "appState.someSubValue:asAnyAlias")
 class MyComp extends React.Component {
     render() {
         let {appState, asAnyAlias} = this.state,
@@ -355,7 +351,7 @@ Calling $actions will trigger the specified action on every stores accessible in
 
 ```jsx
 import React from "react";
-import {scopeToProps, Scope, Store} from "react-scopes";
+import RS, {Scope, Store} from "react-scopes";
 
 let myScope = new Scope(
     {
@@ -372,7 +368,7 @@ let myScope = new Scope(
     }
 )
 
-@scopeToProps(myScope, ["appState"]) // inheriting the scope
+@RS.toProps(myScope, ["appState"]) // inheriting the scope
 class MyComp extends React.Component {
     render() {
         let {appState, $stores, $actions} = this.props;
@@ -383,7 +379,6 @@ class MyComp extends React.Component {
                 {
                     appState.someValues
                 }
-
             </div>
         );
     }

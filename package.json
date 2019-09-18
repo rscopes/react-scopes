@@ -1,6 +1,6 @@
 {
   "name": "react-scopes",
-  "version": "1.0.10",
+  "version": "1.0.13",
   "description": "Intuitive, modulable & flexible state management system powered by reactive data components, multi-stores, scopes logic & flux architecture",
   "repository": "https://github.com/rscopes/react-scopes.git",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "rescope-spells": "^16.0.4"
   },
   "devDependencies": {
-    "wi-layer-react-express": "^1.1.3",
-    "webpack-inherit": "^1.8.0"
+    "wi-layer-react-express": "^1.1.11",
+    "webpack-inherit": "^1.8.6"
   }
 }

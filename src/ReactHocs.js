@@ -27,6 +27,7 @@
 import is                     from 'is'
 import React, {createContext} from "react";
 import {Scope, Store}         from "rescope";
+import spells                 from "rescope-spells";
 
 const SimpleObjectProto = ({}).constructor;
 
@@ -521,18 +522,46 @@ function propsToStore( ...argz ) {
 }
 
 reScope.withScope    = reScope;
+reScope.toState      = scopeToState;
 reScope.scopeToState = scopeToState;
 reScope.scopeToProps = scopeToProps;
+reScope.toProps      = scopeToProps;
+reScope.connect      = scopeToProps;
 reScope.propsToScope = propsToScope;
+reScope.fromProps    = propsToScope;
 reScope.propsToStore = propsToStore;
+reScope.Store        = Store;
+reScope.Scope        = Scope;
+
+const { asStore, asScope, asRef, withStateMap } = spells;
+
+reScope.store        = asStore;
+reScope.scope        = asScope;
+reScope.ref          = asRef;
+reScope.asStore      = asStore;
+reScope.asScope      = asScope;
+reScope.asRef        = asRef;
+reScope.withStateMap = withStateMap;
 
 export {
 	reScope as default,
+	reScope as RS,
 	reScope,
 	reScope as withScope,
 	scopeToState,
+	scopeToState as toState,
 	scopeToProps,
+	scopeToProps as toProps,
+	scopeToProps as connect,
 	propsToScope,
+	propsToScope as fromProps,
 	propsToStore,
-	
+	Store, Scope,
+	asStore,
+	asScope,
+	asRef,
+	withStateMap,
+	asStore as store,
+	asScope as scope,
+	asRef as ref
 };

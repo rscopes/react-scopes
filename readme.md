@@ -33,13 +33,13 @@ We can "decorate" them, bind data from other stores & mutate theirs states.
 ## Conceptual sample :
 
 ```jsx harmony
-import React                                                                          from "react";
-import {asRef, asScope, asStore, withScope, withStateMap, propsToScope, scopeToProps} from "react-scopes";
-import {MyComplexStore}                                                               from "./from/somewhere";
+import React                                      from "react";
+import RS,{asRef, asScope, asStore, withStateMap} from "react-scopes";
+import {MyComplexStore}                           from "./from/somewhere";
 
 // withScope will associate a scope with each instance of this React Component
 // it will inherit the scope & actions from the parents React Elements
-@withScope(
+@RS(
 	{
 		@asStore
 		CoffeeMachine: {
@@ -120,10 +120,10 @@ import {MyComplexStore}                                                         
 	}
 )
 // this will connect any changes of props.workerId to BrainScope.workMachine.workerId
-@propsToScope("workerId:BrainScope.workMachine.workerId")
+@RS.fromProps("workerId:BrainScope.workMachine.workerId")
 // this will bind the result data of Manager to props.Manager
 // * Store are recursively instantiated when referenced & are destroyed when listeners are removed
-@scopeToProps("Manager")
+@RS.connect("Manager")
 class TestProps extends React.Component {
 	//...
 }
@@ -135,12 +135,12 @@ class TestProps extends React.Component {
 RS seems semantically & functionally stable. <br/>
 Also it's should be free of memory leaks.<br/>
 <br/>
-That's said RS was not written trying to be the faster/cleaner system one shot, but trying to :
+That's said RS was not written trying to be the faster/cleaner system one shot, but to :
 - Have better scalability ( by making complex components independent )
 - Easily define & reuse async data process 
 - Make async SSR
 - Avoid using tons of independents libs to manage the app state
-- Easily manage async
+- Easily serialize & restore full or partial app state
 - etc
 
 ### About decorators
