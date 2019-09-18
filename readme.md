@@ -37,7 +37,7 @@ import React                                      from "react";
 import RS,{asRef, asScope, asStore, withStateMap} from "react-scopes";
 import {MyComplexStore}                           from "./from/somewhere";
 
-// withScope will associate a scope with each instance of this React Component
+// RS will instantiate a scope with each instance of this React Component
 // it will inherit the scope & actions from the parents React Elements
 @RS(
 	{
