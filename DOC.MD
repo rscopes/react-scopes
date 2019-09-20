@@ -4,13 +4,14 @@
 
 ### Stores
 
-Stores Workflow
-
-- A Store have it's state updated ( props or action has pushed state mutation, a source store had its data updated )
-- If this state have the required & followed value
-- The apply function push new data in an async or sync way
-- The store is stabilized and (if there is new data) propagated
-- listening stores have theirs state updated and we go to step 1 until the whole scope is stable
+Stores can be seen as a memoizer network, here theirs workflow :
+        
+ 1. A Store have it's state updated *(action, source store or props has pushed a state mutation)*<br/>
+*do nothing until its state have the required & followed value*
+ 2. It generate predictable result data basing the new state<br/> 
+*by default the state itself, or by calling the apply function to update the data in an async or sync way*
+ 3. The resulting changes are pushed to the listening stores state<br/>
+  *and we go to step 1 until the whole scope is stable*
 
 See [RS Stores](https://github.com/rscopes/rescope/blob/master/doc/Store.md) for more infos
 
