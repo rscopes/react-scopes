@@ -16,18 +16,18 @@ See [RS Stores](https://github.com/rscopes/rescope/blob/master/doc/Store.md) for
 
 ### Scopes
 
-At first, scopes are like stores that would compose their state & data basing on the scopes and stores they contain.<br/>
+At first, scopes are like stores that would compose their state & data basing on the active stores they contain.<br/>
 But Scopes were made for flexibility so they have 3 "scalability dimensions" :
 
-- They can contain stores & hierarchical scopes
-- They can "inherit" them from a parent scope ( in the js prototypes way )
-- And they can have "mixin" scopes
+- They can contain hierarchically named scopes
+- They can have parent scope ( in the js prototypes way )
+- And they can have "mixed" scopes
 
 See [RS Scopes](https://github.com/rscopes/rescope/blob/master/doc/Scope.md) for more infos
 
 #### Store & Scopes definition
 
-##### Using spells
+##### Using spells / decorators
 
 ```jsx harmony
 
