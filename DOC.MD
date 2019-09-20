@@ -16,7 +16,12 @@ See [RS Stores](https://github.com/rscopes/rescope/blob/master/doc/Store.md) for
 
 ### Scopes
 
-RS scopes are like stores that would compose their state & data basing on the scopes and stores they contain.
+At first, scopes are like stores that would compose their state & data basing on the scopes and stores they contain.<br/>
+But Scopes were made for flexibility so they have 3 "scalability dimensions" :
+
+- They can contain stores & hierarchical scopes
+- They can "inherit" them from a parent scope ( in the js prototypes way )
+- And they can have "mixin" scopes
 
 See [RS Scopes](https://github.com/rscopes/rescope/blob/master/doc/Scope.md) for more infos
 
