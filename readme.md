@@ -24,7 +24,6 @@ Quickly said, RS allow linking, scoping, and sequencing multiples async-able sto
 
 RS Stores look like "React components for data".<br>
 Basically, they render determined data according theirs current state & propagate these data to the listening stores state .<br>
-We can "decorate" them, bind data from other stores & mutate theirs states.     
 
 ## Minimal doc [here](DOC.MD)
 
