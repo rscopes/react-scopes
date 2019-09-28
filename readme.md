@@ -25,6 +25,15 @@ Quickly said, RS allow linking, scoping, and sequencing multiples async-able sto
 RS Stores look like "React components for data".<br>
 Basically, they render determined data according theirs current state & propagate these data to the listening stores state .<br>
 
+## Scopes ?
+
+At first, scopes are like stores that would compose their state & data basing on the active stores they contain.<br/>
+But they were made for flexibility so they have 3 "scalability dimensions" :
+
+- They can contain hierarchically named scopes
+- They can have parent scope ( in the js prototypes way )
+- And they can have "mixed" scopes
+
 ## Minimal doc [here](DOC.MD)
 
 ## Samples [here](https://github.com/rscopes/react-scopes-samples)
@@ -142,7 +151,7 @@ That's said RS was not written trying to be the faster/cleaner system one shot, 
 - Easily serialize & restore full or partial app state
 - etc
 
-It should be rewritten completely using a more functional approach ( as rs is made probono it will not )
+RS should be rewritten completely using a more functional approach ( but as react hook+context are close to make the job & RS is made probono it will not )
 
 ### About decorators
 

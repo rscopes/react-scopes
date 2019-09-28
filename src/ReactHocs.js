@@ -78,7 +78,7 @@ function parseRef( _ref ) {
 }
 
 function isReactRenderable( obj ) {
-	return obj.prototype instanceof React.Component || obj === React.Component || obj.$$typeof;
+	return obj.prototype instanceof React.Component || obj === React.Component || obj.$$typeof || is.fn(obj);
 }
 
 function shallowCompare( partialState, state ) {
@@ -101,7 +101,7 @@ function shallowCompare( partialState, state ) {
  */
 function scopeToProps( ...argz ) {
 	let BaseComponent = (!argz[0] || (isReactRenderable(argz[0]))) && argz.shift(),
-	    scope         = (!argz[0] || Scope.isScope(argz[0]) || is.fn(argz[0])) && argz.shift(),
+	    scope         = (!argz[0] || Scope.isScope(argz[0])) && argz.shift(),
 	    use           = (!argz[0] || is.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
 	
 	if ( !use ) {
@@ -161,7 +161,7 @@ function scopeToProps( ...argz ) {
  */
 function scopeToState( ...argz ) {
 	let BaseComponent = (!argz[0] || isReactRenderable(argz[0])) && argz.shift(),
-	    scope         = (!argz[0] || Scope.isScope(argz[0]) || is.fn(argz[0])) && argz.shift(),
+	    scope         = (!argz[0] || Scope.isScope(argz[0])) && argz.shift(),
 	    use           = (is.array(argz[0])) && argz.shift(),
 	    stateMap      = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
 	    initialState  = {};
@@ -292,7 +292,7 @@ function scopeToState( ...argz ) {
  */
 function reScope( ...argz ) {
 	let BaseComponent = (!argz[0] || isReactRenderable(argz[0])) && argz.shift(),
-	    scope         = (!argz[0] || Scope.isScope(argz[0]) || is.fn(argz[0])) && argz.shift(),
+	    scope         = (!argz[0] || Scope.isScope(argz[0])) && argz.shift(),
 	    scoped        = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(Scope.isScope(argz[0]))) && argz.shift(),
 	    scopeCfg      = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {};
 	
@@ -301,7 +301,6 @@ function reScope( ...argz ) {
 			return reScope(BaseComponent, scope, scoped, scopeCfg)
 		}
 	}
-	
 	
 	let compName = BaseComponent.displayName || BaseComponent.name;
 	

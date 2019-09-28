@@ -168,6 +168,8 @@ See [RS Stores](https://github.com/rscopes/rescope/blob/master/doc/Store.md) for
 
 ### RS ( aliases : withScope, reScope )
 
+#### Using dedicated scope ( 1 scope instance by component instance )
+
 The @RS decorator will instantiate & associate a scope with each instance of MyComp.<br/>
 This scope will inherit the scopes from the parents components & will be accessible by any child inheriting the react context.
 
@@ -194,8 +196,8 @@ class MyComp extends React.Component {
 
 export default MyComp;
 ```
+#### Using static shared scope 
 
-@RS will also work without inheriting & instantiating multiple scope instances<br/>
 If an instanciated scope is passed as parameter, all this Component instances will share the same scope
 
 ```jsx harmony
@@ -204,9 +206,7 @@ import React from "react";
 import RS from "react-scopes";
 import {CoffeeMachine, Brain} from "./stores/from/somewhere";
 
-// Will associate this scope instance with any instance of MyComp
-// child element will inherit this same scope instance
-@RS(
+const MyStaticScope = 
     new Scope(
         {
             appState: class appState extends Store{
@@ -236,8 +236,11 @@ import {CoffeeMachine, Brain} from "./stores/from/somewhere";
             }
         }
     )
-)
-@RS.connect("appState")
+
+// Will associate this scope instance with any instance of MyComp
+// child element will inherit this same scope instance
+@RS(MyStaticScope)
+@RS.connect("appState") // or directly @RS.connect(MyStaticScope, "appState") 
 class MyComp extends React.Component {
     render() {
         let {appState} = this.props;
