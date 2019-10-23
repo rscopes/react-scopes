@@ -421,20 +421,20 @@ function propsToScope( ...argz ) {
 		
 		render() {
 			let props = this.props;
+			refList.forEach(
+				( ref ) => {
+					if ( walknGet(props, ref.pathFrom) !== walknGet(props.$scope.state, ref.pathTo) )
+						props.$scope.state[ref.pathTo[0]] = walknSet(
+							{},
+							ref.pathTo.slice(1),
+							walknGet(props, ref.pathFrom)
+						)
+				}
+			);
 			if ( !this._firstRender ) {
 				this._firstRender = true;
 				props.$scope.release("Comp init");
-			}else
-				refList.forEach(
-					( ref ) => {
-						if ( walknGet(props, ref.pathFrom) !== walknGet(props.$scope.state, ref.pathTo) )
-							props.$scope.state[ref.pathTo[0]] = walknSet(
-								{},
-								ref.pathTo.slice(1),
-								walknGet(props, ref.pathFrom)
-							)
-					}
-				);
+			}
 			return <BaseComponent {...props}
 			                      ref={props.forwardedRef}/>
 		}
