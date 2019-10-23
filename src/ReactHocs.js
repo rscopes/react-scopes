@@ -405,22 +405,36 @@ function propsToScope( ...argz ) {
 		};
 		static displayName      = classIcons.fromProps + compName;
 		
+		constructor( props ) {
+			super(...arguments);
+			if ( props.$scope ) {
+				props.$scope.wait("Comp init");
+			}
+			else {
+				console.error("RS.fromProps without $scope")
+			}
+		}
+		
 		shouldComponentUpdate( nextProps, nextState, nextContext ) {
 			return shallowCompare(nextProps, this.props);// todo: why the fuck it's required ?
 		}
 		
 		render() {
 			let props = this.props;
-			refList.forEach(
-				( ref ) => {
-					if ( walknGet(props, ref.pathFrom) !== walknGet(props.$scope.state, ref.pathTo) )
-						props.$scope.state[ref.pathTo[0]] = walknSet(
-							{},
-							ref.pathTo.slice(1),
-							walknGet(props, ref.pathFrom)
-						)
-				}
-			)
+			if ( !this._firstRender ) {
+				this._firstRender = true;
+				props.$scope.release("Comp init");
+			}else
+				refList.forEach(
+					( ref ) => {
+						if ( walknGet(props, ref.pathFrom) !== walknGet(props.$scope.state, ref.pathTo) )
+							props.$scope.state[ref.pathTo[0]] = walknSet(
+								{},
+								ref.pathTo.slice(1),
+								walknGet(props, ref.pathFrom)
+							)
+					}
+				);
 			return <BaseComponent {...props}
 			                      ref={props.forwardedRef}/>
 		}
