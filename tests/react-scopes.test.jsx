@@ -143,7 +143,7 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 			
 		});
 	});
-	describe("Async SSR (expensive iterate method)", () => {
+	describe("Async SSR (iterate method)", () => {
 		it('it SSR & restore 1 async level in 1 iteration', function ( done ) {
 			this.timeout(Infinity);
 			
@@ -338,7 +338,7 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 			})
 		});
 	});
-	describe("Async SSR (all in scope)", () => {
+	describe("Async SSR (solid scope method)", () => {
 		it('it SSR & restore renderable scopes', function ( done ) {
 			this.timeout(Infinity);
 			let App = new Scope(
