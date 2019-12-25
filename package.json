@@ -12,7 +12,9 @@
     "dev": "wpi-dev-server :samples --hot",
     "runBrowser": "start http://localhost:8080",
     "test": "mocha --require @babel/register ./tests/*.test.jsx -b",
-    "testAuto": "nodemon --watch ./dist/react-scopes.js --watch ./tests/*.test.jsx --exec \"npm test\""
+    "testDebug": "mocha --inspect-brk --require @babel/register ./tests/*.test.jsx -b",
+    "testAuto": "nodemon --watch ./dist/react-scopes.js --watch ./tests/*.test.jsx --exec \"npm test\"",
+    "testAutoDebug": "nodemon --watch ./dist/react-scopes.js --watch ./tests/*.test.jsx --exec \"npm run testDebug\""
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",

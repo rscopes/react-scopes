@@ -29,6 +29,8 @@ import React, {createContext} from "react";
 import {Scope, Store}         from "rescope";
 import spells                 from "rescope-spells";
 
+import {walknSet, walknGet, isReactRenderable, parseRef} from "./utils";
+
 const SimpleObjectProto = ({}).constructor;
 
 const { Provider, Consumer } = createContext(Store.staticScope);
@@ -37,52 +39,6 @@ const classIcons = {
 	toProps  : String.fromCharCode(0x26A1),
 	fromProps: '',//String.fromCharCode(0x270D),
 	rs       : String.fromCharCode(0xD83D, 0xDD17)
-}
-
-function walknSet( obj, path, value, stack ) {
-	if ( is.string(path) )
-		path = path.split('.');
-	if ( !path.length )
-		return value;
-	else if ( path.length == 1 ) {
-		obj[path[0]] = stack
-		               ? [...(obj[path[0]] || []), value]
-		               : value;
-		return obj;
-	}
-	else
-		return walknSet(
-			obj[path[0]] =
-				obj[path[0]] || {},
-			path.slice(1),
-			value, stack
-		) && obj || obj;
-}
-
-function walknGet( obj, path, isKey ) {
-	if ( is.string(path) )
-		path = path.split('.');
-	return path.length
-	       ? obj[path[0]] && walknGet(obj[path[0]], path.slice(1))
-	       : obj;
-}
-
-function parseRef( _ref ) {
-	let ref = _ref.split(':');
-	ref[0]  = ref[0].split('.');
-	ref[1]  = ref[1] && ref[1].split('.');
-	return {
-		pathFrom: ref[0],
-		pathTo  : ref[1] || [ref[0][ref[0].length - 1]]
-	};
-}
-
-function isReactRenderable( obj ) {
-	return obj.prototype instanceof React.Component || obj === React.Component || obj.$$typeof || is.fn(obj);
-}
-
-function shallowCompare( partialState, state ) {
-	return !!Object.keys(partialState).find(key => (partialState[key] !== state[key]));
 }
 
 
@@ -162,11 +118,11 @@ function scopeToProps( ...argz ) {
 function scopeToState( ...argz ) {
 	let BaseComponent = (!argz[0] || isReactRenderable(argz[0])) && argz.shift(),
 	    scope         = (!argz[0] || Scope.isScope(argz[0])) && argz.shift(),
-	    use           = (is.array(argz[0])) && argz.shift(),
+	    use           = (!argz[0] || is.array(argz[0])) && argz.shift(),
 	    stateMap      = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
 	    initialState  = {};
 	
-	if ( !use ) {
+	if ( !use && is.string(argz[0]) ) {
 		use = [];
 		while ( is.string(argz[0]) ) use.push(argz.shift());
 	}
@@ -210,7 +166,7 @@ function scopeToState( ...argz ) {
 				console.error("ReScoping using dead scope !")
 				this.$scope = null;
 			}
-			
+			debugger
 			this.$stores  = this.$scope && this.$scope.stores;
 			this.$actions = this.$scope && this.$scope.actions;
 			if ( this.$scope && use.length ) {
@@ -223,7 +179,6 @@ function scopeToState( ...argz ) {
 			else if ( !this.$scope )
 				console.warn(`No Scope found in ${compName}`);
 			
-			//this.$dispatch = this.$scope && this.$scope.$dispatch.bind(this);
 		}
 		
 		componentDidMount() {
