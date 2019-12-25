@@ -10,7 +10,9 @@
     "build": "wpi && wpi :samples",
     "staging": "wi :staging -w",
     "dev": "wpi-dev-server :samples --hot",
-    "runBrowser": "start http://localhost:8080"
+    "runBrowser": "start http://localhost:8080",
+    "test": "mocha --require @babel/register ./tests/*.test.jsx -b",
+    "testAuto": "nodemon --watch ./dist/react-scopes.js --watch ./tests/*.test.jsx --exec \"npm test\""
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
@@ -23,7 +25,19 @@
     "rescope-spells": "^16.0.4"
   },
   "devDependencies": {
-    "wi-layer-react-express": "^1.1.11",
-    "webpack-inherit": "^1.8.6"
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jsdom": "^15.1.1",
+    "local-web-server": "^3.0.7",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "webpack-inherit": "^1.8.2",
+    "wi-layer-react-express": "^1.1.8",
+    "zombie": "^6.1.4"
   }
 }
