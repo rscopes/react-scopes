@@ -144,7 +144,6 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 		});
 	});
 	describe("Async SSR (expensive iterate method)", () => {
-		let lastState;
 		it('it SSR & restore 1 async level in 1 iteration', function ( done ) {
 			this.timeout(Infinity);
 			
@@ -162,7 +161,7 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 										data.state = "stable";
 										data.value = "#asyncData1";
 										this.release();
-									}, 50
+									}, 550
 								);
 								data.state = "querying"
 								data.value = undefined;
@@ -243,6 +242,179 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 				expect(appHtml).to.contain("#asyncData2");
 				done();
 			})
+		});
+		it('it SSR & restore 1 async level in 1 iteration (toProps)', function ( done ) {
+			this.timeout(Infinity);
+			
+			@RS(
+				{
+					@RS.store
+					master: {
+						go: false,
+					},
+					@RS.store
+					test  : {
+						@asRef
+						activateQuery: "master.go",
+						$apply( data = {}, state, { activateQuery } ) {
+							if ( activateQuery ) {
+								this.wait();
+								setTimeout(
+									tm => {
+										data.state = "stable";
+										data.value = "#asyncData1";
+										this.release();
+									}, 550
+								);
+								data.state = "querying"
+								data.value = undefined;
+							}
+							return data;
+						}
+					},
+					@RS.store
+					test2 : {
+						@asRef
+						activateQuery: "master.go",
+						$apply( data = {}, state, { activateQuery } ) {
+							if ( activateQuery ) {
+								this.wait();
+								setTimeout(
+									tm => {
+										this.push({ state: "stable", value: "#asyncData2" });
+										this.release();
+									}, 500
+								);
+								return ({ state: "querying", value: undefined });
+							}
+							return data;
+						}
+					}
+				}
+			)
+			@RS.fromProps("active:master.go")
+			@RS.toProps("test", "test2")
+			class MyComp extends React.Component {
+				render() {
+					let { test, test2 } = this.props;
+					return <div className={'target'}>{test.value}-{test2.value}</div>
+				}
+			}
+			
+			class MyCompTest extends React.Component {
+				render() {
+					return <MyComp active={true}/>
+				}
+			}
+			
+			let rid     = shortid.generate(),
+			    cScope  = new Scope(
+				    {},
+				    {
+					    id         : rid,
+					    autoDestroy: false
+				    }
+			    ),
+			    App     = RS(cScope)(MyCompTest),
+			    appHtml = renderToString(<App/>),
+			    stable  = cScope.isStableTree();
+			
+			cScope.onceStableTree(state => {
+				let nstate = cScope.serialize({ alias: rid = shortid.generate() });
+				cScope.destroy();
+				cScope = new Scope(
+					{},
+					{
+						id         : rid,
+						autoDestroy: false
+					}
+				);
+				App    = RS(cScope)(MyCompTest);
+				cScope.restore(nstate, { alias: rid });
+				appHtml = renderToString(<App/>);
+				expect(appHtml).to.contain("#asyncData1");
+				expect(appHtml).to.contain("#asyncData2");
+				done();
+			})
+		});
+	});
+	describe("Async SSR (all in scope)", () => {
+		it('it SSR & restore renderable scopes', function ( done ) {
+			this.timeout(Infinity);
+			let App = new Scope(
+				{
+					@RS.scope
+					data: {
+						@RS.store
+						master: {
+							go: true,
+						},
+						@RS.store
+						test  : {
+							@asRef
+							activateQuery: "master.go",
+							$apply( data, state, { activateQuery } ) {
+								if ( activateQuery ) {
+									this.wait();
+									setTimeout(
+										tm => {
+											this.push({ state: "stable", value: "#asyncData1" });
+											this.release();
+										}, 550
+									);
+								}
+								return data;
+							}
+						},
+						@RS.store
+						test2 : {
+							@asRef
+							activateQuery: "master.go",
+							$apply( data, state, { activateQuery } ) {
+								if ( activateQuery ) {
+									this.wait();
+									setTimeout(
+										tm => {
+											this.push({ state: "stable", value: "#asyncData2" });
+											this.release();
+										}, 500
+									);
+								}
+								return data;
+							}
+						},
+					},
+					
+					@RS.store
+					myComp: {
+						@asRef
+						test : "!data.test",
+						@asRef
+						test2: "!data.test2",
+						$apply( data, { test, test2 } ) {
+							return <div className={'target'}>{test.value}-{test2.value}</div>
+						}
+					},
+					@RS.store
+					index : {
+						@asRef
+						myComp: "!myComp",
+						$apply( data, { myComp } ) {
+							return <div className={'root'}>{myComp}</div>
+						}
+					}
+				}
+			);
+			
+			App.mount("index")
+			   .once("stable",
+			         () => {
+				         let html = renderToString(App.data.index);
+				         expect(html).to.contain("#asyncData1");
+				         expect(html).to.contain("#asyncData2");
+				         done();
+			         }
+			   )
 		});
 	});
 })
