@@ -145,13 +145,33 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 	});
 	describe("Async SSR (expensive iterate method)", () => {
 		let lastState;
-		it('it SSR & restore with 1 async level', function ( done ) {
+		it('it SSR & restore 1 async level in 1 iteration', function ( done ) {
 			this.timeout(Infinity);
 			
 			@RS(
 				{
 					@RS.store
-					test: {
+					test : {
+						@asRef
+						activateQuery: "master.go",
+						$apply( data = {}, state, { activateQuery } ) {
+							if ( activateQuery ) {
+								this.wait();
+								setTimeout(
+									tm => {
+										data.state = "stable";
+										data.value = "#asyncData1";
+										this.release();
+									}, 50
+								);
+								data.state = "querying"
+								data.value = undefined;
+							}
+							return data;
+						}
+					},
+					@RS.store
+					test2: {
 						@asRef
 						activateQuery: "master.go",
 						$apply( data, state, { activateQuery } ) {
@@ -159,9 +179,9 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 								this.wait();
 								setTimeout(
 									tm => {
-										this.push({ state: "stable", value: "#asyncData" });
+										this.push({ state: "stable", value: "#asyncData2" });
 										this.release();
-									},500
+									}, 500
 								);
 								return ({ state: "querying", value: undefined });
 							}
@@ -170,11 +190,11 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 					}
 				}
 			)
-			@RS.toProps("test")
+			@RS.toProps("test", "test2")
 			class MyComp extends React.Component {
 				render() {
-					let { test, className } = this.props;
-					return <div className={'target'}>{test.state}-{test.value}</div>
+					let { test, test2 } = this.props;
+					return <div className={'target'}>{test.value}-{test2.value}</div>
 				}
 			}
 			
@@ -201,7 +221,6 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 			    appHtml = renderToString(<App/>),
 			    stable  = cScope.isStableTree();
 			
-			let html;
 			cScope.onceStableTree(state => {
 				let nstate = cScope.serialize({ alias: rid = shortid.generate() });
 				cScope.destroy();
@@ -220,8 +239,9 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 				App    = RS(cScope)(MyCompTest);
 				cScope.restore(nstate, { alias: rid });
 				appHtml = renderToString(<App/>);
-				expect(appHtml).to.contain("#asyncData");
-				done()
+				expect(appHtml).to.contain("#asyncData1");
+				expect(appHtml).to.contain("#asyncData2");
+				done();
 			})
 		});
 	});
