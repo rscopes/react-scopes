@@ -30,11 +30,13 @@ const shortid       = require('shortid');
 const path          = require('path'),
       packageCfg    = JSON.parse(require('fs').readFileSync(__dirname + '/../package.json'));
 
-import React                        from 'react';
-import RS, {Scope, Store, scopeRef} from '../dist/react-scopes.js';
-import {expect}                     from 'chai';
-import Enzyme, {shallow, mount}     from 'enzyme';
-import Adapter                      from 'enzyme-adapter-react-16';
+import ReactDom                            from 'react-dom';
+import {renderToString}                    from "react-dom/server";
+import React                               from 'react';
+import RS, {Scope, Store, scopeRef, asRef} from '../dist/react-scopes.js';
+import {expect}                            from 'chai';
+import Enzyme, {shallow, mount}            from 'enzyme';
+import Adapter                             from 'enzyme-adapter-react-16';
 import "./.setup"
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -141,4 +143,87 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 			
 		});
 	});
-});
+	describe("Async SSR (expensive iterate method)", () => {
+		let lastState;
+		it('it SSR & restore with 1 async level', function ( done ) {
+			this.timeout(Infinity);
+			
+			@RS(
+				{
+					@RS.store
+					test: {
+						@asRef
+						activateQuery: "master.go",
+						$apply( data, state, { activateQuery } ) {
+							if ( activateQuery ) {
+								this.wait();
+								setTimeout(
+									tm => {
+										this.push({ state: "stable", value: "#asyncData" });
+										this.release();
+									},500
+								);
+								return ({ state: "querying", value: undefined });
+							}
+							return data;
+						}
+					}
+				}
+			)
+			@RS.toProps("test")
+			class MyComp extends React.Component {
+				render() {
+					let { test, className } = this.props;
+					return <div className={'target'}>{test.state}-{test.value}</div>
+				}
+			}
+			
+			class MyCompTest extends React.Component {
+				render() {
+					return <MyComp/>
+				}
+			}
+			
+			let rid     = shortid.generate(),
+			    cScope  = new Scope(
+				    {
+					    @RS.store
+					    master: {
+						    go: true,
+					    }
+				    },
+				    {
+					    id         : rid,
+					    autoDestroy: false
+				    }
+			    ),
+			    App     = RS(cScope)(MyCompTest),
+			    appHtml = renderToString(<App/>),
+			    stable  = cScope.isStableTree();
+			
+			let html;
+			cScope.onceStableTree(state => {
+				let nstate = cScope.serialize({ alias: rid = shortid.generate() });
+				cScope.destroy();
+				cScope = new Scope(
+					{
+						@RS.store
+						master: {
+							go: true,
+						}
+					},
+					{
+						id         : rid,
+						autoDestroy: false
+					}
+				);
+				App    = RS(cScope)(MyCompTest);
+				cScope.restore(nstate, { alias: rid });
+				appHtml = renderToString(<App/>);
+				expect(appHtml).to.contain("#asyncData");
+				done()
+			})
+		});
+	});
+})
+;
