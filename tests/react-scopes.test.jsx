@@ -341,75 +341,78 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 	describe("Async SSR (solid scope method)", () => {
 		it('it SSR & restore renderable scopes', function ( done ) {
 			this.timeout(Infinity);
-			let App = new Scope(
-				{
-					@RS.scope
-					data: {
-						@RS.store
-						master: {
-							go: true,
-						},
-						@RS.store
-						test  : {
-							@asRef
-							activateQuery: "master.go",
-							$apply( data, state, { activateQuery } ) {
-								if ( activateQuery ) {
-									this.wait();
-									setTimeout(
-										tm => {
-											this.push({ state: "stable", value: "#asyncData1" });
-											this.release();
-										}, 550
-									);
-								}
-								return data;
-							}
-						},
-						@RS.store
-						test2 : {
-							@asRef
-							activateQuery: "master.go",
-							$apply( data, state, { activateQuery } ) {
-								if ( activateQuery ) {
-									this.wait();
-									setTimeout(
-										tm => {
-											this.push({ state: "stable", value: "#asyncData2" });
-											this.release();
-										}, 500
-									);
-								}
-								return data;
-							}
-						},
-					},
+			let App =
+				    {
+					    @RS.scope
+					    data: {
+						    @RS.store
+						    master: {
+							    go: true,
+						    },
+						    @RS.store
+						    test  : {
+							    @asRef
+							    activateQuery: "master.go",
+							    $apply( data, state, { activateQuery } ) {
+								    if ( activateQuery ) {
+									    this.wait();
+									    setTimeout(
+										    tm => {
+											    this.push({ state: "stable", value: "#asyncData1" });
+											    this.release();
+										    }, 550
+									    );
+								    }
+								    return data;
+							    }
+						    },
+						    @RS.store
+						    test2 : {
+							    @asRef
+							    activateQuery: "master.go",
+							    $apply( data, state, { activateQuery } ) {
+								    if ( activateQuery ) {
+									    this.wait();
+									    setTimeout(
+										    tm => {
+											    this.push({ state: "stable", value: "#asyncData2" });
+											    this.release();
+										    }, 500
+									    );
+								    }
+								    return data;
+							    }
+						    },
+					    },
 					
-					@RS.store
-					myComp: {
-						@asRef
-						test : "!data.test",
-						@asRef
-						test2: "!data.test2",
-						$apply( data, { test, test2 } ) {
-							return <div className={'target'}>{test.value}-{test2.value}</div>
-						}
-					},
-					@RS.store
-					index : {
-						@asRef
-						myComp: "!myComp",
-						$apply( data, { myComp } ) {
-							return <div className={'root'}>{myComp}</div>
-						}
-					}
-				}
-			);
+					    @RS.store
+					    myComp: {
+						    @asRef
+						    test : "!data.test",
+						    @asRef
+						    test2: "!data.test2",
+						    $apply( data, { test, test2 } ) {
+							    return <div className={'target'}>{test.value}-{test2.value}</div>
+						    }
+					    },
+					    @RS.store
+					    index : {
+						    @asRef
+						    myComp: "!myComp",
+						    $apply( data, { myComp } ) {
+							    return <div className={'root'}>{myComp}</div>
+						    }
+					    }
+				    },
+			    app = new Scope(App)
+			;
 			
-			App.mount("index")
+			app.mount("index")
 			   .once("stable",
 			         () => {
-				         let html = renderToString(App.data.index);
+				         let html  = renderToString(app.data.index),
+				             state = app.serialize();
+				         app.destroy();
 				         expect(html).to.contain("#asyncData1");
 				         expect(html).to.contain("#asyncData2");
 				         done();
