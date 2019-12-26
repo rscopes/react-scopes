@@ -42,11 +42,11 @@ But they were made for flexibility so they have 3 "scalability dimensions" :
 
 ```jsx harmony
 import React       from "react";
-import RS, {asRef} from "react-scopes";
+import RS, {asRef, Scope} from "react-scopes";
 
 const appScope = new Scope({
 
-        // Here a simple store definition ( only instancied if used )
+        // Here a simple store definition ( only instantiated if used )
         @RS.store
         config: {
         	// simple props define the initial state
@@ -61,7 +61,7 @@ const appScope = new Scope({
             // This resulting data object is the "public" value of this store
             // It *should* be predictable basing the state object for good async SSR  
             $apply(data={}, state, changesInState){
-            	Object.assign(data, changesInState);
+            	data.apiUrl = state.apiUrl+"/api";
             	return data;
             }
         },
@@ -94,7 +94,7 @@ class App extends React.Component {
             @asRef
             activateQuery: "master.go",
             
-            // the $apply fn allow resolving the data object in an async way
+            // the $apply fn can update the data object using both sync and async methods
             $apply( data = {}, state, { activateQuery } ) {
                 if ( activateQuery ) {
                 	// All stores can call this.wait() & this.release()
@@ -121,7 +121,8 @@ class App extends React.Component {
             config: "config",
             @asRef
             activateQuery: "master.go",
-            // Also the data object can be updated dynamically
+            
+            // Another async method consist on updating the data object dynamically
             $apply( data = {}, state, { activateQuery } ) {
                 if ( activateQuery ) {
                     this.wait(); 
@@ -142,7 +143,7 @@ class App extends React.Component {
 )
 // bind this.props.active values to master.go
 @RS.fromProps("active:master.go")
-// bind test & test2 to the props
+// bind test & test2 to the props ( & mount any required store ) 
 @RS.connect("test", "test2")
 class MyComp extends React.Component {
     render() {
