@@ -38,103 +38,119 @@ But they were made for flexibility so they have 3 "scalability dimensions" :
 
 ## Samples [here](https://github.com/rscopes/react-scopes-samples)
 
-## Conceptual sample :
+## Simplified & limited sample :
 
 ```jsx harmony
-import React                                      from "react";
-import RS,{asRef, asScope, asStore, withStateMap} from "react-scopes";
-import {MyComplexStore}                           from "./from/somewhere";
+import React       from "react";
+import RS, {asRef} from "react-scopes";
 
-// RS will instantiate a scope with each instance of this React Component
-// it will inherit the scope & actions from the parents React Elements
-@RS(
-	{
-		@asStore
-		CoffeeMachine: {
-			// all values here except functions are used as initial store value  
-			coffee: 100,
-			sugar : 100,
-			
-			// functions are registered as actions,
-			// Actions return state mutation & can be call with props.$actions.*
-			makeCoffee: () => ( state ) => ({
-				coffee: state.coffee - 1,
-				sugar : state.sugar - 1,
-			})
-		},
-		
-		// withStateMap hoc any Store to add values & refs to theirs state
-		// this allow Store to be easily reused
-		@withStateMap({
-                            // refs can targets any store value in the scope
-                            // when starting with "!" the store will not apply until the targeted value is !== undefined
-                            @asRef
-                            energy: "CoffeeMachine.coffee",
-                            
-			                goFetchTaskIn: "developement"
-		              })
-		ThingsTodo: MyComplexStore,
-		
-		// Scope can contain sub scopes
-		@asScope
-		BrainScope: {
-			@asStore
-			workMachine: {
-				cafeine : 0,
-				workerId: undefined,
-				
-				// refs can targets any store value in the scope
-				// when starting with "!" the store will not apply until the targeted value is !== undefined
-				@asRef
-				subject: "!ThingsTodo.stuff",
-				work() {
-					
-					return ( state ) => ({ cafeine: state.cafeine + 1 });
-				},
-				// the $apply fn update data basing the new state
-				$apply( data, { cafeine }, changesInState ) {
-					
-					// recursions work: $apply must return same data to stop 
-					this.$actions.$parent.makeCoffee()
-					
-					return {
-						canWork: cafeine >= 2
-					}
-				}
-			},
-		},
-		
-		@asStore
-		Manager: {
-			// Connecting Manager will auto instantiate any referenced store 
-			@asRef
-			allOK          : "BrainScope.workMachine.canWork",
-			@asRef
-			stillHaveCoffee: "CoffeeMachine.coffee",
-			$apply( data, { allOK, stillHaveCoffee } ) {
-				if (!allOK && !stillHaveCoffee)
-					{
-						this.wait()// stop propagating 
-						doBuyCoffee().then(
-							data => this.release()// now it should have coffee
-						)
-					}
-				return {
-					allOK
-				}
-			}
-		},
-		
-	}
-)
-// this will connect any changes of props.workerId to BrainScope.workMachine.workerId
-@RS.fromProps("workerId:BrainScope.workMachine.workerId")
-// this will bind the result data of Manager to props.Manager
-// * Store are recursively instantiated when referenced & are destroyed when listeners are removed
-@RS.connect("Manager")
-class TestProps extends React.Component {
-	//...
+const appScope = new Scope({
+
+        // Here a simple store definition ( only instancied if used )
+        @RS.store
+        config: {
+        	// simple props define the initial state
+            apiUrl: "https://somewhere.com",
+            
+            // functions defines actions
+            // ( action return mutations / updates for the store state )
+            changeApiUrl:({apiUrl})=>({apiUrl}),
+            
+            // when the state of this store change 
+            // the $apply function update or replace the store result data
+            // This resulting data object is the "public" value of this store
+            // It *should* be predictable basing the state object for good async SSR  
+            $apply(data={}, state, changesInState){
+            	Object.assign(data, changesInState);
+            	return data;
+            }
+        },
+    });
+
+// Any App instance will use the same "appScope" Scope instance 
+@RS(appScope)
+class App extends React.Component {
+    render() {
+    	// MyComp will inherit appScope
+        return <MyComp active={true}/>
+    }
 }
+
+// Here; RS will instantiate the following scope definition 
+// with any instance of the "MyComp" React Component 
+@RS(
+    {
+        @RS.store
+        master: {
+            go: false,
+        },
+        @RS.store
+        test  : {
+        	// @asRef allow defining "references" to any reachable store in the scope
+        	// Here "config" exist in the parent scope ("appScope") 
+            @asRef
+            config: "config",
+            
+            @asRef
+            activateQuery: "master.go",
+            
+            // the $apply fn allow resolving the data object in an async way
+            $apply( data = {}, state, { activateQuery } ) {
+                if ( activateQuery ) {
+                	// All stores can call this.wait() & this.release()
+                	// Quickly said, this.wait(optionalTokenForDebug) 
+                	// will make this store & parent scope "unstable"
+                	// so the store will not push result data to the listening stores
+                	// when this.release(optionalTokenForDebug) is called the result data of the store is propagated
+                    this.wait();
+                    setTimeout(
+                        tm => {
+                            this.push({ state: "stable", value: "#asyncData2" });
+                            this.release();
+                        }, 500
+                    );
+                    return ({ state: "querying", value: undefined });
+                   
+                }
+                return data;
+            }
+        },
+        @RS.store
+        test2 : {
+            @asRef
+            config: "config",
+            @asRef
+            activateQuery: "master.go",
+            // Also the data object can be updated dynamically
+            $apply( data = {}, state, { activateQuery } ) {
+                if ( activateQuery ) {
+                    this.wait(); 
+                    setTimeout(
+                        tm => {
+                            data.state = "stable";
+                            data.value = "#asyncData1";
+                            this.release();
+                        }, 550
+                    );
+                    data.state = "querying";
+                    data.value = undefined;
+                }
+                return data;
+            }
+        }
+    }
+)
+// bind this.props.active values to master.go
+@RS.fromProps("active:master.go")
+// bind test & test2 to the props
+@RS.connect("test", "test2")
+class MyComp extends React.Component {
+    render() {
+        let { test, test2 } = this.props;
+        return <div className={'target'}>{test.value}-{test2.value}</div>
+    }
+}
+
 
 ```
 
