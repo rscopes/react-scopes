@@ -166,7 +166,6 @@ function scopeToState( ...argz ) {
 				console.error("ReScoping using dead scope !")
 				this.$scope = null;
 			}
-			debugger
 			this.$stores  = this.$scope && this.$scope.stores;
 			this.$actions = this.$scope && this.$scope.actions;
 			if ( this.$scope && use.length ) {
