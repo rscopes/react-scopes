@@ -338,6 +338,93 @@ describe(packageCfg.name + "@" + packageCfg.version + " : ", () => {
 			})
 		});
 	});
+	describe("Async SSR (iterate & keep scope method)", () => {
+		it('it SSR & restore 1 async level in 1 iteration', function ( done ) {
+			this.timeout(Infinity);
+			
+			@RS(
+				{
+					@RS.store
+					test : {
+						@asRef
+						activateQuery: "master.go",
+						$apply( data = {}, state, { activateQuery } ) {
+							if ( activateQuery ) {
+								this.wait();
+								setTimeout(
+									tm => {
+										data.state = "stable";
+										data.value = "#asyncData1";
+										this.release();
+									}, 550
+								);
+								data.state = "querying"
+								data.value = undefined;
+							}
+							return data;
+						}
+					},
+					@RS.store
+					test2: {
+						@asRef
+						activateQuery: "master.go",
+						$apply( data, state, { activateQuery } ) {
+							if ( activateQuery ) {
+								this.wait();
+								setTimeout(
+									tm => {
+										this.push({ state: "stable", value: "#asyncData2" });
+										this.release();
+									}, 500
+								);
+								return ({ state: "querying", value: undefined });
+							}
+							return data;
+						}
+					}
+				}
+			)
+			@RS.toProps("test", "test2")
+			class MyComp extends React.Component {
+				render() {
+					let { test, test2 } = this.props;
+					return <div className={'target'}>{test.value}-{test2.value}</div>
+				}
+			}
+			
+			class MyCompTest extends React.Component {
+				render() {
+					return <><MyComp/><MyComp/></>
+				}
+			}
+			
+			let rid     = shortid.generate(),
+			    cScope  = new Scope(
+				    {
+					    @RS.store
+					    master: {
+						    go: true,
+					    }
+				    },
+				    {
+					    id         : rid,
+					    autoDestroy: false
+				    }
+			    ),
+			    App     = RS(cScope)(MyCompTest),
+			    appHtml = renderToString(<App/>),
+			    stable  = cScope.isStableTree();
+			
+			cScope.onceStableTree(state => {
+				cScope.resetKeys();
+				App     = RS(cScope)(MyCompTest);
+				appHtml = renderToString(<App/>);
+				expect(appHtml).to.contain("#asyncData1");
+				expect(appHtml).to.contain("#asyncData2");
+				done();
+			})
+		});
+	});
 	describe("Async SSR (solid scope method)", () => {
 		it('it SSR & restore renderable scopes', function ( done ) {
 			this.timeout(Infinity);

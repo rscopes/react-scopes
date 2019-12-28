@@ -24,11 +24,10 @@
  *   @contact : n8tz.js@gmail.com
  */
 
-import is                     from 'is'
-import React, {createContext} from "react";
-import {Scope, Store}         from "rescope";
-import spells                 from "rescope-spells";
-
+import is                                                from 'is'
+import React, {createContext}                            from "react";
+import {Scope, Store}                                    from "rescope";
+import spells                                            from "rescope-spells";
 import {walknSet, walknGet, isReactRenderable, parseRef} from "./utils";
 
 const SimpleObjectProto = ({}).constructor;
@@ -41,6 +40,15 @@ const classIcons = {
 	rs       : String.fromCharCode(0xD83D, 0xDD17)
 }
 
+function shallowDiffers( a, b ) {
+	for ( var i in a ) {
+		if ( !(i in b) ) return true;
+	}
+	for ( var _i in b ) {
+		if ( a[_i] !== b[_i] ) return true;
+	}
+	return false;
+}
 
 /**
  * Return a React "HOC" (High Order Component) that :
@@ -370,7 +378,7 @@ function propsToScope( ...argz ) {
 		}
 		
 		shouldComponentUpdate( nextProps, nextState, nextContext ) {
-			return shallowCompare(nextProps, this.props);// todo: why the fuck it's required ?
+			return shallowDiffers(nextProps, this.props);// todo: why the fuck it's required ?
 		}
 		
 		render() {

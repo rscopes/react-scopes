@@ -158,7 +158,7 @@ class MyComp extends React.Component {
 ## Notes
 
 RS seems semantically & functionally stable. <br/>
-Also it's should be free of memory leaks.<br/>
+It's free of memory leaks & have correct perfs.<br/>
 <br/>
 That's said RS was not written trying to be the faster/cleaner system one shot, but to :
 - Have better scalability ( by making complex components independent )
