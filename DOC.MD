@@ -395,3 +395,5 @@ class MyComp extends React.Component {
 
 export default MyComp;
 ```
+
+[![*](https://www.google-analytics.com/collect?v=1&tid=UA-82058889-1&cid=555&t=event&ec=project&ea=view&dp=%2Fproject%2Freact-scopes&dt=doc)](#)

@@ -12,7 +12,7 @@ module.exports = {
 			}
 		},
 		"extend"    : [
-			"wi-layer-react-express"
+			"lpack-react"
 		]
 	},
 	"staging": {
@@ -25,7 +25,7 @@ module.exports = {
 			"webpackPatch": {}
 		},
 		"extend"    : [
-			"wi-layer-react-express"
+			"lpack-react"
 		]
 	},
 	"samples": {
@@ -38,7 +38,7 @@ module.exports = {
 			"webpackPatch": {}
 		},
 		"extend"    : [
-			"wi-layer-react-express"
+			"lpack-react"
 		]
 	}
 }

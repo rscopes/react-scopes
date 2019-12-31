@@ -1,15 +1,15 @@
 {
   "name": "react-scopes",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Intuitive, modulable & flexible state management system powered by reactive data components, multi-stores, scopes logic & flux architecture",
   "repository": "https://github.com/rscopes/react-scopes.git",
   "license": "MIT",
   "main": "dist/react-scopes.js",
   "author": "Nathan Braun <n8tz.js@gmail.com>",
   "scripts": {
-    "build": "wpi && wpi :samples",
-    "staging": "wi :staging -w",
-    "dev": "wpi-dev-server :samples --hot",
+    "build": "lpack && lpack :samples",
+    "staging": "lpack :staging -w",
+    "dev": "lpack-dev-server :samples --hot",
     "runBrowser": "start http://localhost:8080",
     "test": "mocha --require @babel/register ./tests/*.test.jsx -b",
     "testDebug": "mocha --inspect-brk --require @babel/register ./tests/*.test.jsx -b",
@@ -39,8 +39,8 @@
     "local-web-server": "^3.0.7",
     "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
-    "webpack-inherit": "^1.8.92",
-    "wi-layer-react-express": "^1.1.23",
+    "layer-pack": "^1.0.0",
+    "lpack-react": "^1.0.0",
     "zombie": "^6.1.4"
   }
 }
