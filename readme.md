@@ -168,7 +168,7 @@ That's said RS was not written trying to be the faster/cleaner system one shot, 
 - Easily serialize & restore full or partial app state
 - etc
 
-RS should be rewritten completely using a more functional approach ( but as react hook+context are close to make the job & RS is made probono it will not )
+Using React Hooks & Contexts is now better in most cases imo.
 
 ### About decorators
 
