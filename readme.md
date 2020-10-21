@@ -168,7 +168,8 @@ That's said RS was not written trying to be the faster/cleaner system one shot, 
 - Easily serialize & restore full or partial app state
 - etc
 
-RS use a similar states data processing structure than React Hooks & Contexts; Well used hooks/memo are now better for most cases imo. 
+RS use a similar states data processing structure than React Hooks & Contexts;<br/>
+Main difference is RS manage useMemo/useState results updates atomically where hooks juste re-execute the memoizers graph all the time. 
 
 ### About decorators
 
