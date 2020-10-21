@@ -34,6 +34,14 @@ But they were made for flexibility so they have 3 "scalability dimensions" :
 - They can have parent scope ( in the js prototypes way )
 - And they can have "mixed" scopes
 
+## Note 
+
+RS use a similar states data processing structure than React Hooks & Contexts;<br/>
+Main difference is RS manage memo/state triggering & results propagation where Hooks juste re-execute the memoizers graph every renders. 
+
+Actually there only decorators style injecters
+
+
 ## Minimal doc [here](DOC.MD)
 
 ## Samples [here](https://github.com/rscopes/react-scopes-samples)
@@ -169,7 +177,7 @@ That's said RS was not written trying to be the faster/cleaner system one shot, 
 - etc
 
 RS use a similar states data processing structure than React Hooks & Contexts;<br/>
-Main difference is RS manage useMemo/useState results updates atomically where hooks juste re-execute the memoizers graph all the time. 
+Main difference is RS manage memo/state triggering & results propagation where Hooks juste re-execute the memoizers graph every renders. 
 
 ### About decorators
 
