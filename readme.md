@@ -37,7 +37,7 @@ But they were made for flexibility so they have 3 "scalability dimensions" :
 ## Note 
 
 RS use a similar states data processing structure than React Hooks & Contexts;<br/>
-Main difference is RS manage memo/state triggering & results propagation where Hooks juste re-execute the memoizers graph every renders. 
+Main difference is RS atomically manage memo/state triggering & results propagation where Hooks just re-execute the memoizers graph every renders. 
 
 Actually there only decorators style injecters
 
